@@ -1,0 +1,23 @@
+# Local / secret config (never commit)
+config.local.toml
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS & editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Optional local server cache
+.cache/

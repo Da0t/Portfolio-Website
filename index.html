@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dat Nguyen – Data Science Portfolio</title>
+  <link rel="stylesheet" href="css/style.css?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">DN</a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#certifications" class="nav-link">Certifications</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-greeting reveal">Hi, my name is</p>
+      <h1 class="hero-name reveal">Dat Nguyen<span class="accent">.</span></h1>
+      <h2 class="hero-subtitle">
+        <span id="typingText"></span><span class="typing-cursor">|</span>
+      </h2>
+      <p class="hero-description reveal">
+        Data Science & Economics student at UC San Diego with an interest in
+        data analytics, machine learning, and applied economic analysis. I work
+        with real-world datasets to uncover patterns, build predictive models,
+        and communicate insights through data.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="mouse-wheel"></div>
+      </div>
+      <p>Scroll down</p>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section section-alt" id="experience">
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="section-number">01.</span> Experience & Education
+      </h2>
+      <div class="timeline">
+        <svg class="timeline-curve" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.05"/>
+            </linearGradient>
+            <filter id="curveGlow">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path d="M 84,0 C 84,16 116,16 116,32 C 116,48 84,48 84,64 C 84,80 116,80 116,100" stroke="url(#curveGrad)" stroke-width="2" fill="none" vector-effect="non-scaling-stroke" filter="url(#curveGlow)"/>
+        </svg>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Jan 2026 – Present</span>
+            <h3>IEEE – UC San Diego</h3>
+            <p class="timeline-role">Quarterly Project Member</p>
+            <p>Competed in IEEE's Quarterly Projects program. Won second place in the quarterly project competition.</p>
+            <div class="expand-details">
+              <p>IEEE is the international professional society for engineering and technology. The UC San Diego student branch runs <strong>Quarterly Projects</strong>: you join a team, build a hardware or software prototype in one quarter, and demo it to IEEE mentors and faculty. I was a project member; our team took second place in the competition.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Jun 2025 – Present</span>
+            <h3>DS3 – UC San Diego</h3>
+            <p class="timeline-role">Member</p>
+            <p>Active member of the Data Science Student Society (DS3), engaging with the data science community through projects, workshops, and events.</p>
+            <div class="expand-details">
+              <p><strong>DS3</strong> (Data Science Student Society) is UC San Diego’s undergraduate data–science club. It’s where students run hands-on projects, attend skills workshops (Python, SQL, tools), and meet peers and recruiters through panels and hackathons—basically the on-campus hub for learning and doing data science outside class.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Apr 2025 – Mar 2026</span>
+            <h3>CALPIRG Students – UC San Diego</h3>
+            <p class="timeline-role">Volunteer</p>
+            <p>Worked with a student-led nonprofit focused on environmental protection, sustainability, and public interest issues. Contributed through data entry, outreach, and campaign organization.</p>
+            <div class="expand-details">
+              <p><strong>CALPIRG Students</strong> is the UC San Diego chapter of CALPIRG, a statewide student nonprofit that works on environmental protection, sustainability, and other public-interest causes. Volunteers help run campaigns—tabling, petitions, events, and tracking outreach—so ideas turn into real campus and community action.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Sept 2024 – Jun 2028</span>
+            <h3>University of California, San Diego</h3>
+            <p class="timeline-role">B.S. Data Science & B.A. Economics</p>
+            <p>Relevant coursework in Data Structures & Algorithms, Principles of
+            Data Science, Linear Algebra, Programming for Data Science, and Economics.</p>
+            <div class="expand-details">
+              <p><strong>UC San Diego</strong> is where I’m completing a <strong>B.S. in Data Science</strong> and a <strong>B.A. in Economics</strong>—so my coursework mixes programming, statistics, and econ theory, with projects that use data to answer real questions.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Timeline endpoint ornament -->
+        <div class="timeline-endpoint reveal" aria-hidden="true">
+          <div class="endpoint-ripple"></div>
+          <div class="endpoint-ripple endpoint-ripple-2"></div>
+          <div class="endpoint-ring"></div>
+          <div class="endpoint-core"></div>
+          <div class="endpoint-orbit">
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot orbit-dot-2"></div>
+            <div class="orbit-dot orbit-dot-3"></div>
+          </div>
+          <div class="endpoint-rays">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="section-number">02.</span> Projects
+      </h2>
+      <p class="past-projects-mobile-link reveal">
+        <button type="button" class="past-projects-open-mobile" id="pastProjectsOpenMobile" aria-haspopup="dialog" aria-controls="pastProjectsModal">Past projects</button>
+      </p>
+      <div class="projects-grid">
+
+        <button class="grid-center-btn" type="button" id="pastProjectsOpen" aria-label="View past projects" aria-haspopup="dialog" aria-controls="pastProjectsModal">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="0" y1="30" x2="18" y2="30" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="42" y1="30" x2="60" y2="30" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="30" y1="0" x2="30" y2="18" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <line x1="30" y1="42" x2="30" y2="60" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <rect x="22" y="22" width="16" height="16" rx="2" transform="rotate(45 30 30)" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+            <circle cx="30" cy="30" r="4" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+            <circle cx="30" cy="30" r="1.5" fill="currentColor" opacity="0.4"/>
+          </svg>
+        </button>
+
+        <article class="project-card reveal">
+          <div class="project-img">
+            <img src="images/housing.jpg" alt="Housing Affordability Trends">
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="project-header-right">
+                <span class="project-date">Jan 2026 – Present</span>
+                <a href="https://github.com/Da0t/SJ-housing-analysis" class="project-github" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Modeling Housing Affordability Trends in San Jose</h3>
+            <p class="project-description">
+              Analyzed housing affordability trends in the San Jose MSA using 130+ monthly
+              observations of home prices, rents, and household income. Built unified
+              time-series datasets from Zillow and U.S. Census data, applying ARIMA and
+              SARIMA models for trend evaluation.
+            </p>
+            <div class="project-tech">
+              <span>Python</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span>
+            </div>
+            <div class="expand-details">
+              <p>Analyzes long-run affordability in the San Jose MSA by comparing Zillow’s metro-level home values (ZHVI) and rents (ZORI) against U.S. Census median household income (Santa Clara County). Builds a unified time-series (~130 monthly points; income annual) via reshaping wide Zillow tables into long format, interpolating missing values where appropriate, and merging into a single dataset. Key metrics include the home price-to-income ratio and rent burden (annual rent / income). Exploratory work covers trend visualization, growth-rate comparisons, and correlation analysis; forecasting/regression modeling is in progress with chronological train/test splits to assess future affordability risk.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-img">
+            <img src="images/dashboard.png" alt="Smart Energy Dashboard">
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div class="project-header-right">
+                <span class="project-date">Jan – Mar 2026</span>
+                <a href="https://github.com/Da0t/Weather-Adaptive-IoT-Energy-Monitor" class="project-github" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Smart Temperature-Controlled Energy Dashboard</h3>
+            <p class="project-description">
+              Built an IoT monitoring system streaming real-time temperature and power
+              data from ESP32 microcontrollers to Supabase. Developed an interactive
+              Streamlit dashboard visualizing power usage, cumulative energy, and
+              projected device impact with cost-saving analysis.
+            </p>
+            <div class="project-tech">
+              <span>ESP32</span><span>Arduino</span><span>Python</span><span>Supabase</span><span>Streamlit</span>
+            </div>
+            <div class="expand-details">
+              <p>Built an end-to-end, real-time embedded + cloud energy monitoring system using an ESP32, Supabase, and a Streamlit analytics dashboard. The ESP32 reads ambient temperature (°C) and fan power draw (W), fetches weather-informed thresholds, and computes an adaptive operating mode (LOW / MED / HIGH) based on Open‑Meteo conditions (MED = current outdoor temp; HIGH = daily peak − 1°F with minimum separation enforced). Telemetry is streamed to Supabase (PostgreSQL) and visualized in a live dark-mode dashboard that polls data in real time, integrates time-weighted energy usage (kWh), compares against a constant-watt baseline, and estimates cost impact and savings. The UI also summarizes mode distribution and the active weather thresholds; future work includes direct fan actuation (PWM/relay), hysteresis stabilization, and longer-horizon aggregations.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-img">
+            <img src="images/food-delivery.jpeg" alt="Food Delivery Platform Performance Analysis">
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="project-header-right">
+                <span class="project-date">Jan – Mar 2026</span>
+                <a href="https://github.com/Da0t/Statistical-Analysis-of-Food-Delivery-Platform-Performance" class="project-github" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Food Delivery Platform Performance Analysis</h3>
+            <p class="project-description">
+              Analyzed 21,000+ transactions across Grubhub, DoorDash, and FoodHub to
+              investigate customer satisfaction drivers. Applied t-tests, Mann-Whitney U
+              tests, and Spearman correlations to compare platform performance on
+              delivery time, prep time, cost, and ratings.
+            </p>
+            <div class="project-tech">
+              <span>Python</span><span>pandas</span><span>statsmodels</span><span>SciPy</span><span>Seaborn</span>
+            </div>
+            <div class="expand-details">
+              <p>Conducted a comparative performance study across three delivery platforms (Grubhub, DoorDash, and FoodHub) using 21,000+ transactions. Built a clean, analysis-ready dataset by normalizing schema across sources, standardizing categorical fields, and addressing missing/outlier values. Explored distributions and platform differences with EDA (histograms/box plots, platform-level summary tables, and relationship plots), then used statistical inference to test hypotheses about customer satisfaction drivers. Applied two-sample t-tests and nonparametric Mann–Whitney U tests for group comparisons, plus Spearman correlations to quantify rank-based associations between operational metrics (delivery time, prep time, cost) and ratings. Wrapped results into a concise set of data-backed recommendations for improving service reliability and protecting customer satisfaction.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="project-card reveal project-card--wip">
+          <div class="project-img project-img--wip" aria-hidden="true">
+            <span class="project-wip-badge">WIP</span>
+          </div>
+          <div class="project-body">
+            <div class="project-header">
+              <div class="project-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+              <div class="project-header-right">
+                <span class="project-date">In progress</span>
+                <a href="https://github.com/Da0t/Swarm-Internship-Applier" class="project-github" target="_blank" rel="noopener" aria-label="View Swarm on GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Swarm · Internship Applier</h3>
+            <p class="project-description">
+              Automation tooling for internship applications—work in progress. Repository will fill in as the project develops.
+            </p>
+            <div class="project-tech">
+              <span>WIP</span><span>GitHub</span>
+            </div>
+            <div class="expand-details">
+              <p><strong>Swarm</strong> is a project I’m building to streamline applying to internships—think scripts or workflows that cut repetitive form-filling and keep materials organized. The repo is early-stage; code and features will show up on <a href="https://github.com/Da0t/Swarm-Internship-Applier" target="_blank" rel="noopener">GitHub</a> as I implement them.</p>
+            </div>
+            <button class="expand-toggle" aria-label="Show more details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="past-projects-modal" id="pastProjectsModal" role="dialog" aria-modal="true" aria-labelledby="pastProjectsTitle" aria-hidden="true">
+        <div class="past-projects-backdrop" data-close="past"></div>
+        <div class="past-projects-panel">
+          <button type="button" class="past-projects-close" id="pastProjectsClose" aria-label="Close">&times;</button>
+          <h3 id="pastProjectsTitle" class="past-projects-title">Past projects</h3>
+          <p class="past-projects-note">When you swap a project out of the grid, add it here with its GitHub link.</p>
+          <ul class="past-project-list">
+            <li class="past-project-item">
+              <a href="https://github.com/Da0t/Friends-Data-Driven-Analysis-for-Enhanced-Engagement" class="past-project-link" target="_blank" rel="noopener" aria-label="FRIENDS analysis on GitHub">
+                <span class="past-project-name">FRIENDS: Data-Driven Engagement</span>
+                <span class="past-project-meta">Jan – Mar 2025 · Python, Jupyter</span>
+                <svg class="past-project-gh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+              <p class="past-project-desc">A stats project on the TV show <em>FRIENDS</em>: episode data, ratings, and engagement—exploratory plots, tests, and simple models to see what tracks with audience response.</p>
+            </li>
+            <li class="past-project-item">
+              <a href="https://github.com/Da0t/TSwift-Song-Recommender" class="past-project-link" target="_blank" rel="noopener" aria-label="Taylor Swift song recommender on GitHub">
+                <span class="past-project-name">TSwift Song Recommender</span>
+                <span class="past-project-meta">Python · Jupyter · TF‑IDF</span>
+                <svg class="past-project-gh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+              <p class="past-project-desc">A recommender built from Taylor Swift’s catalog: audio features plus lyric text, with EDA and a TF‑IDF search so you can search lyrics and get song suggestions in a notebook.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="section-number">03.</span> Technical Skills
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <div class="skill-category-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">LaTeX</span>
+            <span class="skill-tag">MATLAB</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-category-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Libraries & Frameworks</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">Seaborn</span>
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">statsmodels</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">SciPy</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-category-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3>Data & Statistical Methods</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Hypothesis Testing</span>
+            <span class="skill-tag">Bootstrapping</span>
+            <span class="skill-tag">Bayesian Modeling</span>
+            <span class="skill-tag">ARIMA / SARIMA</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">KNN</span>
+            <span class="skill-tag">SVM</span>
+            <span class="skill-tag">ANOVA</span>
+            <span class="skill-tag">Data Visualization</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <div class="skill-category-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Tools & Platforms</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">IntelliJ</span>
+            <span class="skill-tag">Arduino IDE</span>
+            <span class="skill-tag">Supabase</span>
+            <span class="skill-tag">Anaconda</span>
+            <span class="skill-tag">Excel</span>
+            <span class="skill-tag">Overleaf</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section section-alt certifications-section" id="certifications">
+    <div class="container">
+      <h2 class="section-title reveal">
+        <span class="section-number">04.</span> Certifications
+      </h2>
+      <div class="cert-row">
+        <div class="cert-list reveal">
+          <div class="cert-item">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <h3>Intermediate SQL</h3>
+              <p class="cert-issuer">DataCamp · Issued Mar 2026</p>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <h3>Foundations of Digital Marketing and E-commerce</h3>
+              <p class="cert-issuer">Coursera (Google) · Issued Jun 2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="ms-game reveal" id="msGame">
+          <div class="ms-head">
+            <span class="ms-title">Minesweeper</span>
+            <button class="ms-reset" id="msReset" type="button">Reset</button>
+          </div>
+          <div class="ms-info">
+            <span>💣 <strong id="msFlags">6</strong></span>
+            <span>⏱ <strong id="msTime">0</strong>s</span>
+          </div>
+          <div class="ms-board" id="msBoard"></div>
+          <p class="ms-status" id="msStatus">Click any cell to start!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact-section" id="contact">
+    <div class="container contact-container">
+      <h2 class="section-title reveal">
+        <span class="section-number">05.</span> Get In Touch
+      </h2>
+      <p class="contact-text reveal">
+        I'm always open to new opportunities, collaborations, and conversations
+        about data science. Whether you have a question or just want to say hi,
+        feel free to reach out!
+      </p>
+      <div class="contact-links reveal">
+        <a href="mailto:datq.nguyen06@gmail.com" class="btn btn-primary contact-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Say Hello
+        </a>
+        <a href="https://www.linkedin.com/in/dat-nguyen-b1b554297/" class="btn btn-outline contact-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/" class="btn btn-outline contact-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Designed & Built by Dat Nguyen</p>
+    <p class="footer-sub">© 2026</p>
+  </footer>
+
+  <script src="js/script.js?v=2"></script>
+</body>
+</html>

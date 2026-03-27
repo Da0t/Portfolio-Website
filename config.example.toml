@@ -1,0 +1,31 @@
+# =============================================================================
+# Portfolio — example configuration (safe to commit)
+#
+# Copy this file to: config.local.toml
+#   cp config.example.toml config.local.toml
+#
+# config.local.toml is gitignored — put any private values only there.
+#
+# For Vercel: do NOT put secrets in the repo. Use:
+#   Project → Settings → Environment Variables
+#
+# This static site has no server-side secrets today. These fields are for
+# future use (analytics, forms, API keys) if you add them later.
+# =============================================================================
+
+[meta]
+# Optional display name override (not used by HTML yet)
+# site_title = "Dat Nguyen"
+
+# [analytics]
+# If you add privacy-friendly analytics later, set the ID in Vercel env
+# and read it at build time — never paste real IDs into committed files.
+# provider = "plausible"
+# domain = "yourdomain.com"
+
+# [contact]
+# Only if you add a serverless form or backend endpoint later:
+# form_endpoint = ""
+
+# [deployment]
+# public_base_url = "https://your-site.vercel.app"
