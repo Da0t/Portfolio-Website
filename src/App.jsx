@@ -99,8 +99,8 @@ function getWindowDefs(theme) {
     minesweeper: {
       title: 'Minesweeper',
       icon: ic.minesweeper,
-      defaultSize: { w: 240, h: 320 },
-      defaultPosition: { x: 300, y: 80 },
+      defaultSize: { w: 480, h: 520 },
+      defaultPosition: { x: 200, y: 60 },
       content: <MinesweeperWindow />,
       statusBar: 'Beginner · 9×9 · 10 mines · Left-click reveal · Right-click flag',
     },
