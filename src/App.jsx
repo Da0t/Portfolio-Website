@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import useMobile from './hooks/useMobile'
+import { playClick, playClickW2k } from './utils/sound'
 import MobileLayout from './mobile/MobileLayout'
 import Window from './components/Window'
 import DesktopIcon from './components/DesktopIcon'
@@ -175,6 +176,14 @@ export default function App() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
+
+  // Global click sound — desktop only
+  useEffect(() => {
+    if (isMobile) return
+    const handler = () => theme === 'win2000' ? playClickW2k() : playClick()
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [theme, isMobile])
 
   // ── Icon drag & selection ────────────────────────────────────
   function handleIconSelect(id, addToSelection) {

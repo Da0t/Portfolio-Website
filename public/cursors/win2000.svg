@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+  <!-- Drop shadow (Win2000 introduced shadow cursors) -->
+  <polygon points="3,3 3,23 8,17 12,25 15,24 11,16 17,16" fill="rgba(0,0,0,0.25)"/>
+  <!-- Black outer shape -->
+  <polygon points="1,1 1,21 6,15 10,23 13,22 9,14 15,14" fill="black"/>
+  <!-- White inner fill with very slight blue tint (Win2000 style) -->
+  <polygon points="2,3 2,19 7,13 11,21 12,20 8,12.5 14,12.5" fill="#F0F4FF"/>
+</svg>

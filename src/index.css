@@ -46,8 +46,20 @@ html, body, #root {
   font-family: var(--font);
   font-size: 11px;
   color: var(--text);
-  cursor: default;
+  cursor: url('/cursors/win95.svg') 0 0, default;
   user-select: none;
+}
+
+/* ── Custom cursors ──────────────────────────────────────────── */
+
+/* Win95: flat pixel-art arrow, no shadow — applied to everything */
+* {
+  cursor: url('/cursors/win95.svg') 0 0, default !important;
+}
+
+/* Win2000: same shape with drop shadow — activates on theme change */
+[data-theme="win2000"] * {
+  cursor: url('/cursors/win2000.svg') 0 0, default !important;
 }
 
 /* Win95 scrollbar */
