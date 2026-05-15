@@ -20,8 +20,8 @@
 }
 
 .ios-card {
-  background: #fff;
-  border-radius: 10px;
+  background: #fff !important;
+  border-radius: 12px !important;
   margin: 0 16px;
   overflow: hidden;
 }
@@ -33,6 +33,7 @@
   padding: 11px 16px;
   min-height: 44px;
   gap: 12px;
+  border-radius: 0 !important;
 }
 
 .ios-row-link {
@@ -48,7 +49,9 @@
 .ios-row-icon {
   font-size: 20px;
   width: 28px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -66,7 +69,7 @@
 }
 
 .ios-row-value {
-  font-size: 17px;
+  font-size: 15px;
   color: #8E8E93;
   text-align: right;
 }
@@ -95,7 +98,7 @@
   font-size: 13px;
   font-weight: 500;
   padding: 4px 10px;
-  border-radius: 20px;
+  border-radius: 20px !important;
 }
 
 /* ── About: Hero ────────────────────────────────────────────── */
@@ -110,7 +113,7 @@
 .ios-avatar {
   width: 96px;
   height: 96px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   object-fit: cover;
   border: 3px solid #fff;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -147,12 +150,12 @@
   color: #007AFF;
   text-decoration: none;
   padding: 8px 20px;
-  border-radius: 20px;
+  border-radius: 20px !important;
   background: rgba(0,122,255,0.1);
 }
 
 .ios-social-btn-blue {
-  background: #007AFF;
+  background: #007AFF !important;
   color: #fff;
 }
 
@@ -166,11 +169,12 @@
 
 /* ── Experience cards ───────────────────────────────────────── */
 .ios-exp-card {
-  background: #fff;
-  border-radius: 12px;
+  background: #fff !important;
+  border-radius: 14px !important;
   margin: 0 16px 14px;
   padding: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
 
 .ios-exp-header {
@@ -180,18 +184,14 @@
   margin-bottom: 10px;
 }
 
-.ios-exp-emoji-wrap {
+.ios-exp-icon-wrap {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: 11px !important;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-
-.ios-exp-emoji {
-  font-size: 22px;
 }
 
 .ios-exp-meta {
@@ -230,11 +230,11 @@
 
 /* ── Project cards ──────────────────────────────────────────── */
 .ios-project-card {
-  background: #fff;
-  border-radius: 12px;
+  background: #fff !important;
+  border-radius: 14px !important;
   margin: 0 16px 14px;
   padding: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
 }
 
 .ios-project-header {
@@ -247,7 +247,7 @@
 .ios-project-dot {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   margin-top: 4px;
   flex-shrink: 0;
 }
@@ -261,7 +261,9 @@
 
 .ios-project-cat {
   font-size: 13px;
-  color: #8E8E93;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .ios-project-desc {
@@ -282,14 +284,14 @@
   font-weight: 600;
   color: #007AFF;
   text-decoration: none;
-  padding: 7px 14px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 10px !important;
   background: rgba(0,122,255,0.1);
 }
 
 .ios-action-btn-alt {
   color: #34C759;
-  background: rgba(52,199,89,0.1);
+  background: rgba(52,199,89,0.1) !important;
 }
 
 /* ── Contact hero ───────────────────────────────────────────── */
@@ -303,7 +305,7 @@
 .ios-contact-avatar {
   width: 72px;
   height: 72px;
-  border-radius: 50%;
+  border-radius: 50% !important;
   background: linear-gradient(135deg, #007AFF, #5856D6);
   display: flex;
   align-items: center;
@@ -354,7 +356,7 @@
   color: #fff;
   text-decoration: none;
   padding: 11px 28px;
-  border-radius: 22px;
+  border-radius: 22px !important;
   background: #007AFF;
 }
 
@@ -386,18 +388,29 @@
   flex-direction: column;
   align-items: center;
   padding: 28px 20px 16px;
+  gap: 6px;
 }
 
-.ios-recycle-icon {
-  font-size: 56px;
-  margin-bottom: 8px;
+.ios-recycle-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px !important;
+  background: #E5E5EA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.ios-recycle-icon-wrap svg {
+  width: 36px;
+  height: 36px;
 }
 
 .ios-recycle-title {
   font-size: 22px;
   font-weight: 700;
   color: #000;
-  margin-bottom: 4px;
 }
 
 .ios-recycle-sub {
@@ -428,9 +441,9 @@
   font-size: 12px;
   font-weight: 600;
   color: #FF3B30;
-  background: rgba(255,59,48,0.1);
+  background: rgba(255,59,48,0.1) !important;
   padding: 3px 9px;
-  border-radius: 12px;
+  border-radius: 12px !important;
 }
 
 .ios-recycle-tip {
