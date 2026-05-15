@@ -1,0 +1,273 @@
+/* ── Root ─────────────────────────────────────────────── */
+.ipod-root {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Blue dot wallpaper ────────────────────────────────── */
+.ipod-wallpaper {
+  position: absolute;
+  inset: 0;
+  background: #1A73C9;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.18) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  z-index: 0;
+}
+
+/* Slight vignette */
+.ipod-wallpaper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,40,120,0.45) 100%);
+}
+
+/* ── Status bar ─────────────────────────────────────────── */
+.ipod-status {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px 4px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ipod-carrier  { font-size: 13px; }
+.ipod-time     { font-size: 15px; font-weight: 700; letter-spacing: 0.5px; }
+.ipod-status-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── App grid ───────────────────────────────────────────── */
+.ipod-grid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 12px 8px 0;
+  flex: 1;
+  align-content: start;
+}
+
+.ipod-app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ipod-app-item:active .ipod-app-icon {
+  opacity: 0.75;
+  transform: scale(0.92);
+}
+
+/* ── Squircle icon shape ────────────────────────────────── */
+.squircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 13.5px;  /* iOS squircle ~22.5% of 60px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s, opacity 0.1s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* iOS gloss shine */
+.squircle-gloss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.05) 100%);
+  border-radius: 13.5px 13.5px 0 0;
+  pointer-events: none;
+}
+
+.ipod-app-icon { transition: transform 0.12s, opacity 0.12s; }
+
+.ipod-app-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  line-height: 1.2;
+  max-width: 68px;
+}
+
+/* ── Page dots ──────────────────────────────────────────── */
+.ipod-dots {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 0 4px;
+}
+
+.ipod-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+}
+
+.ipod-dot.active { background: white; }
+
+/* ── Dock ───────────────────────────────────────────────── */
+.ipod-dock-wrap {
+  position: relative;
+  z-index: 10;
+  padding: 6px 12px 20px;
+  flex-shrink: 0;
+}
+
+.ipod-dock {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 10px 8px 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+
+.ipod-dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ipod-dock-item:active .ipod-dock-icon {
+  opacity: 0.7;
+  transform: scale(0.9);
+}
+
+.ipod-dock-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 13px;
+  transition: transform 0.1s, opacity 0.1s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.ipod-dock-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ── Full-screen app ────────────────────────────────────── */
+.ipod-app-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: #F2F2F7;
+  animation: appOpen 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes appOpen {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.ipod-app-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 44px 12px 10px;
+  flex-shrink: 0;
+}
+
+.ipod-back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font: 600 16px -apple-system, sans-serif;
+  cursor: pointer;
+  padding: 4px 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ipod-app-title {
+  font: 600 17px -apple-system, sans-serif;
+  color: white;
+  letter-spacing: -0.3px;
+}
+
+.ipod-app-content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #F2F2F7;
+  font-size: 14px;
+}
+
+/* Scale Win95 content up for mobile */
+.ipod-app-content .about-name        { font-size: 22px; }
+.ipod-app-content .about-role        { font-size: 13px; line-height: 1.5; }
+.ipod-app-content .about-bio p       { font-size: 14px; line-height: 1.65; }
+.ipod-app-content .about-photo       { width: 80px; height: 80px; }
+.ipod-app-content .about-photo-frame { width: 84px; height: 84px; }
+.ipod-app-content .spec-label,
+.ipod-app-content .spec-value        { font-size: 13px; }
+.ipod-app-content .skill-chip        { font-size: 13px; padding: 4px 10px; }
+.ipod-app-content .btn95             { font-size: 14px; height: 38px; min-width: 80px; }
+.ipod-app-content .input95           { font-size: 15px; height: 40px; }
+.ipod-app-content .textarea95        { font-size: 14px; }
+.ipod-app-content .exp-role          { font-size: 14px; }
+.ipod-app-content .exp-org,
+.ipod-app-content .exp-period        { font-size: 13px; }
+.ipod-app-content .exp-bullets li    { font-size: 13px; line-height: 1.7; }
+.ipod-app-content .filelist-row      { font-size: 13px; padding: 5px 6px; }
+.ipod-app-content .resume-name       { font-size: 20px; }
+.ipod-app-content .resume-bullets li { font-size: 13px; line-height: 1.7; }
+.ipod-app-content .detail-desc       { font-size: 13px; line-height: 1.6; }
+
+/* Keep Win95 chrome readable on white iOS background */
+.ipod-app-content .window95,
+.ipod-app-content .about-window,
+.ipod-app-content .projects-window,
+.ipod-app-content .contact-window,
+.ipod-app-content .exp-window,
+.ipod-app-content .resume-window,
+.ipod-app-content .recycle-window {
+  height: auto;
+  min-height: 100%;
+}

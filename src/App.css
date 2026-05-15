@@ -1,0 +1,42 @@
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  background: var(--desktop);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icons sit in an absolute layer, full desktop minus taskbar */
+.desktop-icons-layer {
+  position: absolute;
+  inset: 0;
+  bottom: 28px;
+  z-index: 10;
+  pointer-events: none;   /* let clicks fall through to desktop background */
+}
+
+/* Each icon re-enables pointer events for itself */
+.desktop-icons-layer .desktop-icon {
+  pointer-events: all;
+}
+
+.windows-layer {
+  position: absolute;
+  inset: 0;
+  bottom: 28px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.windows-layer > * {
+  pointer-events: all;
+}
+
+/* Win95-style rubber-band selection box */
+.selection-box {
+  position: absolute;
+  border: 1px dotted #000080;
+  background: rgba(0, 0, 128, 0.10);
+  pointer-events: none;
+  z-index: 15;
+}

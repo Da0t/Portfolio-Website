@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2DAEF0"/>
+      <stop offset="100%" stop-color="#0078D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="url(#d)"/>
+  <!-- Envelope body -->
+  <rect x="4" y="9" width="24" height="17" rx="2" fill="white"/>
+  <!-- Envelope flap V shape -->
+  <polygon points="4,9 16,19 28,9" fill="#E3F2FD"/>
+  <!-- Bottom fold lines -->
+  <line x1="4" y1="26" x2="12" y2="18" stroke="#BBDEFB" stroke-width="1.5"/>
+  <line x1="28" y1="26" x2="20" y2="18" stroke="#BBDEFB" stroke-width="1.5"/>
+</svg>

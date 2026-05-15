@@ -1,0 +1,251 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 !important;
+}
+
+:root {
+  --desktop:          #008080;
+  --gray:             #C0C0C0;
+  --gray-light:       #DFDFDF;
+  --gray-dark:        #808080;
+  --gray-darker:      #404040;
+  --navy:             #000080;
+  --title-bg:         #000080;        /* solid fallback */
+  --title-gradient:   #000080;        /* used in titlebar background */
+  --title-inactive:   #808080;
+  --white:            #FFFFFF;
+  --black:            #000000;
+  --text:             #000000;
+  --text-disabled:    #808080;
+  --text-selected:    #FFFFFF;
+  --selection-bg:     #000080;
+  --font: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Arial, sans-serif;
+}
+
+/* Windows 2000 theme */
+[data-theme="win2000"] {
+  --desktop:          #3A6EA5;
+  --navy:             #0A246A;
+  --title-bg:         #0A246A;
+  --title-gradient:   linear-gradient(to right, #0A246A 0%, #3A6EA5 100%);
+  --title-inactive:   #7A96DF;
+  --selection-bg:     #0A246A;
+}
+
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000000;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  font-family: var(--font);
+  font-size: 11px;
+  color: var(--text);
+  cursor: default;
+  user-select: none;
+}
+
+/* Win95 scrollbar */
+::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gray);
+  box-shadow: inset 1px 1px 0 var(--gray-dark), inset -1px -1px 0 var(--gray-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--gray-dark),
+    0 0 0 1px var(--black);
+}
+::-webkit-scrollbar-button {
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--gray-dark),
+    0 0 0 1px var(--black);
+  width: 17px;
+  height: 17px;
+}
+::-webkit-scrollbar-corner {
+  background: var(--gray);
+}
+
+/* Raised 3D surface (buttons, window borders) */
+.raised {
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--gray-dark),
+    0 0 0 1px var(--black);
+  background: var(--gray);
+}
+
+/* Sunken surface (inputs, pressed buttons, inset panels) */
+.sunken {
+  box-shadow:
+    inset 1px 1px 0 var(--gray-dark),
+    inset -1px -1px 0 var(--white),
+    0 0 0 1px var(--black);
+  background: var(--white);
+}
+
+/* Inset panel (no white background) */
+.inset {
+  box-shadow:
+    inset 1px 1px 0 var(--gray-dark),
+    inset -1px -1px 0 var(--white),
+    0 0 0 1px var(--black);
+  background: var(--gray);
+}
+
+/* Win95 button */
+.btn95 {
+  background: var(--gray);
+  color: var(--text);
+  font: 11px var(--font);
+  padding: 3px 10px;
+  min-width: 75px;
+  height: 23px;
+  border: none;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--gray-dark),
+    0 0 0 1px var(--black);
+}
+.btn95:active,
+.btn95.pressed {
+  box-shadow:
+    inset 1px 1px 0 var(--gray-dark),
+    inset -1px -1px 0 var(--white),
+    0 0 0 1px var(--black);
+  padding: 4px 9px 2px 11px;
+}
+.btn95:focus {
+  outline: 1px dotted var(--black);
+  outline-offset: -4px;
+}
+.btn95.default-btn {
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--gray-dark),
+    0 0 0 2px var(--black);
+}
+
+/* Win95 text input */
+.input95 {
+  background: var(--white);
+  color: var(--text);
+  font: 11px var(--font);
+  padding: 2px 4px;
+  border: none;
+  box-shadow:
+    inset 1px 1px 0 var(--gray-dark),
+    inset -1px -1px 0 var(--gray-light),
+    0 0 0 1px var(--black);
+  cursor: text;
+  user-select: text;
+  outline: none;
+}
+.input95:focus {
+  outline: none;
+}
+
+/* Win95 textarea */
+.textarea95 {
+  background: var(--white);
+  color: var(--text);
+  font: 11px var(--font);
+  padding: 2px 4px;
+  border: none;
+  box-shadow:
+    inset 1px 1px 0 var(--gray-dark),
+    inset -1px -1px 0 var(--gray-light),
+    0 0 0 1px var(--black);
+  cursor: text;
+  user-select: text;
+  resize: none;
+  outline: none;
+}
+
+/* Separator (menu bar / toolbar divider) */
+.separator95 {
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+}
+.separator95::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: var(--gray-dark);
+  box-shadow: 1px 0 0 var(--white);
+}
+
+/* Stipple dialog background */
+.stipple {
+  background-color: var(--gray);
+  background-image: radial-gradient(circle, var(--gray-dark) 1px, transparent 1px);
+  background-size: 2px 2px;
+}
+
+/* Menu */
+.menu95 {
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--gray-dark),
+    2px 2px 0 var(--black);
+  padding: 2px 0;
+  position: absolute;
+  z-index: 9999;
+  min-width: 120px;
+}
+.menu-item95 {
+  padding: 4px 20px 4px 24px;
+  white-space: nowrap;
+  font: 11px var(--font);
+  color: var(--text);
+}
+.menu-item95:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+.menu-item95.disabled {
+  color: var(--text-disabled);
+}
+.menu-separator95 {
+  height: 1px;
+  background: var(--gray-dark);
+  box-shadow: 0 1px 0 var(--white);
+  margin: 3px 0;
+}
+
+/* Group box */
+.groupbox95 {
+  border: 1px solid var(--gray-dark);
+  box-shadow: inset -1px -1px 0 var(--white), 1px 1px 0 var(--white);
+  padding: 12px 8px 8px;
+  margin-top: 8px;
+  position: relative;
+}
+.groupbox95-label {
+  position: absolute;
+  top: -7px;
+  left: 8px;
+  background: var(--gray);
+  padding: 0 4px;
+  font: 11px var(--font);
+}

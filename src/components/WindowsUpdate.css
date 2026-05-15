@@ -1,0 +1,112 @@
+.wu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.6s ease;
+}
+
+.wu-restart {
+  background: #000000;
+}
+
+.wu-dialog {
+  width: 460px;
+  background: var(--gray);
+  display: flex;
+  flex-direction: column;
+}
+
+.wu-body {
+  display: flex;
+  min-height: 160px;
+}
+
+/* Left blue brand strip */
+.wu-brand {
+  width: 140px;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, #0A246A 0%, #3A6EA5 100%);
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wu-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.wu-windows-word {
+  font: italic bold 16px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: #FFFFFF;
+}
+
+.wu-update-word {
+  font: italic bold 22px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: #FFD700;
+}
+
+.wu-version-text {
+  font: 9px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: rgba(255,255,255,0.7);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* Right content */
+.wu-content {
+  flex: 1;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--gray);
+}
+
+.wu-stage-label {
+  font: 11px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: var(--text);
+  min-height: 28px;
+  line-height: 1.5;
+}
+
+.wu-bar-track {
+  height: 14px;
+  background: var(--white);
+  box-shadow:
+    inset 1px 1px 0 var(--gray-dark),
+    inset -1px -1px 0 var(--white),
+    0 0 0 1px var(--black);
+  overflow: hidden;
+}
+
+.wu-bar-fill {
+  height: 100%;
+  background: #000080;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #0000AA 0px, #0000AA 10px,
+    #000088 10px, #000088 12px
+  );
+  transition: width 0.08s linear;
+}
+
+.wu-percent {
+  font: 11px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  text-align: right;
+  color: var(--gray-dark);
+}
+
+.wu-warning {
+  font: 10px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: var(--gray-dark);
+  border-top: 1px solid var(--gray-dark);
+  padding-top: 8px;
+  line-height: 1.5;
+}

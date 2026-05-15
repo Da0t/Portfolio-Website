@@ -1,0 +1,150 @@
+.w10-start {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 10001;
+  display: flex;
+  width: 580px;
+  height: 460px;
+  background: rgba(28,28,28,0.96);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 -2px 24px rgba(0,0,0,0.6);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #FFFFFF;
+}
+
+/* Left panel */
+.w10-left {
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0,0,0,0.3);
+  padding: 12px 0;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.w10-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 16px;
+  margin-bottom: 8px;
+}
+
+.w10-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0078D4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  flex-shrink: 0;
+  border-radius: 50% !important;
+}
+
+.w10-username {
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.w10-left-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  padding: 0 16px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.w10-left-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  font-size: 13px;
+  cursor: default;
+  transition: background 0.1s;
+}
+.w10-left-item:hover { background: rgba(255,255,255,0.08); }
+
+.w10-left-icon { font-size: 16px; width: 20px; text-align: center; }
+.w10-left-icon-img { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
+.w10-footer-glyph { font-size: 16px; width: 20px; text-align: center; }
+
+.w10-left-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 8px;
+}
+
+.w10-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  font-size: 13px;
+  cursor: default;
+}
+.w10-footer-item:hover { background: rgba(255,255,255,0.08); }
+.w10-footer-item span:first-child { font-size: 16px; width: 20px; text-align: center; }
+
+/* Right tile panel */
+.w10-tiles {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.w10-tiles-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.w10-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 90px);
+  gap: 4px;
+}
+
+.w10-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8px;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.1s;
+}
+.w10-tile:hover { filter: brightness(1.15); }
+.w10-tile:active { filter: brightness(0.9); }
+
+.w10-tile-small  { grid-column: span 1; }
+.w10-tile-medium { grid-column: span 2; }
+.w10-tile-wide   { grid-column: span 4; grid-row: span 1; flex-direction: row; align-items: center; gap: 12px; }
+
+.w10-tile-icon { font-size: 28px; line-height: 1; }
+.w10-tile-wide .w10-tile-icon { font-size: 32px; }
+.w10-tile-icon-img { width: 32px; height: 32px; object-fit: contain; }
+.w10-tile-wide .w10-tile-icon-img { width: 36px; height: 36px; }
+
+.w10-tile-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  line-height: 1.2;
+}
+.w10-tile-wide .w10-tile-label { font-size: 14px; }

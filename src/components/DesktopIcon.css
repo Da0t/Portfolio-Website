@@ -1,0 +1,58 @@
+.desktop-icon {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px;
+  cursor: default;
+}
+
+.desktop-icon-img-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.desktop-icon-img-wrap img {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+  display: block;
+}
+
+/* Selected icon — blue tint over the image */
+.desktop-icon.selected .desktop-icon-img-wrap img {
+  filter: brightness(0.55) sepia(1) saturate(4) hue-rotate(190deg);
+}
+
+.desktop-icon-selection-overlay {
+  display: none; /* handled by filter now */
+}
+
+.desktop-icon-selection-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+.desktop-icon-label {
+  font: 12px var(--font);
+  color: var(--white);
+  text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black), 1px -1px 0 var(--black), -1px 1px 0 var(--black);
+  text-align: center;
+  line-height: 1.3;
+  max-width: 96px;
+  word-break: break-word;
+  padding: 1px 3px;
+}
+
+.desktop-icon-label.selected {
+  background: var(--selection-bg);
+  color: var(--white);
+  text-shadow: none;
+  outline: 1px dotted rgba(255,255,255,0.7);
+  outline-offset: 1px;
+}

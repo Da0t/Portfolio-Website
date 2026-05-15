@@ -1,0 +1,117 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  transition: opacity 0.5s ease;
+}
+
+.boot-fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── BIOS text screen ───────────────────────────────────────── */
+.bios-screen {
+  color: #C0C0C0;
+  font: 14px "Courier New", Courier, monospace;
+  padding: 32px 48px;
+  align-self: flex-start;
+  margin-top: 40px;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.bios-screen p {
+  margin: 0;
+}
+
+.bios-blink {
+  animation: blink 0.6s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Win95 boot logo screen ─────────────────────────────────── */
+.win95-boot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.boot-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 4-pane Windows flag */
+.boot-flag {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 72px;
+  height: 72px;
+  gap: 4px;
+}
+
+.flag-pane {
+  width: 100%;
+  height: 100%;
+}
+.flag-pane.red    { background: #FF0000; }
+.flag-pane.green  { background: #00AA00; }
+.flag-pane.blue   { background: #0000FF; }
+.flag-pane.yellow { background: #FFCC00; }
+
+.boot-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.boot-windows {
+  font: italic bold 36px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+}
+
+.boot-95 {
+  font: italic bold 36px "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: #FFFFFF;
+}
+
+/* ── Progress bar ────────────────────────────────────────────── */
+.boot-bar-wrap {
+  width: 180px;
+}
+
+.boot-bar-track {
+  height: 12px;
+  background: #000000;
+  border: 2px solid #808080;
+  box-shadow: inset 1px 1px 0 #404040;
+  overflow: hidden;
+}
+
+.boot-bar-fill {
+  height: 100%;
+  background: #0000AA;
+  /* Win95 chunky block fill */
+  background-image: repeating-linear-gradient(
+    90deg,
+    #0000AA 0px,
+    #0000AA 10px,
+    #000088 10px,
+    #000088 12px
+  );
+  transition: width 0.08s linear;
+}

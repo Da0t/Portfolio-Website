@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Building/office shape -->
+  <rect x="4"  y="10" width="24" height="20" fill="#C0C0C0"/>
+  <rect x="4"  y="10" width="24" height="1"  fill="#FFFFFF"/>
+  <rect x="4"  y="10" width="1"  height="20" fill="#FFFFFF"/>
+  <rect x="27" y="10" width="1"  height="20" fill="#808080"/>
+  <rect x="4"  y="29" width="24" height="1"  fill="#808080"/>
+  <!-- Roof detail -->
+  <rect x="2"  y="8"  width="28" height="3"  fill="#808080"/>
+  <rect x="2"  y="8"  width="28" height="1"  fill="#FFFFFF"/>
+  <rect x="2"  y="8"  width="1"  height="3"  fill="#FFFFFF"/>
+  <rect x="29" y="8"  width="1"  height="3"  fill="#404040"/>
+  <!-- Windows row 1 -->
+  <rect x="7"  y="13" width="4"  height="4"  fill="#000080"/>
+  <rect x="14" y="13" width="4"  height="4"  fill="#000080"/>
+  <rect x="21" y="13" width="4"  height="4"  fill="#000080"/>
+  <!-- Windows row 2 -->
+  <rect x="7"  y="19" width="4"  height="4"  fill="#000080"/>
+  <rect x="21" y="19" width="4"  height="4"  fill="#000080"/>
+  <!-- Door -->
+  <rect x="13" y="22" width="6"  height="8"  fill="#808080"/>
+  <rect x="13" y="22" width="6"  height="1"  fill="#FFFFFF"/>
+  <rect x="13" y="22" width="1"  height="8"  fill="#FFFFFF"/>
+  <rect x="18" y="22" width="1"  height="8"  fill="#404040"/>
+  <!-- Door knob -->
+  <rect x="17" y="26" width="1"  height="1"  fill="#FFFF00"/>
+  <!-- Flag on top -->
+  <rect x="15" y="2"  width="1"  height="7"  fill="#808080"/>
+  <rect x="16" y="2"  width="5"  height="3"  fill="#FF0000"/>
+</svg>

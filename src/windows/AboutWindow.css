@@ -1,0 +1,137 @@
+.about-window {
+  background: var(--gray);
+  height: 100%;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: var(--gray);
+}
+
+/* Photo frame — inset Win95 border */
+.about-photo-frame {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  padding: 2px;
+}
+
+.about-photo {
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-header-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.about-role {
+  font-size: 11px;
+  color: var(--gray-dark);
+  line-height: 1.4;
+}
+
+/* Social link buttons */
+.about-social-links {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.about-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: 11px var(--font);
+  color: var(--text);
+  text-decoration: none;
+  padding: 2px 8px;
+  background: var(--gray);
+  cursor: default;
+}
+
+.about-social-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.about-social-icon {
+  width: 14px;
+  height: 14px;
+  image-rendering: pixelated;
+}
+
+.about-divider {
+  height: 1px;
+  background: var(--gray-dark);
+  box-shadow: 0 1px 0 var(--white);
+  margin: 0;
+}
+
+.about-bio {
+  padding: 8px 12px;
+  font: 11px var(--font);
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.about-specs {
+  width: 100%;
+  border-collapse: collapse;
+  font: 11px var(--font);
+}
+
+.about-specs tr + tr td {
+  padding-top: 3px;
+}
+
+.spec-label {
+  width: 140px;
+  font-weight: bold;
+  vertical-align: top;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+.spec-value {
+  color: var(--text);
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.skill-chip {
+  font: 11px var(--font);
+  padding: 2px 8px;
+  background: var(--gray);
+}
+
+.about-copyright {
+  padding: 0 8px 8px;
+}
+
+.about-copyright p {
+  font: 10px var(--font);
+  color: var(--gray-dark);
+  padding: 4px 4px 2px;
+  line-height: 1.5;
+}

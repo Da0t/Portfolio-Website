@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="b" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFD75E"/>
+      <stop offset="100%" stop-color="#FFB900"/>
+    </linearGradient>
+    <linearGradient id="c" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE584"/>
+      <stop offset="100%" stop-color="#FFD154"/>
+    </linearGradient>
+  </defs>
+  <!-- Folder back -->
+  <rect x="2" y="10" width="28" height="19" rx="3" fill="url(#b)"/>
+  <!-- Folder tab -->
+  <path d="M2 10 C2 8 3 7 5 7 L13 7 C15 7 16 8 17 10Z" fill="#E6A500"/>
+  <!-- Folder front lighter face -->
+  <rect x="2" y="14" width="28" height="15" rx="3" fill="url(#c)"/>
+  <!-- Blue stripe accent at top of front face -->
+  <rect x="2" y="14" width="28" height="3" rx="0" fill="#0078D4" opacity="0.15"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D3D3D"/>
+      <stop offset="100%" stop-color="#1B1B1B"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="url(#g)"/>
+  <!-- Terminal prompt -->
+  <text x="5" y="16" fill="#29D958" font-family="'Cascadia Code','Consolas',monospace" font-size="8" font-weight="bold">C:\&gt;</text>
+  <text x="5" y="24" fill="white" font-family="'Cascadia Code','Consolas',monospace" font-size="7">git push_</text>
+  <!-- Blinking cursor effect via rect -->
+  <rect x="5" y="25" width="5" height="1" fill="#29D958" opacity="0.8"/>
+</svg>

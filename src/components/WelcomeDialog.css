@@ -1,0 +1,134 @@
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-dialog {
+  width: 460px;
+  background: var(--gray);
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-body {
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+}
+
+.welcome-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.welcome-heading {
+  font-size: 20px;
+  font-weight: normal;
+  padding: 4px 0 4px 4px;
+}
+
+.welcome-windows {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.welcome-95 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.welcome-content {
+  flex: 1;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 140px;
+}
+
+.welcome-content-inner {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.welcome-bulb {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.welcome-tip-title {
+  font-weight: bold;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.welcome-tip-text {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.welcome-monitor {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.monitor-outer {
+  width: 80px;
+  background: var(--gray);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.monitor-screen {
+  width: 60px;
+  height: 44px;
+  background: #000040;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: inset 1px 1px 0 var(--black);
+  padding: 3px 3px;
+  overflow: hidden;
+}
+
+.monitor-screen-text {
+  color: #00FF00;
+  font: 6px "Courier New", monospace;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.monitor-base {
+  width: 30px;
+  height: 8px;
+  background: var(--gray);
+  box-shadow:
+    inset 1px 1px 0 var(--white),
+    inset -1px -1px 0 var(--gray-dark);
+}
+
+.welcome-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: flex-start;
+  padding-top: 30px;
+  flex-shrink: 0;
+}
+
+.welcome-buttons .btn95 {
+  width: 120px;
+}
