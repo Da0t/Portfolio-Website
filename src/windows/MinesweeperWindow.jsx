@@ -59,6 +59,80 @@ function floodReveal(grid, r, c) {
 
 const ADJ_COLORS = ['', '#0000FF', '#008000', '#FF0000', '#000080', '#8B0000', '#008080', '#000000', '#808080']
 
+/* ── SVG face icons (no emojis) ─────────────────────────────── */
+const FACES = {
+  idle: (s) => (
+    <svg viewBox="0 0 16 16" width={s} height={s}>
+      <circle cx="8" cy="8" r="7" fill="#FFE000" stroke="#000" strokeWidth="1"/>
+      <circle cx="5.5" cy="6.5" r="1" fill="#000"/>
+      <circle cx="10.5" cy="6.5" r="1" fill="#000"/>
+      <path d="M5 10 Q8 12.5 11 10" stroke="#000" strokeWidth="1" fill="none" strokeLinecap="round"/>
+    </svg>
+  ),
+  pressing: (s) => (
+    <svg viewBox="0 0 16 16" width={s} height={s}>
+      <circle cx="8" cy="8" r="7" fill="#FFE000" stroke="#000" strokeWidth="1"/>
+      <circle cx="5.5" cy="6.5" r="1" fill="#000"/>
+      <circle cx="10.5" cy="6.5" r="1" fill="#000"/>
+      <circle cx="8" cy="10.5" r="1.8" fill="#000"/>
+    </svg>
+  ),
+  dead: (s) => (
+    <svg viewBox="0 0 16 16" width={s} height={s}>
+      <circle cx="8" cy="8" r="7" fill="#FFE000" stroke="#000" strokeWidth="1"/>
+      <line x1="4.5" y1="5.5" x2="6.5" y2="7.5" stroke="#000" strokeWidth="1.2" strokeLinecap="round"/>
+      <line x1="6.5" y1="5.5" x2="4.5" y2="7.5" stroke="#000" strokeWidth="1.2" strokeLinecap="round"/>
+      <line x1="9.5" y1="5.5" x2="11.5" y2="7.5" stroke="#000" strokeWidth="1.2" strokeLinecap="round"/>
+      <line x1="11.5" y1="5.5" x2="9.5" y2="7.5" stroke="#000" strokeWidth="1.2" strokeLinecap="round"/>
+      <path d="M5 11 Q8 9 11 11" stroke="#000" strokeWidth="1" fill="none" strokeLinecap="round"/>
+    </svg>
+  ),
+  won: (s) => (
+    <svg viewBox="0 0 16 16" width={s} height={s}>
+      <circle cx="8" cy="8" r="7" fill="#FFE000" stroke="#000" strokeWidth="1"/>
+      <rect x="3.5" y="5.5" width="4" height="2.5" rx="1" fill="#000"/>
+      <rect x="8.5" y="5.5" width="4" height="2.5" rx="1" fill="#000"/>
+      <path d="M5 10.5 Q8 13.5 11 10.5" stroke="#000" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+    </svg>
+  ),
+}
+
+function FaceIcon({ state, size }) {
+  return FACES[state]?.(size) ?? FACES.idle(size)
+}
+
+function MineIcon({ size, isRed }) {
+  const s = size - 2
+  return (
+    <svg viewBox="0 0 16 16" width={s} height={s} style={{ display: 'block' }}>
+      {isRed && <rect width="16" height="16" fill="#FF0000"/>}
+      {/* spikes */}
+      <line x1="8" y1="1" x2="8" y2="15" stroke="#000" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="1" y1="8" x2="15" y2="8" stroke="#000" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="3" y1="3" x2="13" y2="13" stroke="#000" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="13" y1="3" x2="3" y2="13" stroke="#000" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* body */}
+      <circle cx="8" cy="8" r="4" fill="#000"/>
+      {/* shine */}
+      <circle cx="6.5" cy="6.5" r="1.2" fill="#fff" opacity="0.6"/>
+    </svg>
+  )
+}
+
+function FlagIcon({ size }) {
+  const s = size - 2
+  return (
+    <svg viewBox="0 0 16 16" width={s} height={s} style={{ display: 'block' }}>
+      {/* pole */}
+      <line x1="5" y1="2" x2="5" y2="14" stroke="#000" strokeWidth="1.5" strokeLinecap="round"/>
+      {/* flag */}
+      <polygon points="5,2 13,5 5,8" fill="#FF0000"/>
+      {/* base */}
+      <line x1="3" y1="14" x2="8" y2="14" stroke="#000" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
 function useTimer(running) {
   const [secs, setSecs] = useState(0)
   const ref = useRef(null)
@@ -100,7 +174,7 @@ export default function MinesweeperWindow() {
   const [grid, setGrid] = useState(buildEmpty)
   const [status, setStatus] = useState('idle')
   const [flagCount, setFlagCount] = useState(0)
-  const [face, setFace] = useState('🙂')
+  const [face, setFace] = useState('idle')
   const [timerRunning, setTimerRunning] = useState(false)
   const [secs, resetTimer] = useTimer(timerRunning)
   const [cellSize, setCellSize] = useState(32)
@@ -127,7 +201,7 @@ export default function MinesweeperWindow() {
     setGrid(buildEmpty())
     setStatus('idle')
     setFlagCount(0)
-    setFace('🙂')
+    setFace('idle')
     setTimerRunning(false)
     resetTimer()
   }, [])
@@ -151,7 +225,7 @@ export default function MinesweeperWindow() {
       setGrid(exploded)
       setStatus('lost')
       setTimerRunning(false)
-      setFace('😵')
+      setFace('dead')
       return
     }
 
@@ -160,7 +234,7 @@ export default function MinesweeperWindow() {
     if (next.flat().filter(c => !c.revealed && !c.mine).length === 0) {
       setStatus('won')
       setTimerRunning(false)
-      setFace('😎')
+      setFace('won')
     }
   }
 
@@ -217,17 +291,16 @@ export default function MinesweeperWindow() {
           onClick={reset}
           style={{
             width: btnSize, height: btnSize,
-            fontSize: Math.round(btnSize * 0.6),
             background: 'var(--gray)',
             border: 'none',
             cursor: 'default',
             boxShadow: 'inset 1px 1px 0 var(--white), inset -1px -1px 0 var(--gray-dark), 0 0 0 1px var(--black)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             flexShrink: 0,
-            lineHeight: 1,
+            padding: 0,
           }}
         >
-          {face}
+          <FaceIcon state={face} size={Math.round(btnSize * 0.76)} />
         </button>
         <SevenSeg value={secs} fontSize={segFontSize} />
       </div>
@@ -240,8 +313,8 @@ export default function MinesweeperWindow() {
           display: 'inline-block',
           flexShrink: 0,
         }}
-        onMouseDown={() => { if (status === 'playing') setFace('😮') }}
-        onMouseUp={()   => { if (status === 'playing') setFace('🙂') }}
+        onMouseDown={() => { if (status === 'playing') setFace('pressing') }}
+        onMouseUp={()   => { if (status === 'playing') setFace('idle') }}
       >
         {grid.map((row, r) => (
           <div key={r} style={{ display: 'flex' }}>
@@ -269,8 +342,8 @@ export default function MinesweeperWindow() {
         height: msgFontSize + 8,
         flexShrink: 0,
       }}>
-        {status === 'won' && `You Win! 🎉 Time: ${secs}s`}
-        {status === 'lost' && `Game Over! Click ${face} to restart`}
+        {status === 'won'  && `You Win! Time: ${secs}s`}
+        {status === 'lost' && 'Game Over! Click the face to restart'}
         {(status === 'idle' || status === 'playing') && '.'}
       </div>
     </div>
@@ -279,7 +352,6 @@ export default function MinesweeperWindow() {
 
 function Cell({ cell, isLost, size, onClick, onContextMenu }) {
   const fontSize = Math.round(size * 0.58)
-  const emojiSize = Math.round(size * 0.62)
 
   if (cell.revealed) {
     if (cell.mine) {
@@ -289,9 +361,8 @@ function Cell({ cell, isLost, size, onClick, onContextMenu }) {
           background: isLost ? '#FF0000' : 'var(--gray)',
           boxShadow: 'inset 1px 1px 0 var(--gray-dark), inset -1px -1px 0 var(--gray-light)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: emojiSize,
         }}>
-          💣
+          <MineIcon size={size} isRed={isLost} />
         </div>
       )
     }
@@ -321,10 +392,9 @@ function Cell({ cell, isLost, size, onClick, onContextMenu }) {
         cursor: 'default',
         boxShadow: 'inset 1px 1px 0 var(--white), inset -1px -1px 0 var(--gray-dark), 0 0 0 1px var(--black)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: emojiSize,
       }}
     >
-      {cell.flagged ? '🚩' : ''}
+      {cell.flagged ? <FlagIcon size={size} /> : null}
     </div>
   )
 }
