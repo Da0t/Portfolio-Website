@@ -106,8 +106,10 @@ export default function MobileLayout() {
 
   return (
     <div className="ipod-root">
-      {/* Dot wallpaper */}
-      <div className="ipod-wallpaper" />
+      {/* Wallpaper */}
+      <div className="ipod-wallpaper">
+        <img src="/ios-wallpaper.jpg" alt="" />
+      </div>
 
       {/* Status bar */}
       <div className="ipod-status">
