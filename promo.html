@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1400px;
+    height: 900px;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0a0a1a 0%, #0d1f3c 40%, #0a2a2a 70%, #0a1a10 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    position: relative;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(0,122,255,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(88,86,214,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(52,199,89,0.05) 0%, transparent 40%);
+  }
+
+  /* ── Left: Info panel ─────────────────────────── */
+  .info {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 320px;
+    flex-shrink: 0;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    width: fit-content;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #34C759;
+    box-shadow: 0 0 6px #34C759;
+  }
+
+  .name {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+  }
+
+  .name span {
+    background: linear-gradient(90deg, #007AFF, #5856D6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.04);
+  }
+
+  .tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+  }
+
+  /* ── Desktop mockup ───────────────────────────── */
+  .desktop-device {
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+
+  .macbook-frame {
+    width: 520px;
+  }
+
+  .macbook-screen-bezel {
+    background: #1a1a1a;
+    border-radius: 12px 12px 0 0;
+    padding: 12px 14px 8px;
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px #111;
+  }
+
+  .macbook-cam {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #333;
+    margin: 0 auto 6px;
+  }
+
+  .macbook-screen {
+    width: 100%;
+    height: 300px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #008080;
+    position: relative;
+  }
+
+  .macbook-base {
+    background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+    height: 14px;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid #3a3a3a;
+    border-top: none;
+  }
+
+  .macbook-foot {
+    background: #1a1a1a;
+    height: 5px;
+    border-radius: 0 0 12px 12px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  /* Win95 Desktop inside screen */
+  .win95-desktop {
+    width: 100%;
+    height: 100%;
+    background: #008080;
+    position: relative;
+    overflow: hidden;
+    font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  }
+
+  .win95-taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: #C0C0C0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 4px;
+    box-shadow: inset 0 1px 0 #fff, 0 -1px 0 #808080;
+  }
+
+  .win95-start {
+    height: 22px;
+    padding: 0 8px;
+    background: #C0C0C0;
+    border: 1px solid #000;
+    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #808080;
+    font-size: 11px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .win95-flag {
+    width: 14px; height: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    flex-shrink: 0;
+  }
+  .win95-flag div:nth-child(1) { background: #FF0000; }
+  .win95-flag div:nth-child(2) { background: #00A000; }
+  .win95-flag div:nth-child(3) { background: #0000C0; }
+  .win95-flag div:nth-child(4) { background: #FFD700; }
+
+  .win95-clock {
+    margin-left: auto;
+    font-size: 10px;
+    padding: 2px 6px;
+    box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
+    height: 22px;
+    display: flex;
+    align-items: center;
+  }
+
+  .win95-icon {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 4px;
+    cursor: default;
+  }
+
+  .win95-icon-img {
+    width: 28px; height: 28px;
+    background: #C0C0C0;
+    border: 1px solid #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .win95-icon-label {
+    font-size: 9px;
+    color: white;
+    text-shadow: 1px 1px 1px #000, -1px 0 1px #000;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Window on the desktop */
+  .win95-window {
+    position: absolute;
+    background: #C0C0C0;
+    box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #808080, 2px 2px 0 #000;
+    border: 1px solid #000;
+  }
+
+  .win95-titlebar {
+    height: 18px;
+    background: linear-gradient(to right, #000080, #1084d0);
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    gap: 4px;
+  }
+
+  .win95-title-text {
+    font-size: 10px;
+    color: #fff;
+    font-weight: bold;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .win95-btn {
+    width: 12px; height: 11px;
+    background: #C0C0C0;
+    border: 1px solid;
+    border-color: #fff #808080 #808080 #fff;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .win95-window-body {
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  /* About window content */
+  .about-win-body {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .about-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4FC3F7, #0288D1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    border: 2px solid #808080;
+  }
+
+  .about-text h3 {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+
+  .about-text p {
+    font-size: 9px;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 0;
+  }
+
+  /* Projects window */
+  .proj-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 9px;
+  }
+
+  .proj-dot {
+    width: 6px; height: 6px;
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  /* ── iPhone mockup ────────────────────────────── */
+  .mobile-device {
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+
+  .iphone-frame {
+    width: 200px;
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 12px 8px;
+    box-shadow:
+      0 0 0 2px #3a3a3a,
+      0 0 0 3px #222,
+      0 40px 80px rgba(0,0,0,0.7),
+      inset 0 0 0 1px #444;
+    position: relative;
+  }
+
+  .iphone-notch {
+    width: 80px;
+    height: 22px;
+    background: #1a1a1a;
+    border-radius: 0 0 14px 14px;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .iphone-screen {
+    border-radius: 30px;
+    overflow: hidden;
+    height: 420px;
+    position: relative;
+    background: linear-gradient(160deg, #0a4a5c 0%, #12a88a 40%, #d4a96a 75%, #e8c87a 100%);
+  }
+
+  /* iOS home screen inside */
+  .ios-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 16px 6px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding: 8px 6px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ios-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 2px;
+  }
+
+  .ios-icon {
+    width: 40px; height: 40px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .ios-icon svg {
+    width: 20px; height: 20px;
+  }
+
+  .ios-label {
+    font-size: 8px;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .ios-dock-wrap {
+    position: absolute;
+    bottom: 10px;
+    left: 8px;
+    right: 8px;
+    z-index: 10;
+  }
+
+  .ios-dock {
+    background: rgba(255,255,255,0.22);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 6px 6px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .ios-dock-icon {
+    width: 38px; height: 38px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  /* Side buttons on iPhone */
+  .iphone-btn-right {
+    position: absolute;
+    right: -3px;
+    top: 100px;
+    width: 3px;
+    height: 50px;
+    background: #2a2a2a;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .iphone-btn-left1 {
+    position: absolute;
+    left: -3px;
+    top: 70px;
+    width: 3px;
+    height: 30px;
+    background: #2a2a2a;
+    border-radius: 2px 0 0 2px;
+  }
+
+  .iphone-btn-left2 {
+    position: absolute;
+    left: -3px;
+    top: 115px;
+    width: 3px;
+    height: 44px;
+    background: #2a2a2a;
+    border-radius: 2px 0 0 2px;
+  }
+
+  .iphone-btn-left3 {
+    position: absolute;
+    left: -3px;
+    top: 170px;
+    width: 3px;
+    height: 44px;
+    background: #2a2a2a;
+    border-radius: 2px 0 0 2px;
+  }
+
+  /* ── Bottom label ─────────────────────────────── */
+  .footer {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 1px;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<!-- LEFT: Info -->
+<div class="info">
+  <div class="badge">
+    <div class="badge-dot"></div>
+    Portfolio · 2026
+  </div>
+  <div class="name">Dat<br><span>Nguyen</span></div>
+  <div class="desc">
+    Data Science + Economics · UCSD<br>
+    SWE Intern @ SEO · SDx Hackathon Winner
+  </div>
+  <div class="pills">
+    <div class="pill">React</div>
+    <div class="pill">Python</div>
+    <div class="pill">FastAPI</div>
+    <div class="pill">PyTorch</div>
+    <div class="pill">Next.js</div>
+    <div class="pill">Supabase</div>
+  </div>
+  <div class="tagline">Desktop: Windows 95 / 2000 · Mobile: iOS</div>
+</div>
+
+<!-- CENTER: Desktop (MacBook) -->
+<div class="desktop-device">
+  <div class="macbook-frame">
+    <div class="macbook-screen-bezel">
+      <div class="macbook-cam"></div>
+      <div class="macbook-screen">
+        <div class="win95-desktop">
+
+          <!-- Desktop icons -->
+          <div class="win95-icon" style="left:8px;top:6px">
+            <div class="win95-icon-img" style="background:#C0C0C0">
+              <svg viewBox="0 0 16 16" width="18" height="18"><rect x="1" y="2" width="14" height="9" fill="#000080"/><rect x="2" y="3" width="12" height="7" fill="#0078D7"/><rect x="1" y="11" width="14" height="2" fill="#808080"/><rect x="5" y="13" width="6" height="1" fill="#808080"/></svg>
+            </div>
+            <div class="win95-icon-label">About Me</div>
+          </div>
+          <div class="win95-icon" style="left:8px;top:66px">
+            <div class="win95-icon-img">
+              <svg viewBox="0 0 16 16" width="18" height="18"><path d="M2 2h8l4 4v8H2z" fill="#FFD700"/><path d="M10 2v4h4" fill="#FFA500"/><line x1="4" y1="9" x2="12" y2="9" stroke="#555" stroke-width="1"/><line x1="4" y1="11" x2="9" y2="11" stroke="#555" stroke-width="1"/></svg>
+            </div>
+            <div class="win95-icon-label">Projects</div>
+          </div>
+          <div class="win95-icon" style="left:8px;top:126px">
+            <div class="win95-icon-img">
+              <svg viewBox="0 0 16 16" width="18" height="18"><rect x="1" y="4" width="14" height="9" rx="1" fill="#C0C0C0" stroke="#808080"/><path d="M1 6l7 4 7-4" stroke="#000080" stroke-width="1" fill="none"/></svg>
+            </div>
+            <div class="win95-icon-label">Contact</div>
+          </div>
+          <div class="win95-icon" style="left:8px;top:186px">
+            <div class="win95-icon-img">
+              <svg viewBox="0 0 16 16" width="18" height="18"><rect x="2" y="1" width="9" height="13" fill="#FFFBE6" stroke="#808080"/><path d="M11 1v4h3" fill="#FFC200" stroke="#808080"/><line x1="4" y1="6" x2="10" y2="6" stroke="#555" stroke-width="1"/><line x1="4" y1="8" x2="10" y2="8" stroke="#555" stroke-width="1"/></svg>
+            </div>
+            <div class="win95-icon-label">Resume</div>
+          </div>
+          <div class="win95-icon" style="left:8px;top:246px">
+            <div class="win95-icon-img">
+              <svg viewBox="0 0 16 16" width="18" height="18"><path d="M8 1C4.5 1 2 3.5 2 7c0 3.5 2.9 6.5 5.5 7.5l.5.2.5-.2C11.1 13.5 14 10.5 14 7c0-3.5-2.5-6-6-6z" fill="#1B1F23"/><path d="M8 2.5C5.5 2.5 3.5 4.5 3.5 7c0 2.8 2 5.2 4 6.2 2-1 4-3.4 4-6.2 0-2.5-2-4.5-3.5-4.5z" fill="white"/></svg>
+            </div>
+            <div class="win95-icon-label">GitHub</div>
+          </div>
+
+          <!-- About window -->
+          <div class="win95-window" style="left:52px;top:10px;width:200px">
+            <div class="win95-titlebar">
+              <div class="win95-title-text">About Me — Dat Nguyen</div>
+              <div class="win95-btn">_</div>
+              <div class="win95-btn">□</div>
+              <div class="win95-btn">×</div>
+            </div>
+            <div class="win95-window-body">
+              <div class="about-win-body">
+                <div class="about-avatar">👤</div>
+                <div class="about-text">
+                  <h3>Dat Nguyen</h3>
+                  <p>Data Science + Economics</p>
+                  <p>UC San Diego · Junior</p>
+                  <p style="margin-top:4px;color:#000080">SWE Intern @ SEO</p>
+                </div>
+              </div>
+              <div style="margin-top:6px">
+                <div class="spec-row"><span>University</span><span>UC San Diego</span></div>
+                <div class="spec-row"><span>Major</span><span>DS + Econ</span></div>
+                <div class="spec-row"><span>Grad</span><span>June 2028</span></div>
+                <div class="spec-row" style="border:none"><span>Location</span><span>La Jolla, CA</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects window -->
+          <div class="win95-window" style="left:145px;top:120px;width:210px">
+            <div class="win95-titlebar">
+              <div class="win95-title-text">Projects — Dat Nguyen</div>
+              <div class="win95-btn">_</div>
+              <div class="win95-btn">□</div>
+              <div class="win95-btn">×</div>
+            </div>
+            <div class="win95-window-body">
+              <div class="proj-row">
+                <div class="proj-dot" style="background:#007AFF"></div>
+                <span style="font-weight:bold">Rewind.</span>
+                <span style="margin-left:auto;color:#007AFF">1st · SDx</span>
+              </div>
+              <div class="proj-row">
+                <div class="proj-dot" style="background:#5856D6"></div>
+                <span style="font-weight:bold">Atlas.</span>
+                <span style="margin-left:auto;color:#5856D6">RAG · AI</span>
+              </div>
+              <div class="proj-row">
+                <div class="proj-dot" style="background:#34C759"></div>
+                <span style="font-weight:bold">SpectraStruct</span>
+                <span style="margin-left:auto;color:#34C759">Hackathon</span>
+              </div>
+              <div class="proj-row">
+                <div class="proj-dot" style="background:#FF9500"></div>
+                <span style="font-weight:bold">IoT Monitor</span>
+                <span style="margin-left:auto;color:#FF9500">Engineering</span>
+              </div>
+              <div class="proj-row" style="border:none">
+                <div class="proj-dot" style="background:#AF52DE"></div>
+                <span style="font-weight:bold">SJ Housing</span>
+                <span style="margin-left:auto;color:#AF52DE">Data Sci</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="win95-taskbar">
+            <div class="win95-start">
+              <div class="win95-flag">
+                <div></div><div></div><div></div><div></div>
+              </div>
+              Start
+            </div>
+            <div style="height:22px;padding:0 8px;background:#C0C0C0;border:1px solid #000;box-shadow:inset 1px 1px 0 #fff, inset -1px -1px 0 #808080;font-size:9px;display:flex;align-items:center;">About Me</div>
+            <div style="height:22px;padding:0 8px;background:#C0C0C0;border:1px solid #000;box-shadow:inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;font-size:9px;display:flex;align-items:center;">Projects</div>
+            <div class="win95-clock">10:16 AM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="macbook-base"></div>
+    <div class="macbook-foot"></div>
+  </div>
+</div>
+
+<!-- RIGHT: iPhone -->
+<div class="mobile-device">
+  <div class="iphone-frame">
+    <div class="iphone-btn-right"></div>
+    <div class="iphone-btn-left1"></div>
+    <div class="iphone-btn-left2"></div>
+    <div class="iphone-btn-left3"></div>
+    <div class="iphone-notch"></div>
+    <div class="iphone-screen">
+
+      <!-- Status bar -->
+      <div class="ios-status">
+        <span>Dat.dev</span>
+        <span style="font-size:13px;font-weight:700">10:16</span>
+        <div style="display:flex;gap:3px;align-items:center">
+          <svg viewBox="0 0 14 14" width="11" height="11" fill="white"><path d="M2 8a9 9 0 0 1 10 0M4.5 10.5a5.5 5.5 0 0 1 5 0M7 13h.01" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 20 12" width="20" height="12" fill="none"><rect x="0" y="1" width="17" height="10" rx="2" stroke="white" stroke-width="1.3"/><rect x="1.5" y="2.5" width="11" height="7" rx="1" fill="white"/><line x1="19" y1="4" x2="19" y2="8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+
+      <!-- App grid -->
+      <div class="ios-grid">
+        <!-- About Me -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:linear-gradient(145deg,#4FC3F7,#0288D1)">
+            <svg viewBox="0 0 24 24" fill="white"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <div class="ios-label">About</div>
+        </div>
+        <!-- Experience -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:linear-gradient(145deg,#CE93D8,#7B1FA2)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="9" width="20" height="13" rx="2"/><path d="M16 9V7a4 4 0 0 0-8 0v2"/></svg>
+          </div>
+          <div class="ios-label">Experience</div>
+        </div>
+        <!-- Projects -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:linear-gradient(145deg,#81C784,#2E7D32)">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <div class="ios-label">Projects</div>
+        </div>
+        <!-- Resume -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:linear-gradient(145deg,#FFD54F,#F57F17)">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/></svg>
+          </div>
+          <div class="ios-label">Resume</div>
+        </div>
+        <!-- Contact -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:linear-gradient(145deg,#69F0AE,#00695C)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="ios-label">Contact</div>
+        </div>
+        <!-- Tetris -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:linear-gradient(145deg,#B39DDB,#5856D6)">
+            <svg viewBox="0 0 24 24" fill="white"><rect x="4" y="4" width="5" height="5" rx="1"/><rect x="10" y="4" width="5" height="5" rx="1"/><rect x="4" y="10" width="5" height="5" rx="1"/><rect x="15" y="10" width="5" height="5" rx="1"/><rect x="10" y="10" width="5" height="5" rx="1"/></svg>
+          </div>
+          <div class="ios-label">Tetris</div>
+        </div>
+        <!-- GitHub -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:#1B1F23">
+            <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </div>
+          <div class="ios-label">GitHub</div>
+        </div>
+        <!-- LinkedIn -->
+        <div class="ios-app">
+          <div class="ios-icon" style="background:#0A66C2">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="ios-label">LinkedIn</div>
+        </div>
+      </div>
+
+      <!-- Dock -->
+      <div class="ios-dock-wrap">
+        <div class="ios-dock">
+          <div class="ios-dock-icon" style="background:#1B1F23">
+            <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </div>
+          <div class="ios-dock-icon" style="background:linear-gradient(145deg,#4FC3F7,#0288D1)">
+            <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <div class="ios-dock-icon" style="background:linear-gradient(145deg,#69F0AE,#00695C)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="ios-dock-icon" style="background:#0A66C2">
+            <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="footer">datnguyen.dev · Built with React + Win95 CSS</div>
+
+</body>
+</html>
