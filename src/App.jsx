@@ -15,30 +15,33 @@ import ContactWindow from './windows/ContactWindow'
 import ResumeWindow from './windows/ResumeWindow'
 import RecycleBinWindow from './windows/RecycleBinWindow'
 import ExperienceWindow from './windows/ExperienceWindow'
+import MinesweeperWindow from './windows/MinesweeperWindow'
 import './App.css'
 
 let nextZ = 100
 
 const ICONS = {
   win95: {
-    computer:   '/icons/computer.svg',
-    documents:  '/icons/documents.svg',
-    inbox:      '/icons/inbox.svg',
-    briefcase:  '/icons/briefcase.svg',
-    recycle:    '/icons/recycle-bin.svg',
-    network:    '/icons/network.svg',
-    linkedin:   '/icons/linkedin.svg',
-    experience: '/icons/experience.svg',
+    computer:     '/icons/computer.svg',
+    documents:    '/icons/documents.svg',
+    inbox:        '/icons/inbox.svg',
+    briefcase:    '/icons/briefcase.svg',
+    recycle:      '/icons/recycle-bin.svg',
+    network:      '/icons/network.svg',
+    linkedin:     '/icons/linkedin.svg',
+    experience:   '/icons/experience.svg',
+    minesweeper:  '/icons/minesweeper.svg',
   },
   win2000: {
-    computer:   '/icons/computer-w2k.svg',
-    documents:  '/icons/documents-w2k.svg',
-    inbox:      '/icons/inbox-w2k.svg',
-    briefcase:  '/icons/briefcase-w2k.svg',
-    recycle:    '/icons/recycle-bin-w2k.svg',
-    network:    '/icons/network-w2k.svg',
-    linkedin:   '/icons/linkedin-w2k.svg',
-    experience: '/icons/experience-w2k.svg',
+    computer:     '/icons/computer-w2k.svg',
+    documents:    '/icons/documents-w2k.svg',
+    inbox:        '/icons/inbox-w2k.svg',
+    briefcase:    '/icons/briefcase-w2k.svg',
+    recycle:      '/icons/recycle-bin-w2k.svg',
+    network:      '/icons/network-w2k.svg',
+    linkedin:     '/icons/linkedin-w2k.svg',
+    experience:   '/icons/experience-w2k.svg',
+    minesweeper:  '/icons/minesweeper.svg',
   },
 }
 
@@ -93,20 +96,29 @@ function getWindowDefs(theme) {
       content: <ExperienceWindow />,
       statusBar: '6 roles · Work · Research · Leadership',
     },
+    minesweeper: {
+      title: 'Minesweeper',
+      icon: ic.minesweeper,
+      defaultSize: { w: 240, h: 320 },
+      defaultPosition: { x: 300, y: 80 },
+      content: <MinesweeperWindow />,
+      statusBar: 'Beginner · 9×9 · 10 mines · Left-click reveal · Right-click flag',
+    },
   }
 }
 
 function getDesktopIcons(theme) {
   const ic = ICONS[theme] ?? ICONS.win95
   return [
-    { id: 'about',    icon: ic.computer,  label: 'About Me' },
-    { id: 'projects', icon: ic.documents, label: 'Projects' },
-    { id: 'contact',  icon: ic.inbox,     label: 'Contact Me' },
-    { id: 'recycle',  icon: ic.recycle,   label: 'Recycle Bin' },
-    { id: 'resume',   icon: ic.briefcase, label: 'Resume / CV' },
-    { id: 'network',    icon: ic.network,    label: 'My GitHub' },
-    { id: 'linkedin',   icon: ic.linkedin,   label: 'LinkedIn' },
-    { id: 'experience', icon: ic.experience, label: 'Experience' },
+    { id: 'about',       icon: ic.computer,    label: 'About Me' },
+    { id: 'projects',    icon: ic.documents,   label: 'Projects' },
+    { id: 'contact',     icon: ic.inbox,       label: 'Contact Me' },
+    { id: 'recycle',     icon: ic.recycle,     label: 'Recycle Bin' },
+    { id: 'resume',      icon: ic.briefcase,   label: 'Resume / CV' },
+    { id: 'network',     icon: ic.network,     label: 'My GitHub' },
+    { id: 'linkedin',    icon: ic.linkedin,    label: 'LinkedIn' },
+    { id: 'experience',  icon: ic.experience,  label: 'Experience' },
+    { id: 'minesweeper', icon: ic.minesweeper, label: 'Minesweeper' },
   ]
 }
 
@@ -118,14 +130,15 @@ function makeWindow(id, theme) {
 
 // Initial icon grid — left column, 114px vertical spacing
 const INITIAL_ICON_POSITIONS = {
-  about:      { x: 16, y: 16 },
-  projects:   { x: 16, y: 130 },
-  experience: { x: 16, y: 244 },
-  contact:    { x: 16, y: 358 },
-  resume:     { x: 16, y: 472 },
-  recycle:    { x: 16, y: 586 },
-  network:    { x: 130, y: 16 },
-  linkedin:   { x: 130, y: 130 },
+  about:        { x: 16, y: 16 },
+  projects:     { x: 16, y: 130 },
+  experience:   { x: 16, y: 244 },
+  contact:      { x: 16, y: 358 },
+  resume:       { x: 16, y: 472 },
+  recycle:      { x: 16, y: 586 },
+  network:      { x: 130, y: 16 },
+  linkedin:     { x: 130, y: 130 },
+  minesweeper:  { x: 130, y: 244 },
 }
 
 // Icon bounding box for hit-testing against selection rect

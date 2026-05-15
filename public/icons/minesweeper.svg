@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#C0C0C0"/>
+  <!-- Raised border -->
+  <path d="M0,0 H32 V2 H2 V30 H0 Z" fill="#FFFFFF"/>
+  <path d="M32,32 H0 V30 H30 V2 H32 Z" fill="#808080"/>
+
+  <!-- Grid cells (revealed) -->
+  <rect x="4" y="4" width="11" height="11" fill="#C0C0C0"/>
+  <path d="M4,4 H15 V5 H5 V15 H4 Z" fill="#808080"/>
+  <path d="M15,15 H4 V14 H14 V4 H15 Z" fill="#FFFFFF"/>
+
+  <!-- Unrevealed cell -->
+  <rect x="17" y="4" width="11" height="11" fill="#C0C0C0"/>
+  <path d="M17,4 H28 V5 H18 V15 H17 Z" fill="#FFFFFF"/>
+  <path d="M28,15 H17 V14 H27 V4 H28 Z" fill="#808080"/>
+
+  <!-- Number 3 in revealed cell -->
+  <text x="9" y="13" font-family="Arial" font-size="8" font-weight="bold" fill="#FF0000" text-anchor="middle">3</text>
+
+  <!-- Mine in bottom-left cell -->
+  <rect x="4" y="17" width="11" height="11" fill="#C0C0C0"/>
+  <path d="M4,17 H15 V18 H5 V28 H4 Z" fill="#808080"/>
+  <path d="M15,28 H4 V27 H14 V17 H15 Z" fill="#FFFFFF"/>
+  <!-- Mine body -->
+  <circle cx="9" cy="22" r="3" fill="#000000"/>
+  <line x1="9" y1="18" x2="9" y2="26" stroke="#000" stroke-width="1"/>
+  <line x1="5" y1="22" x2="13" y2="22" stroke="#000" stroke-width="1"/>
+  <line x1="6.5" y1="19.5" x2="11.5" y2="24.5" stroke="#000" stroke-width="1"/>
+  <line x1="11.5" y1="19.5" x2="6.5" y2="24.5" stroke="#000" stroke-width="1"/>
+  <circle cx="7.5" cy="20.5" r="1" fill="#FFFFFF"/>
+
+  <!-- Flag in bottom-right cell -->
+  <rect x="17" y="17" width="11" height="11" fill="#C0C0C0"/>
+  <path d="M17,17 H28 V18 H18 V28 H17 Z" fill="#FFFFFF"/>
+  <path d="M28,28 H17 V27 H27 V17 H28 Z" fill="#808080"/>
+  <!-- Flag pole -->
+  <line x1="22" y1="20" x2="22" y2="26" stroke="#000" stroke-width="1.5"/>
+  <!-- Flag -->
+  <polygon points="22,20 27,22 22,24" fill="#FF0000"/>
+  <!-- Base -->
+  <line x1="20" y1="27" x2="24" y2="27" stroke="#000" stroke-width="1.5"/>
+</svg>

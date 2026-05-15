@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
-import AboutWindow      from '../windows/AboutWindow'
-import ProjectsWindow   from '../windows/ProjectsWindow'
-import ContactWindow    from '../windows/ContactWindow'
-import ResumeWindow     from '../windows/ResumeWindow'
-import ExperienceWindow from '../windows/ExperienceWindow'
-import RecycleBinWindow from '../windows/RecycleBinWindow'
+import {
+  AboutContent,
+  ExperienceContent,
+  ProjectsContent,
+  ContactContent,
+  ResumeContent,
+} from './MobileContent'
+import TetrisContent from './TetrisContent'
 import './MobileLayout.css'
 
 function useTime() {
@@ -23,42 +25,42 @@ const APPS = [
     label: 'About Me',
     bg: 'linear-gradient(145deg,#4FC3F7,#0288D1)',
     icon: <PersonIcon />,
-    content: <AboutWindow />,
+    content: <AboutContent />,
   },
   {
     id: 'experience',
     label: 'Experience',
     bg: 'linear-gradient(145deg,#CE93D8,#7B1FA2)',
     icon: <BriefcaseIcon />,
-    content: <ExperienceWindow />,
+    content: <ExperienceContent />,
   },
   {
     id: 'projects',
     label: 'Projects',
     bg: 'linear-gradient(145deg,#81C784,#2E7D32)',
     icon: <FolderIcon />,
-    content: <ProjectsWindow />,
+    content: <ProjectsContent />,
   },
   {
     id: 'resume',
     label: 'Resume',
     bg: 'linear-gradient(145deg,#FFD54F,#F57F17)',
     icon: <DocIcon />,
-    content: <ResumeWindow />,
+    content: <ResumeContent />,
   },
   {
     id: 'contact',
     label: 'Contact',
     bg: 'linear-gradient(145deg,#69F0AE,#00695C)',
     icon: <MailIcon />,
-    content: <ContactWindow />,
+    content: <ContactContent />,
   },
   {
-    id: 'recycle',
-    label: 'Recycle Bin',
-    bg: 'linear-gradient(145deg,#90A4AE,#37474F)',
-    icon: <TrashIcon />,
-    content: <RecycleBinWindow />,
+    id: 'tetris',
+    label: 'Tetris',
+    bg: 'linear-gradient(145deg,#B39DDB,#5856D6)',
+    icon: <TetrisIcon />,
+    content: <TetrisContent />,
   },
 ]
 
@@ -241,6 +243,16 @@ function LinkedInIcon() {
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
     <rect x="2" y="9" width="4" height="12"/>
     <circle cx="4" cy="4" r="2"/>
+  </svg>
+}
+function TetrisIcon() {
+  return <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+    <rect x="4" y="4" width="5" height="5" rx="1"/>
+    <rect x="10" y="4" width="5" height="5" rx="1"/>
+    <rect x="4" y="10" width="5" height="5" rx="1"/>
+    <rect x="15" y="10" width="5" height="5" rx="1"/>
+    <rect x="10" y="10" width="5" height="5" rx="1"/>
+    <rect x="10" y="16" width="5" height="5" rx="1"/>
   </svg>
 }
 function WifiIcon() {
