@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import useMobile from './hooks/useMobile'
-import { playClick, playClickW2k } from './utils/sound'
+import { getClickSound } from './utils/sound'
 import MobileLayout from './mobile/MobileLayout'
 import Window from './components/Window'
 import DesktopIcon from './components/DesktopIcon'
@@ -180,7 +180,7 @@ export default function App() {
   // Global click sound — desktop only
   useEffect(() => {
     if (isMobile) return
-    const handler = () => theme === 'win2000' ? playClickW2k() : playClick()
+    const handler = () => getClickSound(theme)()
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
   }, [theme, isMobile])
@@ -459,6 +459,7 @@ export default function App() {
               onDragStart={handleIconDragStart}
               onDrag={handleIconDrag}
               onDragStop={handleIconDragStop}
+              playSound={getClickSound(theme)}
             />
           ))}
         </div>

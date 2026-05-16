@@ -13,9 +13,10 @@ export default function DesktopIcon({
   onDragStart,
   onDrag,
   onDragStop,
+  playSound,
 }) {
-  const nodeRef    = useRef(null)
-  const didDrag    = useRef(false)
+  const nodeRef = useRef(null)
+  const didDrag = useRef(false)
 
   function handleMouseDown(e) {
     e.stopPropagation()
@@ -34,6 +35,7 @@ export default function DesktopIcon({
       position={position}
       onStart={(e, data) => {
         e.stopPropagation()
+        playSound?.()
         didDrag.current = false
         onDragStart?.(id, { x: data.x, y: data.y })
       }}
