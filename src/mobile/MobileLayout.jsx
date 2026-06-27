@@ -220,12 +220,14 @@ function FolderIcon() {
   </svg>
 }
 function DocIcon() {
-  return <svg viewBox="0 0 24 24" fill="#fff" width="29" height="29">
-    <path d="M6.4 3h6.3L18 8.3V19a2 2 0 0 1-2 2H6.4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
-    <path d="M12.6 3.2v3.9a1 1 0 0 0 1 1h3.7z" fill="rgba(0,0,0,0.20)"/>
-    <rect x="7.4" y="11.6" width="8.8" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
-    <rect x="7.4" y="14.4" width="8.8" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
-    <rect x="7.4" y="17.2" width="5.6" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
+  return <svg viewBox="0 0 24 24" width="29" height="29">
+    <rect x="5" y="3" width="14" height="18" rx="2.3" fill="#fff"/>
+    <circle cx="9" cy="8" r="2.4" fill="rgba(0,0,0,0.30)"/>
+    <rect x="12.6" y="6.6" width="4.4" height="1.7" rx="0.85" fill="rgba(0,0,0,0.30)"/>
+    <rect x="12.6" y="9.4" width="3" height="1.4" rx="0.7" fill="rgba(0,0,0,0.20)"/>
+    <rect x="7" y="13.9" width="10" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
+    <rect x="7" y="16.5" width="10" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
+    <rect x="7" y="19.1" width="6.4" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
   </svg>
 }
 function MailIcon() {
