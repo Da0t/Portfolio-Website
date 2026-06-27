@@ -1,36 +1,47 @@
-/* ── Base screen ────────────────────────────────────────────── */
+/* ════════════════════════════════════════════════════════════════
+   Classic iPhone content — skeuomorphic grouped table views, Aqua
+   gloss buttons, embossed headers. See DESIGN.md "Mobile Design System".
+   Class names are shared with MobileLayout tokens (--ios-*).
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Base screen — transparent so the pinstripe shows through ── */
 .ios-screen {
   padding: 16px 0 40px;
   min-height: 100%;
-  background: #F2F2F7;
+  background: transparent;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* ── Section ────────────────────────────────────────────────── */
+/* ── Section + embossed header ──────────────────────────────── */
 .ios-section {
-  margin: 0 0 28px;
+  margin: 0 0 22px;
 }
 
 .ios-section-label {
   font-size: 13px;
-  font-weight: 400;
-  color: #6C6C70;
+  font-weight: 700;
+  color: var(--ios-header-text);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 0 20px 6px;
+  letter-spacing: 0.3px;
+  padding: 0 22px 7px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.85);
 }
 
+/* ── Grouped table container ────────────────────────────────── */
 .ios-card {
-  background: #fff !important;
-  border-radius: 12px !important;
-  margin: 0 16px;
+  margin: 0 14px;
+  border-radius: 10px !important;
+  border: 1px solid var(--ios-cell-border);
+  background: linear-gradient(to bottom, #fdfdfe, var(--ios-cell-bottom));
+  box-shadow: 0 1px 1px rgba(0,0,0,0.13), inset 0 1px 0 rgba(255,255,255,0.95);
   overflow: hidden;
 }
 
-/* ── Row ────────────────────────────────────────────────────── */
+/* ── Row (table cell) ───────────────────────────────────────── */
 .ios-row {
   display: flex;
   align-items: center;
-  padding: 11px 16px;
+  padding: 11px 14px 11px 16px;
   min-height: 44px;
   gap: 12px;
   border-radius: 0 !important;
@@ -42,8 +53,14 @@
   color: inherit;
 }
 
+/* classic blue selection highlight */
 .ios-row-link:active .ios-row {
-  background: #E5E5EA;
+  background: linear-gradient(to bottom, #058cff, #0461d6);
+}
+.ios-row-link:active .ios-row-label,
+.ios-row-link:active .ios-row-value,
+.ios-row-link:active .ios-chevron {
+  color: #fff;
 }
 
 .ios-row-icon {
@@ -64,30 +81,33 @@
 }
 
 .ios-row-label {
-  font-size: 17px;
-  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ios-text);
 }
 
 .ios-row-value {
   font-size: 15px;
-  color: #8E8E93;
+  color: #5b6675;
   text-align: right;
 }
 
 .ios-chevron {
-  color: #C7C7CC;
+  color: #9aa3b0;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   flex-shrink: 0;
 }
 
+/* embossed hairline separator */
 .ios-divider {
-  height: 0.5px;
-  background: #C6C6C8;
-  margin-left: 56px;
+  height: 1px;
+  background: #cbd0d8;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.85);
+  margin-left: 16px;
 }
 
-/* ── Tag ────────────────────────────────────────────────────── */
+/* ── Glossy pill tag ────────────────────────────────────────── */
 .ios-tags-wrap {
   display: flex;
   flex-wrap: wrap;
@@ -95,10 +115,13 @@
 }
 
 .ios-tag {
-  font-size: 13px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 20px !important;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 999px !important;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 1px 1px rgba(0,0,0,0.06);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
 }
 
 /* ── About: Hero ────────────────────────────────────────────── */
@@ -106,36 +129,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 28px 20px 24px;
+  padding: 26px 20px 22px;
   text-align: center;
 }
 
 .ios-avatar {
-  width: 96px;
-  height: 96px;
+  width: 92px;
+  height: 92px;
   border-radius: 50% !important;
   object-fit: cover;
   border: 3px solid #fff;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.35),
+    inset 0 2px 4px rgba(255,255,255,0.6),
+    0 0 0 1px rgba(0,0,0,0.2);
   margin-bottom: 12px;
 }
 
 .ios-profile-name {
-  font-size: 26px;
+  font-size: 25px;
   font-weight: 700;
-  color: #000;
+  color: #1a2230;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
   margin-bottom: 4px;
 }
 
 .ios-profile-sub {
   font-size: 15px;
-  color: #6C6C70;
+  color: var(--ios-text-sub);
   margin-bottom: 2px;
 }
 
 .ios-profile-sub2 {
-  font-size: 14px;
-  color: #6C6C70;
+  font-size: 13px;
+  color: var(--ios-text-sub);
   margin-bottom: 16px;
 }
 
@@ -144,36 +171,48 @@
   gap: 10px;
 }
 
+/* silver glossy button */
 .ios-social-btn {
-  font-size: 15px;
-  font-weight: 600;
-  color: #007AFF;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1c2530;
   text-decoration: none;
-  padding: 8px 20px;
-  border-radius: 20px !important;
-  background: rgba(0,122,255,0.1);
+  padding: 9px 20px;
+  border-radius: 9px !important;
+  background: linear-gradient(to bottom, #fdfefe 0%, #d3dae2 50%, #c2cad5 100%);
+  border: 1px solid #8b93a1;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 1px 1px rgba(0,0,0,0.2);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
 }
 
+.ios-social-btn:active { background: linear-gradient(to bottom, #c2cad5, #d3dae2); }
+
+/* blue Aqua button */
 .ios-social-btn-blue {
-  background: #007AFF !important;
-  color: #fff;
+  color: #fff !important;
+  background: linear-gradient(to bottom, var(--ios-blue-top) 0%, var(--ios-blue-bottom) 50%, #2360c8 100%) !important;
+  border: 1px solid #1c4f9c !important;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.4) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 1px 1px rgba(0,0,0,0.25) !important;
 }
 
 /* ── About: Bio ─────────────────────────────────────────────── */
 .ios-bio-text {
   font-size: 15px;
   line-height: 1.6;
-  color: #3C3C43;
+  color: #2c3440;
   padding: 14px 16px;
 }
 
-/* ── Experience cards ───────────────────────────────────────── */
-.ios-exp-card {
-  background: #fff !important;
-  border-radius: 14px !important;
-  margin: 0 16px 14px;
-  padding: 16px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+/* ── Skeuomorphic card (experience / projects) ──────────────── */
+.ios-exp-card,
+.ios-project-card {
+  margin: 0 14px 14px;
+  padding: 15px;
+  border-radius: 12px !important;
+  border: 1px solid var(--ios-cell-border);
+  background: linear-gradient(to bottom, #ffffff, #f0f2f5);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.95);
   overflow: hidden;
 }
 
@@ -187,56 +226,48 @@
 .ios-exp-icon-wrap {
   width: 44px;
   height: 44px;
-  border-radius: 11px !important;
+  border-radius: 10px !important;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 1px rgba(0,0,0,0.12);
 }
 
-.ios-exp-meta {
-  flex: 1;
-}
+.ios-exp-meta { flex: 1; }
 
 .ios-exp-role {
   font-size: 16px;
-  font-weight: 600;
-  color: #000;
+  font-weight: 700;
+  color: #1a2230;
   margin-bottom: 2px;
 }
 
 .ios-exp-org {
   font-size: 14px;
-  color: #3C3C43;
+  color: #36404e;
   margin-bottom: 2px;
 }
 
 .ios-exp-period {
   font-size: 13px;
-  color: #8E8E93;
+  color: #7b8593;
 }
 
 .ios-exp-bullets {
-  padding-left: 20px;
+  padding-left: 18px;
   margin: 0;
 }
 
 .ios-exp-bullets li {
   font-size: 14px;
-  line-height: 1.6;
-  color: #3C3C43;
+  line-height: 1.55;
+  color: #36404e;
   margin-bottom: 3px;
 }
 
-/* ── Project cards ──────────────────────────────────────────── */
-.ios-project-card {
-  background: #fff !important;
-  border-radius: 14px !important;
-  margin: 0 16px 14px;
-  padding: 16px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-}
-
+/* ── Project card specifics ─────────────────────────────────── */
 .ios-project-header {
   display: flex;
   align-items: flex-start;
@@ -245,22 +276,24 @@
 }
 
 .ios-project-dot {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   border-radius: 50% !important;
   margin-top: 4px;
   flex-shrink: 0;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.7), 0 1px 1px rgba(0,0,0,0.25);
 }
 
 .ios-project-name {
   font-size: 17px;
   font-weight: 700;
-  color: #000;
+  color: #1a2230;
   margin-bottom: 2px;
 }
 
 .ios-project-cat {
   font-size: 13px;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -269,7 +302,7 @@
 .ios-project-desc {
   font-size: 14px;
   line-height: 1.55;
-  color: #3C3C43;
+  color: #36404e;
   margin: 0 0 12px;
 }
 
@@ -279,19 +312,24 @@
   margin-top: 12px;
 }
 
+/* glossy action buttons */
 .ios-action-btn {
-  font-size: 14px;
-  font-weight: 600;
-  color: #007AFF;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
   text-decoration: none;
   padding: 8px 16px;
-  border-radius: 10px !important;
-  background: rgba(0,122,255,0.1);
+  border-radius: 9px !important;
+  background: linear-gradient(to bottom, var(--ios-blue-top) 0%, var(--ios-blue-bottom) 50%, #2360c8 100%);
+  border: 1px solid #1c4f9c;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 1px 1px rgba(0,0,0,0.25);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
 }
 
 .ios-action-btn-alt {
-  color: #34C759;
-  background: rgba(52,199,89,0.1) !important;
+  background: linear-gradient(to bottom, #74d27e 0%, #2faa45 50%, #239a3a 100%) !important;
+  border: 1px solid #1c7a30 !important;
+  color: #fff !important;
 }
 
 /* ── Contact hero ───────────────────────────────────────────── */
@@ -299,14 +337,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 28px 20px 20px;
+  padding: 26px 20px 18px;
 }
 
 .ios-contact-avatar {
   width: 72px;
   height: 72px;
   border-radius: 50% !important;
-  background: linear-gradient(135deg, #007AFF, #5856D6);
+  background: linear-gradient(to bottom, #6aa4ec, #2b6fd6 55%, #2360c8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,18 +352,24 @@
   font-weight: 700;
   color: #fff;
   margin-bottom: 10px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.35);
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,0.55),
+    0 2px 5px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(0,0,0,0.2);
 }
 
 .ios-contact-name {
   font-size: 22px;
   font-weight: 700;
-  color: #000;
+  color: #1a2230;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
   margin-bottom: 4px;
 }
 
 .ios-contact-sub {
   font-size: 14px;
-  color: #8E8E93;
+  color: #7b8593;
 }
 
 /* ── Resume ─────────────────────────────────────────────────── */
@@ -333,32 +377,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 20px 20px;
+  padding: 24px 20px 18px;
   text-align: center;
 }
 
 .ios-resume-name {
   font-size: 24px;
   font-weight: 700;
-  color: #000;
+  color: #1a2230;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
   margin-bottom: 4px;
 }
 
 .ios-resume-contact {
-  font-size: 13px;
-  color: #8E8E93;
+  font-size: 12px;
+  color: #7b8593;
   margin-bottom: 14px;
+  padding: 0 16px;
 }
 
+/* big glossy Aqua download button */
 .ios-dl-btn {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   color: #fff;
   text-decoration: none;
   padding: 11px 28px;
-  border-radius: 22px !important;
-  background: #007AFF;
+  border-radius: 10px !important;
+  background: linear-gradient(to bottom, var(--ios-blue-top) 0%, var(--ios-blue-bottom) 50%, #2360c8 100%);
+  border: 1px solid #1c4f9c;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
 }
+
+.ios-dl-btn:active { background: linear-gradient(to bottom, #2360c8, var(--ios-blue-top)); }
 
 .ios-resume-block {
   padding: 12px 16px;
@@ -366,20 +418,20 @@
 
 .ios-resume-title {
   font-size: 16px;
-  font-weight: 600;
-  color: #000;
+  font-weight: 700;
+  color: #1a2230;
   margin-bottom: 2px;
 }
 
 .ios-resume-sub {
   font-size: 14px;
-  color: #3C3C43;
+  color: #36404e;
   margin-bottom: 2px;
 }
 
 .ios-resume-period {
   font-size: 13px;
-  color: #8E8E93;
+  color: #7b8593;
 }
 
 /* ── Recycle easter egg ─────────────────────────────────────── */
@@ -387,19 +439,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 28px 20px 16px;
+  padding: 26px 20px 16px;
   gap: 6px;
 }
 
 .ios-recycle-icon-wrap {
   width: 72px;
   height: 72px;
-  border-radius: 18px !important;
-  background: #E5E5EA;
+  border-radius: 16px !important;
+  background: linear-gradient(to bottom, #eef0f3, #cfd5dd);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 4px;
+  border: 1px solid #a7adb8;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.18);
 }
 
 .ios-recycle-icon-wrap svg {
@@ -410,12 +464,13 @@
 .ios-recycle-title {
   font-size: 22px;
   font-weight: 700;
-  color: #000;
+  color: #1a2230;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
 }
 
 .ios-recycle-sub {
   font-size: 14px;
-  color: #8E8E93;
+  color: #7b8593;
 }
 
 .ios-recycle-row {
@@ -428,27 +483,31 @@
 
 .ios-recycle-filename {
   font-size: 15px;
-  color: #000;
+  font-weight: 500;
+  color: #1a2230;
   margin-bottom: 2px;
 }
 
 .ios-recycle-date {
   font-size: 13px;
-  color: #8E8E93;
+  color: #7b8593;
 }
 
 .ios-recycle-badge {
   font-size: 12px;
-  font-weight: 600;
-  color: #FF3B30;
-  background: rgba(255,59,48,0.1) !important;
-  padding: 3px 9px;
-  border-radius: 12px !important;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(to bottom, #ff6b62, #e0392e) !important;
+  border: 1px solid #b62a22;
+  padding: 3px 10px;
+  border-radius: 999px !important;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
 .ios-recycle-tip {
   font-size: 13px;
-  color: #8E8E93;
+  color: #7b8593;
   text-align: center;
   padding: 12px 20px 0;
 }

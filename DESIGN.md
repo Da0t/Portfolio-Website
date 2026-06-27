@@ -565,6 +565,88 @@ The classic "Luna" theme — the most iconic Windows aesthetic ever shipped.
 
 ---
 
+## Mobile Design System — Classic iPhone (Skeuomorphic, iOS 1–6)
+
+### Scope & Override Rule
+The Win95 / Win2000 / WinXP rules above govern the **desktop** experience only. On touch devices the portfolio renders a separate, fully **skeuomorphic early-iPhone** interface — original iPhone through iOS 6: Aqua gloss, linen/pinstripe, lickable buttons, reflective dock. Inside `src/mobile/**` these desktop rules are intentionally **inverted**:
+
+| Desktop rule | Mobile override |
+|---|---|
+| `border-radius: 0` | Rounded corners everywhere (icons 12px, groups 10px, buttons 9px, pills 999px) |
+| No transitions/animations | iOS micro-interactions allowed (tap scale ~0.1s, app-open zoom 0.22s) |
+| Hard shadows only | Soft drop shadows **and** glossy specular highlights are required |
+| MS Sans Serif | Helvetica Neue / Helvetica |
+| Flat fills | Gradients, gloss overlays, bevels, and textures are the whole point |
+
+**Memorable Thing (mobile):** "This is a 2008 iPhone, and it happens to be running someone's résumé." If it looks flat or modern (iOS 7+), it's wrong.
+
+### Typography
+- Stack: `"Helvetica Neue", Helvetica, Arial, sans-serif`. **Do NOT** use `-apple-system` / `SF Pro` — it renders as modern flat iOS and breaks the era.
+- Nav bar title: 17px bold, white, `text-shadow: 0 -1px 0 rgba(0,0,0,0.5)` (engraved).
+- Body 15px · list labels 17px · captions 13px · headings 700.
+
+### Color & Material Tokens (mobile-only)
+```css
+/* applies inside .ipod-root / .ios-screen */
+--ios-pinstripe-bg:  #c5ccd3;   /* grouped-table page background (blue-gray) */
+--ios-cell-top:      #ffffff;
+--ios-cell-bottom:   #eef0f3;   /* cell vertical gradient */
+--ios-cell-border:   #a7adb8;   /* hairline group border */
+--ios-navbar-top:    #8ea3c1;   /* Aqua nav bar gradient */
+--ios-navbar-bottom: #43598a;
+--ios-navbar-edge:   #2b3d61;
+--ios-blue-top:      #6aa4ec;   /* glossy blue button */
+--ios-blue-bottom:   #2b6fd6;
+--ios-text:          #000000;
+--ios-text-sub:      #4c5564;
+--ios-header-text:   #41506a;   /* embossed section headers */
+```
+
+### Skeuomorphic Recipes (reuse, don't reinvent)
+**Glossy app icon** — colored gradient fill + curved top shine:
+```css
+.icon  { border-radius:12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.55), inset 0 0 0 1px rgba(0,0,0,.22); }
+.gloss { position:absolute; left:0; right:0; top:0; height:50%;
+  border-radius:12px 12px 40px 40px / 12px 12px 22px 22px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.6), rgba(255,255,255,.1)); }
+```
+**Aqua button** — blue gloss, engraved label:
+```css
+background: linear-gradient(to bottom,#6aa4ec 0%,#2b6fd6 50%,#2360c8 100%);
+box-shadow: inset 0 1px 0 rgba(255,255,255,.6), 0 1px 1px rgba(0,0,0,.3);
+border:1px solid rgba(0,0,0,.35); border-radius:9px; color:#fff; text-shadow:0 -1px 0 rgba(0,0,0,.4);
+/* + a ::before top-half white→transparent gloss overlay */
+```
+**Grouped table** — pinstripe page, rounded white group, embossed header:
+```css
+.page  { background:#c5ccd3; }
+.group { border:1px solid #a7adb8; border-radius:10px; box-shadow:0 1px 0 rgba(255,255,255,.7);
+         background: linear-gradient(#ffffff,#eef0f3); }
+.header{ color:#41506a; text-transform:uppercase; font-weight:700; text-shadow:0 1px 0 rgba(255,255,255,.85); }
+.divider{ border-top:1px solid #c7ccd4; box-shadow:0 1px 0 rgba(255,255,255,.8); }
+```
+**Reflective dock** — glass shelf pinned to the bottom:
+```css
+.dock { border-radius:18px 18px 0 0; border-top:1px solid rgba(255,255,255,.6);
+  background: linear-gradient(to bottom, rgba(255,255,255,.38), rgba(150,160,175,.1));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.55); backdrop-filter: blur(6px); }
+```
+
+### Home Screen (Springboard)
+- **Wallpaper:** dark — black/navy radial glow so the glossy colored icons pop. Never a bright modern photo.
+- **Status bar:** white glyphs over a faint dark gradient strip; carrier left, time, signal/Wi-Fi/battery right.
+- **Icon grid:** 4 across; glossy icons + white labels with a 1px black text-shadow.
+- **Dock:** reflective glass shelf, ≤4 icons.
+- **App open:** zoom-in (~0.22s) from the springboard; the ‹ Back/Home button returns.
+
+### Navigation (in-app)
+- Top **Aqua nav bar** (blue gloss gradient + 1px top highlight) with an engraved title and a beveled glossy **‹ Home** button on the left.
+- Content scrolls on the pinstripe background as grouped table views or skeuomorphic cards.
+- Touch targets ≥ 44×44px; press feedback within ~100ms via opacity/scale.
+
+---
+
 ## Decisions Log
 
 | Date | Decision | Rationale |
@@ -576,3 +658,4 @@ The classic "Luna" theme — the most iconic Windows aesthetic ever shipped.
 | 2026-05-14 | cursor: default everywhere | Win95 did not use pointer cursors — it's a subtle but critical authenticity detail |
 | 2026-05-14 | OS upgrade path via Windows Update | Adds interactivity and shows progression through Windows history as an easter egg |
 | 2026-05-14 | Win2000 reuses Win95 chrome exactly | Only desktop color + title bar gradient change — everything else is identical |
+| 2026-06-26 | Mobile = skeuomorphic early-iPhone (iOS 1–6), not flat modern iOS | The flat iOS 7+ look clashed with the retro desktop and read as generic; Aqua gloss + pinstripe matches the "old computer" thesis and is intentionally allowed to break the desktop's no-radius / no-gloss rules |

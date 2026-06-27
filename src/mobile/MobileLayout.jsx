@@ -152,12 +152,14 @@ export default function MobileLayout() {
               ? <a key={d.id} href={d.href} target="_blank" rel="noreferrer" className="ipod-dock-item">
                   <div className="ipod-dock-icon squircle" style={{ background: d.bg }}>
                     {d.icon}
+                    <div className="squircle-gloss" />
                   </div>
                   <span className="ipod-dock-label">{d.label}</span>
                 </a>
               : <button key={d.id} className="ipod-dock-item" onClick={() => openApp(d.appId)}>
                   <div className="ipod-dock-icon squircle" style={{ background: d.bg }}>
                     {d.icon}
+                    <div className="squircle-gloss" />
                   </div>
                   <span className="ipod-dock-label">{d.label}</span>
                 </button>
@@ -169,10 +171,10 @@ export default function MobileLayout() {
       {open && activeApp && (
         <div className="ipod-app-screen">
           {/* App nav bar */}
-          <div className="ipod-app-navbar" style={{ background: activeApp.bg }}>
+          <div className="ipod-app-navbar">
             <button className="ipod-back-btn" onClick={closeApp}>‹ Home</button>
             <span className="ipod-app-title">{activeApp.label}</span>
-            <div style={{ width: 60 }} />
+            <div style={{ width: 64 }} />
           </div>
           {/* Content */}
           <div className="ipod-app-content">
