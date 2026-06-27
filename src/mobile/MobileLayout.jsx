@@ -201,36 +201,37 @@ function AppIcon({ label, bg, icon, onTap }) {
 
 // ── SVG icons ────────────────────────────────────────────────
 function PersonIcon() {
-  return <svg viewBox="0 0 24 24" fill="white" width="30" height="30">
-    <circle cx="12" cy="8" r="4"/>
-    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+  return <svg viewBox="0 0 24 24" fill="#fff" width="30" height="30">
+    <circle cx="12" cy="8" r="4.3"/>
+    <path d="M12 13.4c-4.4 0-7.4 2.5-7.4 5.4 0 .66.45 1.2 1.1 1.2h12.6c.67 0 1.1-.54 1.1-1.2 0-2.9-3-5.4-7.4-5.4z"/>
   </svg>
 }
 function BriefcaseIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="30" height="30">
-    <rect x="2" y="9" width="20" height="13" rx="2"/>
-    <path d="M16 9V7a4 4 0 0 0-8 0v2"/>
-    <line x1="12" y1="13" x2="12" y2="17"/>
-    <line x1="2" y1="14" x2="22" y2="14"/>
+  return <svg viewBox="0 0 24 24" fill="#fff" width="30" height="30">
+    <path d="M9.2 3.6h5.6a2.1 2.1 0 0 1 2.1 2.1v1.7h-2V5.9a.4.4 0 0 0-.4-.4H9.5a.4.4 0 0 0-.4.4v1.5h-2V5.7a2.1 2.1 0 0 1 2.1-2.1z"/>
+    <rect x="2.6" y="7.4" width="18.8" height="12.6" rx="2.3"/>
+    <rect x="10.3" y="11.8" width="3.4" height="3.1" rx="0.7" fill="rgba(0,0,0,0.28)"/>
   </svg>
 }
 function FolderIcon() {
-  return <svg viewBox="0 0 24 24" fill="white" width="30" height="30">
-    <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  return <svg viewBox="0 0 24 24" fill="#fff" width="31" height="31">
+    <path d="M3 7.1A1.7 1.7 0 0 1 4.7 5.4h4.1l2.1 2.1h6.4A1.7 1.7 0 0 1 19 9.2v.6H3z" fill="rgba(255,255,255,0.82)"/>
+    <path d="M2.6 9.6h18.8a1 1 0 0 1 .98 1.2l-1.45 6.9A1.6 1.6 0 0 1 19.36 19H4.3A1.6 1.6 0 0 1 2.6 17.4z"/>
   </svg>
 }
 function DocIcon() {
-  return <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8" stroke="rgba(0,0,0,0.3)" strokeWidth="2" fill="none"/>
-    <line x1="8" y1="13" x2="16" y2="13" stroke="rgba(0,0,0,0.25)" strokeWidth="1.5"/>
-    <line x1="8" y1="17" x2="13" y2="17" stroke="rgba(0,0,0,0.25)" strokeWidth="1.5"/>
+  return <svg viewBox="0 0 24 24" fill="#fff" width="29" height="29">
+    <path d="M6.4 3h6.3L18 8.3V19a2 2 0 0 1-2 2H6.4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+    <path d="M12.6 3.2v3.9a1 1 0 0 0 1 1h3.7z" fill="rgba(0,0,0,0.20)"/>
+    <rect x="7.4" y="11.6" width="8.8" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
+    <rect x="7.4" y="14.4" width="8.8" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
+    <rect x="7.4" y="17.2" width="5.6" height="1.5" rx="0.75" fill="rgba(0,0,0,0.24)"/>
   </svg>
 }
 function MailIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="30" height="30">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-    <polyline points="22,6 12,13 2,6"/>
+  return <svg viewBox="0 0 24 24" fill="#fff" width="31" height="31">
+    <rect x="2.6" y="5.6" width="18.8" height="12.8" rx="2.6"/>
+    <path d="M3.8 7.8l8.2 5.9 8.2-5.9" fill="none" stroke="rgba(0,0,0,0.30)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 }
 function TrashIcon() {
@@ -247,20 +248,18 @@ function GithubIcon() {
   </svg>
 }
 function LinkedInIcon() {
-  return <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect x="2" y="9" width="4" height="12"/>
-    <circle cx="4" cy="4" r="2"/>
+  return <svg viewBox="0 0 24 24" fill="#fff" width="29" height="29">
+    <rect x="3" y="8.8" width="3.5" height="11.2" rx="0.4"/>
+    <circle cx="4.75" cy="4.8" r="2.15"/>
+    <path d="M9 8.8h3.35v1.55h.05a3.7 3.7 0 0 1 3.3-1.78c3.05 0 4.3 1.95 4.3 4.85V20h-3.5v-5.35c0-1.32-.46-2.27-1.78-2.27-1.06 0-1.6.7-1.85 1.4-.1.25-.12.6-.12.95V20H9z"/>
   </svg>
 }
 function TetrisIcon() {
-  return <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
-    <rect x="4" y="4" width="5" height="5" rx="1"/>
-    <rect x="10" y="4" width="5" height="5" rx="1"/>
-    <rect x="4" y="10" width="5" height="5" rx="1"/>
-    <rect x="15" y="10" width="5" height="5" rx="1"/>
-    <rect x="10" y="10" width="5" height="5" rx="1"/>
-    <rect x="10" y="16" width="5" height="5" rx="1"/>
+  return <svg viewBox="0 0 24 24" width="30" height="30">
+    <rect x="3.6" y="4.4" width="5.5" height="5.5" rx="1.1" fill="#4FC3F7"/>
+    <rect x="9.4" y="4.4" width="5.5" height="5.5" rx="1.1" fill="#FFD54F"/>
+    <rect x="9.4" y="10.2" width="5.5" height="5.5" rx="1.1" fill="#E57373"/>
+    <rect x="15.2" y="10.2" width="5.5" height="5.5" rx="1.1" fill="#81C784"/>
   </svg>
 }
 function WifiIcon() {
