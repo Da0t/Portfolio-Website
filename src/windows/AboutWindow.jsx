@@ -4,7 +4,7 @@ const specs = [
   { label: 'Full Name',  value: 'Dat Nguyen' },
   { label: 'Processor',  value: 'Python · TypeScript · React  @ 100MHz' },
   { label: 'Memory',     value: 'Data Science + Economics (Dual-Core)' },
-  { label: 'Storage',    value: '3+ shipped apps · 1 hackathon win · 2,000+ satellite images processed' },
+  { label: 'Storage',    value: 'Multiple shipped apps · 3 hackathon awards · 2,000+ satellite images processed' },
   { label: 'OS',         value: 'UCSD Junior · B.S. Data Science + B.A. Economics' },
   { label: 'Display',    value: 'Full-Stack  +  Machine Learning' },
   { label: 'Location',   value: 'La Jolla, CA (San Diego)' },
@@ -14,8 +14,8 @@ const specs = [
 const skills = [
   'Python', 'TypeScript', 'React', 'Next.js',
   'FastAPI', 'SQL', 'Java', 'PyTorch',
-  'Scikit-Learn', 'Pandas', 'Supabase', 'QGIS',
-  'Tailwind CSS', 'Git', 'Vercel / Netlify',
+  'Scikit-Learn', 'Pandas', 'Supabase', 'PostgreSQL',
+  'Docker', 'AWS', 'QGIS', 'Tailwind CSS', 'Git',
 ]
 
 // Tries /public/photo.jpg first; falls back to GitHub avatar
@@ -39,7 +39,7 @@ export default function AboutWindow() {
         <div className="about-header-text">
           <div className="about-name">Dat Nguyen</div>
           <div className="about-role">
-            Data Science &amp; Economics · UCSD &nbsp;|&nbsp; SWE Intern @ SEO &nbsp;|&nbsp; 🏆 SDx Hackathon Winner
+            Data Science &amp; Economics · UCSD &nbsp;|&nbsp; Co-Founder &amp; SWE @ Aria AI &nbsp;|&nbsp; 🏆 1st Place — Berkeley AI Hackathon
           </div>
           <div className="about-social-links">
             <a
@@ -52,7 +52,7 @@ export default function AboutWindow() {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/dat-nguyen-b1b554297/"
+              href="https://www.linkedin.com/in/datnguy3n/"
               target="_blank"
               rel="noreferrer"
               className="about-social-btn raised"
@@ -68,10 +68,10 @@ export default function AboutWindow() {
 
       <div className="about-bio">
         <p>
-          I'm a junior at UC San Diego who builds things end-to-end — multimodal AI pipelines,
+          I'm a junior at UC San Diego who builds things end-to-end — consumer AI wearables,
           full-stack web apps, and ML classifiers on satellite imagery. I care about writing
           code that actually ships and systems that hold up under real conditions.
-          Currently a Tech Developer Intern at SEO and Software Engineer at AISC&nbsp;@&nbsp;UCSD.
+          Currently co-founding Aria&nbsp;AI and building full-stack systems at Netra and SEO&nbsp;USA.
           Always open to interesting problems.
         </p>
       </div>

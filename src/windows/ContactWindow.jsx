@@ -38,7 +38,7 @@ export default function ContactWindow() {
         </button>
         <div className="toolbar-sep" />
         <a href="https://github.com/Da0t" target="_blank" rel="noreferrer" className="btn95 compose-btn-sm">GitHub</a>
-        <a href="https://www.linkedin.com/in/dat-nguyen-b1b554297/" target="_blank" rel="noreferrer" className="btn95 compose-btn-sm">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/datnguy3n/" target="_blank" rel="noreferrer" className="btn95 compose-btn-sm">LinkedIn</a>
       </div>
 
       {/* Form fields */}

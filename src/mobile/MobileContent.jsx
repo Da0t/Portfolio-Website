@@ -157,12 +157,12 @@ export function AboutContent() {
         />
         <h1 className="ios-profile-name">Dat Nguyen</h1>
         <p className="ios-profile-sub">Data Science + Economics · UCSD</p>
-        <p className="ios-profile-sub2">SDx Hackathon Winner · SWE Intern @ SEO</p>
+        <p className="ios-profile-sub2">1st Place, Berkeley AI Hackathon · Co-Founder @ Aria AI</p>
         <div className="ios-social-row">
           <a href="https://github.com/Da0t" target="_blank" rel="noreferrer" className="ios-social-btn">
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/dat-nguyen-b1b554297/" target="_blank" rel="noreferrer" className="ios-social-btn ios-social-btn-blue">
+          <a href="https://www.linkedin.com/in/datnguy3n/" target="_blank" rel="noreferrer" className="ios-social-btn ios-social-btn-blue">
             LinkedIn
           </a>
         </div>
@@ -170,9 +170,10 @@ export function AboutContent() {
 
       <Section label="Bio">
         <div className="ios-bio-text">
-          I build things end-to-end — multimodal AI pipelines, full-stack web apps,
+          I build things end-to-end — consumer AI wearables, full-stack web apps,
           and ML classifiers on satellite imagery. I care about writing code that actually
-          ships and systems that hold up under real conditions.
+          ships and systems that hold up under real conditions. Currently co-founding
+          Aria AI and building full-stack systems at Netra and SEO USA.
         </div>
       </Section>
 
@@ -189,7 +190,7 @@ export function AboutContent() {
       <Section label="Skills">
         <div className="ios-tags-wrap" style={{ padding: '12px 16px' }}>
           {['Python','TypeScript','React','Next.js','FastAPI','SQL','PyTorch',
-            'Scikit-Learn','Pandas','Supabase','QGIS','Tailwind CSS','Git'].map(s => (
+            'Scikit-Learn','Pandas','Supabase','PostgreSQL','Docker','AWS','QGIS','Tailwind CSS','Git'].map(s => (
             <Tag key={s}>{s}</Tag>
           ))}
         </div>
@@ -205,48 +206,65 @@ export function AboutContent() {
 /* ── Experience ─────────────────────────────────────────────── */
 const jobs = [
   {
-    role: 'Data Analytics Intern',
-    org: 'Commonpoint Queens',
-    period: 'Fall 2026',
+    role: 'Co-Founder & Founding SWE',
+    org: 'Aria AI',
+    period: 'Jun 2026 – Present',
     type: 'work',
-    color: '#FF9500',
-    Icon: IcChart,
-    bullets: ['Upcoming data analytics internship'],
+    color: '#FF2D55',
+    Icon: IcRocket,
+    bullets: [
+      'Co-founded a consumer wearable AI startup — 25,000+ launch views in 24h',
+      'Selected into Deepgram\'s startup program with 1,000+ sponsored API credits',
+      'Token-driven Tailwind design system, sub-140 KB first load + GitHub Actions CI',
+    ],
   },
   {
-    role: 'Tech Developer Intern',
-    org: 'SEO (Sponsors for Educational Opportunity)',
+    role: 'Founding Software Engineer',
+    org: 'Netra',
     period: 'May 2026 – Present',
     type: 'work',
     color: '#007AFF',
     Icon: IcBriefcase,
     bullets: [
-      'Competitive full-stack SWE program, 35–40 hrs/week',
-      '1:1 engineering manager coaching + partner company placement',
+      'Deployed the site for a $100k-funded startup via Nginx, Cloudflare, GitHub Actions',
+      'Designed the company visual identity — logo, site, investor pitch decks',
     ],
   },
   {
-    role: 'Software Engineer',
-    org: 'AISC @ UC San Diego',
-    period: 'Apr 2026 – Present',
+    role: 'Full-Stack Developer Intern',
+    org: 'SEO USA',
+    period: 'May 2026 – Present',
     type: 'work',
     color: '#5856D6',
     Icon: IcCode,
     bullets: [
-      'Website serving 250+ members — reduced load by 20% via ISR caching',
-      'Built password-protected admin portal with Supabase Auth',
+      'Containerized FastAPI + Docker REST API with Supabase/Firebase auth',
+      'Improved PostgreSQL query performance 15% via execution plans + indexing',
+      'Full-stack React + Python features in agile sprints with CI/CD',
     ],
   },
   {
-    role: 'Undergraduate Researcher',
+    role: 'Software Engineer Lead',
+    org: 'AISC @ UC San Diego',
+    period: 'Apr – Jul 2026',
+    type: 'work',
+    color: '#34C759',
+    Icon: IcChart,
+    bullets: [
+      'Production platform for 350+ members (Next.js/React/Tailwind), 20% faster via ISR',
+      'Improved data retrieval 60% migrating JSON → Supabase PostgreSQL with RLS',
+    ],
+  },
+  {
+    role: 'Undergraduate Researcher, ML/AI',
     org: 'Economics Research Lab @ UCSD',
     period: 'Mar – Jun 2026',
     type: 'research',
-    color: '#34C759',
-    Icon: IcRocket,
+    color: '#FF9500',
+    Icon: IcData,
     bullets: [
+      'Random Forest: 0.982 ROC-AUC · 0.92 F1 on informal settlement detection',
       'Preprocessed 2,000+ satellite images using QGIS, Python, GeoPandas',
-      'Random Forest: 0.982 ROC-AUC · 0.92 F1 · 96.6% recall',
     ],
   },
   {
@@ -290,9 +308,9 @@ export function ExperienceContent() {
               <div className="ios-exp-period">{j.period}</div>
             </div>
           </div>
-          {j.bullets.filter(b => b !== 'Upcoming data analytics internship').length > 0 && (
+          {j.bullets.length > 0 && (
             <ul className="ios-exp-bullets">
-              {j.bullets.filter(b => b !== 'Upcoming data analytics internship').map((b, k) => (
+              {j.bullets.map((b, k) => (
                 <li key={k}>{b}</li>
               ))}
             </ul>
@@ -322,7 +340,7 @@ const projects = [
     tech:['Python','Claude API','Deepgram','SQLite'], link:'https://github.com/Da0t/whatyadoin-',
     CatIcon: IcStar },
   { name:'Aside — The Narrator', cat:'Hackathon', color:'#FF2D55',
-    desc:'A wearable that watches a room and narrates your life out loud in a personality you can swap on the fly.',
+    desc:'1st place (Deepgram Track), Berkeley AI Hackathon. A wearable that watches a room and narrates your life out loud in a personality you can swap on the fly.',
     tech:['React Native','Python','Claude','Deepgram'], link:'https://github.com/Da0t/AsideAI',
     live:'https://aside-website.vercel.app/',
     CatIcon: IcStar },
@@ -335,14 +353,15 @@ const projects = [
     tech:['ESP32','Python','Supabase','Open-Meteo'], link:'https://github.com/Da0t/Weather-Adaptive-IoT-Energy-Monitor',
     live:'https://weather-adaptive-io-t-energy-monito.vercel.app',
     CatIcon: IcCode },
-  { name:'Lattice', cat:'Engineering', color:'#007AFF',
-    desc:'Counter-drone mesh system: a deck.gl/Mapbox relay-simulation dashboard plus a Python RTL-SDR RF anomaly detector and gossip-based mesh relay.',
+  { name:'Lattice (Pylon)', cat:'Engineering', color:'#007AFF',
+    desc:'2nd place, Bow Capital Hackathon. Counter-drone mesh system: a deck.gl/Mapbox relay-simulation dashboard plus a Python RTL-SDR RF anomaly detector and gossip-based mesh relay.',
     tech:['Next.js','deck.gl','Python','RTL-SDR'], link:'https://github.com/Da0t/Lattice',
+    live:'https://lattice-pm4d.vercel.app/',
     CatIcon: IcCode },
   { name:'Win95 Portfolio', cat:'Engineering', color:'#34C759',
     desc:'This very site — a portfolio reimagined as an interactive Windows 95 desktop, with a native iOS interface on mobile.',
     tech:['React','Vite','react-draggable'], link:'https://github.com/Da0t/Portfolio-Website',
-    live:'https://dats-portfolio.vercel.app',
+    live:'https://dats-nguyen.vercel.app',
     CatIcon: IcCode },
   { name:'SJ Housing Analysis', cat:'Data Science', color:'#AF52DE',
     desc:'Price-to-income ratios + time-series forecasting on 130 months of San Jose MSA housing data.',
@@ -415,8 +434,8 @@ export function ContactContent() {
         <Row icon={<IcMail />} label="Email" value="datq.nguyen06@gmail.com"
           href="mailto:datq.nguyen06@gmail.com" chevron />
         <Divider />
-        <Row icon={<IcLinkedin />} label="LinkedIn" value="dat-nguyen"
-          href="https://www.linkedin.com/in/dat-nguyen-b1b554297/" chevron />
+        <Row icon={<IcLinkedin />} label="LinkedIn" value="datnguy3n"
+          href="https://www.linkedin.com/in/datnguy3n/" chevron />
         <Divider />
         <Row icon={<IcGithub />} label="GitHub" value="Da0t"
           href="https://github.com/Da0t" chevron last />
@@ -440,7 +459,7 @@ export function ResumeContent() {
       <div className="ios-resume-hero">
         <h1 className="ios-resume-name">Dat Nguyen</h1>
         <p className="ios-resume-contact">
-          datq.nguyen06@gmail.com · github.com/Da0t
+          datq.nguyen06@gmail.com · github.com/Da0t · dats-nguyen.vercel.app
         </p>
         <a href="/Dat_resume.pdf" download className="ios-dl-btn">
           Download PDF
@@ -457,10 +476,11 @@ export function ResumeContent() {
 
       <Section label="Experience">
         {[
-          { role:'Data Analytics Intern', org:'Commonpoint Queens', period:'Fall 2026' },
-          { role:'Tech Developer Intern', org:'SEO', period:'May 2026 – Present' },
-          { role:'Software Engineer', org:'AISC @ UCSD', period:'Apr 2026 – Present' },
-          { role:'Undergraduate Researcher', org:'Economics Research Lab @ UCSD', period:'Mar – Jun 2026' },
+          { role:'Co-Founder & Founding SWE', org:'Aria AI', period:'Jun 2026 – Present' },
+          { role:'Founding Software Engineer', org:'Netra', period:'May 2026 – Present' },
+          { role:'Full-Stack Developer Intern', org:'SEO USA', period:'May 2026 – Present' },
+          { role:'Software Engineer Lead', org:'AISC @ UCSD', period:'Apr – Jul 2026' },
+          { role:'Undergraduate Researcher, ML/AI', org:'Economics Research Lab @ UCSD', period:'Mar – Jun 2026' },
         ].map((e, i, arr) => (
           <div key={i}>
             <div className="ios-resume-block">
@@ -476,7 +496,7 @@ export function ResumeContent() {
       <Section label="Technical Skills">
         <div className="ios-tags-wrap" style={{ padding: '12px 16px' }}>
           {['Python','SQL','TypeScript','React','Next.js','FastAPI','PyTorch',
-            'Scikit-Learn','Pandas','Supabase','QGIS','Git'].map(s => (
+            'Scikit-Learn','Pandas','Supabase','PostgreSQL','Docker','AWS','Git'].map(s => (
             <Tag key={s}>{s}</Tag>
           ))}
         </div>

@@ -91,7 +91,7 @@ const DOCK = [
     label: 'LinkedIn',
     bg: '#0A66C2',
     icon: <LinkedInIcon />,
-    href: 'https://www.linkedin.com/in/dat-nguyen-b1b554297/',
+    href: 'https://www.linkedin.com/in/datnguy3n/',
   },
 ]
 

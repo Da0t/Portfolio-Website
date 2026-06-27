@@ -53,7 +53,7 @@ const projects = [
     type: 'folder',
     category: 'Hackathon',
     date: '2026',
-    desc: 'A wearable AI narrator that watches a room through a chest-mounted Raspberry Pi camera and narrates what\'s happening in a swappable personality — hype man, goth mommy, or epic-quest narrator. A Python backend sends frames to Claude Haiku 4.5 vision, runs Deepgram STT/TTS, holds personality and memory state in Redis, and streams text and audio over WebSocket to a React Native app that ducks music under the narration.',
+    desc: '1st place (Deepgram Track) at the Berkeley AI Hackathon. A wearable AI narrator that watches a room through a chest-mounted Raspberry Pi camera and narrates what\'s happening in a swappable personality — hype man, goth mommy, or epic-quest narrator. A Python backend sends frames to Claude Haiku 4.5 vision, runs Deepgram STT/TTS, holds personality and memory state in Redis, and streams text and audio over WebSocket to a React Native app that ducks music under the narration.',
     tech: ['TypeScript', 'React Native', 'Python', 'C++', 'Claude Haiku 4.5', 'Deepgram', 'Redis', 'QNX', 'WebSockets'],
     github: 'https://github.com/Da0t/AsideAI',
     live: 'https://aside-website.vercel.app/',
@@ -86,14 +86,14 @@ const projects = [
   },
   {
     id: 8,
-    name: 'Lattice',
+    name: 'Lattice (Pylon)',
     type: 'folder',
     category: 'Engineering',
     date: '2026',
-    desc: 'A counter-UAV mesh system pairing a live simulation dashboard with real RF hardware code. The Next.js + deck.gl/Mapbox "Pylon" dashboard deploys a self-healing ring of autonomous relays that discover neighbors by proximity, route threat data through a BFS-pathfound mesh, intercept hostile drones, and reroute when a relay is destroyed. A Python service backs it with an RTL-SDR/ADALM-Pluto detector that learns the ambient RF spectrum to flag novel emitters, plus a gossip-based peer-to-peer relay mesh.',
+    desc: '2nd place, Bow Capital Hackathon. A counter-UAV mesh system pairing a live simulation dashboard with real RF hardware code. The Next.js + deck.gl/Mapbox "Pylon" dashboard deploys a self-healing ring of autonomous relays that discover neighbors by proximity, route threat data through a BFS-pathfound mesh, intercept hostile drones, and reroute when a relay is destroyed. A Python service backs it with an RTL-SDR/ADALM-Pluto detector that learns the ambient RF spectrum to flag novel emitters, plus a leaderless UDP gossip mesh with NAT traversal.',
     tech: ['Next.js 14', 'React 18', 'TypeScript', 'deck.gl 9', 'Mapbox GL', 'Python', 'RTL-SDR', 'scikit-learn'],
     github: 'https://github.com/Da0t/Lattice',
-    live: null,
+    live: 'https://lattice-pm4d.vercel.app/',
   },
   {
     id: 9,
@@ -104,7 +104,7 @@ const projects = [
     desc: 'This very site — a personal portfolio built as an interactive Windows 95 / Windows 2000 desktop emulator: draggable, resizable windows with 3D chrome, a Win95-to-Win2000 "Windows Update" upgrade flow, rubber-band icon selection, a right-click context menu, and a playable Minesweeper easter egg. On mobile it swaps to a native iOS home screen with a frosted-glass dock and a touch-controlled Tetris game.',
     tech: ['React 18', 'Vite', 'JavaScript', 'react-draggable', 'Vanilla CSS', 'Vercel'],
     github: 'https://github.com/Da0t/Portfolio-Website',
-    live: 'https://dats-portfolio.vercel.app',
+    live: 'https://dats-nguyen.vercel.app',
   },
 
   // ── Data Science / ML ─────────────────────────────────────────

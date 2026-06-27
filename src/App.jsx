@@ -55,7 +55,7 @@ function getWindowDefs(theme) {
       defaultSize: { w: 500, h: 430 },
       defaultPosition: { x: 120, y: 60 },
       content: <AboutWindow />,
-      statusBar: 'Dat Nguyen · UCSD Data Science + Economics · SWE Intern @ SEO',
+      statusBar: 'Dat Nguyen · UCSD Data Science + Economics · Co-Founder & SWE @ Aria AI',
     },
     projects: {
       title: 'Projects — Dat Nguyen',
@@ -95,7 +95,7 @@ function getWindowDefs(theme) {
       defaultSize: { w: 560, h: 460 },
       defaultPosition: { x: 140, y: 60 },
       content: <ExperienceWindow />,
-      statusBar: '6 roles · Work · Research · Leadership',
+      statusBar: '7 roles · Work · Research · Leadership',
     },
     minesweeper: {
       title: 'Minesweeper',
@@ -453,7 +453,7 @@ export default function App() {
               onSelect={handleIconSelect}
               onOpen={() => {
                 if (id === 'network')  window.open('https://github.com/Da0t', '_blank', 'noreferrer')
-                else if (id === 'linkedin') window.open('https://www.linkedin.com/in/dat-nguyen-b1b554297/', '_blank', 'noreferrer')
+                else if (id === 'linkedin') window.open('https://www.linkedin.com/in/datnguy3n/', '_blank', 'noreferrer')
                 else openWindow(id)
               }}
               onDragStart={handleIconDragStart}
