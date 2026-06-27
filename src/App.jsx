@@ -63,7 +63,7 @@ function getWindowDefs(theme) {
       defaultSize: { w: 580, h: 390 },
       defaultPosition: { x: 160, y: 80 },
       content: <ProjectsWindow />,
-      statusBar: '8 project(s) — double-click to open on GitHub',
+      statusBar: '14 project(s) — double-click to open on GitHub',
     },
     contact: {
       title: 'Inbox — Message Dat',
