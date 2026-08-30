@@ -12,9 +12,7 @@ const specs = [
   { label: 'Network', value: PROFILE.focus },
 ]
 
-// Tries /public/photo.jpg first; falls back to GitHub avatar
-const PHOTO_LOCAL   = '/photo.jpg'
-const PHOTO_GITHUB  = 'https://avatars.githubusercontent.com/u/179423998?v=4'
+const PHOTO_GITHUB = 'https://avatars.githubusercontent.com/u/179423998?v=4&size=192'
 
 export default function AboutWindow() {
   return (
@@ -23,10 +21,13 @@ export default function AboutWindow() {
       <div className="about-header">
         <div className="about-photo-frame inset">
           <img
-            src={PHOTO_LOCAL}
+            src={PHOTO_GITHUB}
             alt="Dat Nguyen"
             className="about-photo"
-            onError={e => { e.currentTarget.src = PHOTO_GITHUB }}
+            width="112"
+            height="112"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

@@ -41,14 +41,6 @@
     radial-gradient(130% 90% at 50% -10%, #33457a 0%, #1b274a 38%, #0a1024 72%, #04060f 100%);
 }
 
-.ipod-wallpaper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-
 /* faint top + bottom shading for status/dock legibility */
 .ipod-wallpaper::after {
   content: '';

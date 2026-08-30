@@ -161,10 +161,13 @@ export function AboutContent() {
     <div className="ios-screen">
       <div className="ios-profile-hero">
         <img
-          src="/photo.jpg"
+          src="https://avatars.githubusercontent.com/u/179423998?v=4&size=192"
           alt="Dat Nguyen"
           className="ios-avatar"
-          onError={e => { e.currentTarget.src = 'https://avatars.githubusercontent.com/u/179423998?v=4' }}
+          width="96"
+          height="96"
+          loading="lazy"
+          decoding="async"
         />
         <h1 className="ios-profile-name">{PROFILE.name}</h1>
         <p className="ios-profile-sub">Data Science + Economics · UC San Diego</p>
@@ -294,7 +297,14 @@ export function ProjectsContent() {
         <div key={project.id} className="ios-project-card">
           {project.image && (
             <div className="ios-project-preview">
-              <img src={project.image} alt={project.imageAlt} loading="lazy" />
+              <img
+                src={project.image}
+                alt={project.imageAlt}
+                width={project.imageWidth}
+                height={project.imageHeight}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           )}
           <div className="ios-project-header">

@@ -107,13 +107,7 @@ export default function MobileLayout() {
   return (
     <div className="ipod-root">
       {/* Wallpaper */}
-      <div className="ipod-wallpaper">
-        <img
-          src="/ios-wallpaper.jpg"
-          alt=""
-          onError={e => { e.currentTarget.style.display = 'none' }}
-        />
-      </div>
+      <div className="ipod-wallpaper" />
 
       {/* Status bar */}
       <div className="ipod-status">

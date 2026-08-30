@@ -209,7 +209,9 @@ export const PORTFOLIO_PROJECTS = [
     github: 'https://github.com/Da0t/northstar',
     githubLabel: 'GitHub',
     live: null,
-    image: '/projects/northstar-dashboard.png',
+    image: '/projects/northstar-dashboard.jpg',
+    imageWidth: 640,
+    imageHeight: 666,
     imageAlt: 'Northstar financial planning dashboard showing goal resilience and outcome bands',
   },
   {
@@ -227,6 +229,8 @@ export const PORTFOLIO_PROJECTS = [
     githubLabel: 'GitHub',
     live: null,
     image: '/projects/quota-signal-crm.jpg',
+    imageWidth: 974,
+    imageHeight: 900,
     imageAlt: 'QuotaSignal CRM dashboard with pipeline forecast and account relationship data',
   },
   {
@@ -584,6 +588,8 @@ export const PORTFOLIO_PROJECTS = [
     githubLabel: 'GitHub',
     live: 'https://dats-nguyen.vercel.app',
     image: '/portfolio-preview.png',
+    imageWidth: 1400,
+    imageHeight: 900,
     imageAlt: 'Dat Nguyen portfolio rendered as a Windows desktop interface',
   },
 ]

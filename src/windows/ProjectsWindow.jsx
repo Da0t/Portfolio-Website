@@ -98,7 +98,14 @@ export default function ProjectsWindow() {
 
             {project.image && (
               <div className="detail-preview sunken">
-                <img src={project.image} alt={project.imageAlt} loading="lazy" />
+                <img
+                  src={project.image}
+                  alt={project.imageAlt}
+                  width={project.imageWidth}
+                  height={project.imageHeight}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             )}
 
