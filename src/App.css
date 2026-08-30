@@ -32,6 +32,28 @@
   pointer-events: all;
 }
 
+.window-loading,
+.mobile-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  font: 11px var(--font);
+}
+
+.window-loading {
+  min-height: 100%;
+  background: var(--gray);
+}
+
+.mobile-loading {
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  background: #101a2b;
+  font: 15px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 /* Win95-style rubber-band selection box */
 .selection-box {
   position: absolute;

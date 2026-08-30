@@ -1,26 +1,34 @@
-import { useState, useEffect, useRef } from 'react'
+import { lazy, Suspense, useState, useEffect, useRef } from 'react'
 import useMobile from './hooks/useMobile'
 import { getClickSound } from './utils/sound'
-import MobileLayout from './mobile/MobileLayout'
 import Window from './components/Window'
 import DesktopIcon from './components/DesktopIcon'
 import Taskbar from './components/Taskbar'
-import WelcomeDialog from './components/WelcomeDialog'
-import BootScreen from './components/BootScreen'
-import WindowsUpdate from './components/WindowsUpdate'
-import Win2000Welcome from './components/Win2000Welcome'
 import DesktopContextMenu from './components/DesktopContextMenu'
 import AboutWindow from './windows/AboutWindow'
-import ProjectsWindow from './windows/ProjectsWindow'
-import ContactWindow from './windows/ContactWindow'
-import ResumeWindow from './windows/ResumeWindow'
-import RecycleBinWindow from './windows/RecycleBinWindow'
-import ExperienceWindow from './windows/ExperienceWindow'
-import MinesweeperWindow from './windows/MinesweeperWindow'
 import { EXPERIENCE, LEADERSHIP, PORTFOLIO_PROJECTS, PROFILE } from './data/portfolioData'
 import './App.css'
 
+const MobileLayout = lazy(() => import('./mobile/MobileLayout'))
+const WelcomeDialog = lazy(() => import('./components/WelcomeDialog'))
+const WindowsUpdate = lazy(() => import('./components/WindowsUpdate'))
+const Win2000Welcome = lazy(() => import('./components/Win2000Welcome'))
+const ProjectsWindow = lazy(() => import('./windows/ProjectsWindow'))
+const ContactWindow = lazy(() => import('./windows/ContactWindow'))
+const ResumeWindow = lazy(() => import('./windows/ResumeWindow'))
+const RecycleBinWindow = lazy(() => import('./windows/RecycleBinWindow'))
+const ExperienceWindow = lazy(() => import('./windows/ExperienceWindow'))
+const MinesweeperWindow = lazy(() => import('./windows/MinesweeperWindow'))
+
 let nextZ = 100
+
+function deferredContent(content, label) {
+  return (
+    <Suspense fallback={<div className="window-loading">Opening {label}…</div>}>
+      {content}
+    </Suspense>
+  )
+}
 
 const ICONS = {
   win95: {
@@ -63,7 +71,7 @@ function getWindowDefs(theme) {
       icon: ic.documents,
       defaultSize: { w: 720, h: 480 },
       defaultPosition: { x: 160, y: 80 },
-      content: <ProjectsWindow />,
+      content: deferredContent(<ProjectsWindow />, 'projects'),
       statusBar: `${PORTFOLIO_PROJECTS.length} public projects · GitHub-backed`,
     },
     contact: {
@@ -71,7 +79,7 @@ function getWindowDefs(theme) {
       icon: ic.inbox,
       defaultSize: { w: 480, h: 360 },
       defaultPosition: { x: 200, y: 100 },
-      content: <ContactWindow />,
+      content: deferredContent(<ContactWindow />, 'inbox'),
       statusBar: 'datq.nguyen06@gmail.com',
     },
     resume: {
@@ -79,7 +87,7 @@ function getWindowDefs(theme) {
       icon: ic.briefcase,
       defaultSize: { w: 520, h: 480 },
       defaultPosition: { x: 180, y: 50 },
-      content: <ResumeWindow />,
+      content: deferredContent(<ResumeWindow />, 'profile'),
       statusBar: 'Based on github.com/Da0t · Class of 2028',
     },
     recycle: {
@@ -87,7 +95,7 @@ function getWindowDefs(theme) {
       icon: ic.recycle,
       defaultSize: { w: 520, h: 340 },
       defaultPosition: { x: 220, y: 110 },
-      content: <RecycleBinWindow />,
+      content: deferredContent(<RecycleBinWindow />, 'recycle bin'),
       statusBar: '8 item(s) · Cannot be recovered',
     },
     experience: {
@@ -95,7 +103,7 @@ function getWindowDefs(theme) {
       icon: ic.experience,
       defaultSize: { w: 560, h: 460 },
       defaultPosition: { x: 140, y: 60 },
-      content: <ExperienceWindow />,
+      content: deferredContent(<ExperienceWindow />, 'experience'),
       statusBar: `${EXPERIENCE.length + LEADERSHIP.length} profile roles · Experience + Leadership`,
     },
     minesweeper: {
@@ -103,7 +111,7 @@ function getWindowDefs(theme) {
       icon: ic.minesweeper,
       defaultSize: { w: 480, h: 520 },
       defaultPosition: { x: 200, y: 60 },
-      content: <MinesweeperWindow />,
+      content: deferredContent(<MinesweeperWindow />, 'Minesweeper'),
       statusBar: 'Beginner · 9×9 · 10 mines · Left-click reveal · Right-click flag',
     },
   }
@@ -154,7 +162,6 @@ function rectsOverlap(ax, ay, aw, ah, bx, by, bw, bh) {
 
 export default function App() {
   const isMobile = useMobile()
-  const [booting, setBooting]               = useState(true)
   const [windows, setWindows]               = useState([])
   const [showWelcome, setShowWelcome]       = useState(false)
   const [theme, setTheme]                   = useState('win95')
@@ -413,11 +420,16 @@ export default function App() {
   }
 
   // Mobile gets its own layout — no boot screen, no draggable windows
-  if (isMobile) return <MobileLayout />
+  if (isMobile) {
+    return (
+      <Suspense fallback={<div className="mobile-loading">Loading Dat's portfolio…</div>}>
+        <MobileLayout />
+      </Suspense>
+    )
+  }
 
   return (
     <>
-      {booting && <BootScreen onDone={() => { setBooting(false); setShowWelcome(true) }} />}
       {contextMenu && (
         <DesktopContextMenu
           x={contextMenu.x}
@@ -491,15 +503,25 @@ export default function App() {
         </div>
 
         {showWelcome && (
-          <WelcomeDialog
-            onClose={() => setShowWelcome(false)}
-            onWhatsNew={() => { setShowWelcome(false); openWindow('about') }}
-            onProjects={() => { setShowWelcome(false); openWindow('projects') }}
-          />
+          <Suspense fallback={null}>
+            <WelcomeDialog
+              onClose={() => setShowWelcome(false)}
+              onWhatsNew={() => { setShowWelcome(false); openWindow('about') }}
+              onProjects={() => { setShowWelcome(false); openWindow('projects') }}
+            />
+          </Suspense>
         )}
 
-        {updating && <WindowsUpdate onDone={finishUpdate} targetVersion="win2000" />}
-        {showW2kWelcome && <Win2000Welcome onClose={() => setShowW2kWelcome(false)} />}
+        {updating && (
+          <Suspense fallback={null}>
+            <WindowsUpdate onDone={finishUpdate} targetVersion="win2000" />
+          </Suspense>
+        )}
+        {showW2kWelcome && (
+          <Suspense fallback={null}>
+            <Win2000Welcome onClose={() => setShowW2kWelcome(false)} />
+          </Suspense>
+        )}
 
         <Taskbar
           windows={windows}
