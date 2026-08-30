@@ -12,6 +12,7 @@ An interactive portfolio for Dat Nguyen, a UC San Diego Data Science & Economics
 - 10 hackathon awards across AI, infrastructure, geospatial, education, civic technology, and IoT projects
 - 23 public projects backed by GitHub repositories and their current documentation
 - Separate desktop and mobile experiences powered by one shared content model
+- An immediate recruiter quick view with four spotlight projects and one-click access to the full catalog
 
 The rendered profile follows the public [Da0t profile README](https://github.com/Da0t/Da0t/blob/main/README.md). The site does not publish a downloadable résumé until a user-confirmed PDF is available.
 
@@ -61,9 +62,9 @@ Northstar and QuotaSignal are educational decision-support projects. Their model
 
 ## Experience design
 
-Desktop behaves like a compact Windows 95/2000 environment rather than a conventional landing page. Visitors can open, drag, resize, minimize, and maximize windows; select desktop icons; use contextual menus; run the Windows Update theme flow; filter the project catalog; and play Minesweeper.
+Desktop opens directly into a recruiter quick view instead of making visitors wait through a simulated boot. From there, visitors can scan the profile, role count, award count, and four spotlight projects; open the complete project or experience windows; drag and resize windows; use contextual menus; run the Windows Update theme flow; and play Minesweeper.
 
-Mobile intentionally becomes a different product: a skeuomorphic early-iPhone interface with touch-first app navigation, a featured-to-complete project catalog switch, and Tetris. Both experiences render the same profile, experience, leadership, awards, skills, and projects from one shared module.
+Mobile intentionally becomes a different product: a skeuomorphic early-iPhone interface that opens directly to the profile summary, with touch-first app navigation, a four-project-to-complete-catalog switch, and Tetris. Both experiences render the same profile, experience, leadership, awards, skills, and projects from one shared module.
 
 ## Architecture
 
@@ -89,6 +90,8 @@ Key implementation choices:
 - `react-draggable` for controlled desktop window movement
 - Separate desktop and mobile shells instead of a compressed desktop layout
 - Shared structured content to prevent facts from drifting between layouts
+- Route-level code splitting for mobile, games, dialogs, and secondary windows
+- Optimized lazy-loaded project imagery and immutable caching for hashed production assets
 - Static deployment with no analytics, authentication, backend, or visitor-data collection
 
 ## Repository map
