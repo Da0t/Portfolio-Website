@@ -1,4 +1,10 @@
 import './MobileContent.css'
+import {
+  EXPERIENCE,
+  FEATURED_SKILLS,
+  PROFILE,
+  SKILL_GROUPS,
+} from '../data/portfolioData'
 
 /* ── SVG icons (no emojis) ──────────────────────────────────── */
 function IcGrad() {
@@ -155,14 +161,14 @@ export function AboutContent() {
           className="ios-avatar"
           onError={e => { e.currentTarget.src = 'https://avatars.githubusercontent.com/u/179423998?v=4' }}
         />
-        <h1 className="ios-profile-name">Dat Nguyen</h1>
-        <p className="ios-profile-sub">Data Science + Economics · UCSD</p>
-        <p className="ios-profile-sub2">1st Place, Berkeley AI Hackathon · Co-Founder @ Aria AI</p>
+        <h1 className="ios-profile-name">{PROFILE.name}</h1>
+        <p className="ios-profile-sub">Data Science + Economics · UC San Diego</p>
+        <p className="ios-profile-sub2">Fintech + data systems · Class of 2028</p>
         <div className="ios-social-row">
-          <a href="https://github.com/Da0t" target="_blank" rel="noreferrer" className="ios-social-btn">
+          <a href={PROFILE.github} target="_blank" rel="noreferrer" className="ios-social-btn">
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/datnguy3n/" target="_blank" rel="noreferrer" className="ios-social-btn ios-social-btn-blue">
+          <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="ios-social-btn ios-social-btn-blue">
             LinkedIn
           </a>
         </div>
@@ -170,153 +176,69 @@ export function AboutContent() {
 
       <Section label="Bio">
         <div className="ios-bio-text">
-          I build things end-to-end — consumer AI wearables, full-stack web apps,
-          and ML classifiers on satellite imagery. I care about writing code that actually
-          ships and systems that hold up under real conditions. Currently co-founding
-          Aria AI and building full-stack systems at Netra and SEO USA.
+          {PROFILE.summary}
         </div>
       </Section>
 
       <Section label="Details">
         <Row icon={<IcGrad />} label="University" value="UC San Diego" />
         <Divider />
-        <Row icon={<IcPin />} label="Location" value="La Jolla, CA" />
+        <Row icon={<IcPin />} label="Location" value={PROFILE.location} />
         <Divider />
-        <Row icon={<IcCal />} label="Graduation" value="June 2028" />
+        <Row icon={<IcCal />} label="Graduation" value={PROFILE.graduation} />
         <Divider />
-        <Row icon={<IcMail />} label="Email" value="datq.nguyen06@gmail.com" last />
+        <Row icon={<IcMail />} label="Email" value={PROFILE.email} last />
       </Section>
 
       <Section label="Skills">
         <div className="ios-tags-wrap" style={{ padding: '12px 16px' }}>
-          {['Python','TypeScript','React','Next.js','FastAPI','SQL','PyTorch',
-            'Scikit-Learn','Pandas','Supabase','PostgreSQL','Docker','AWS','QGIS','Tailwind CSS','Git'].map(s => (
+          {FEATURED_SKILLS.map(s => (
             <Tag key={s}>{s}</Tag>
           ))}
         </div>
       </Section>
 
       <Section label="Contact">
-        <Row icon={<IcGithub />} label="GitHub" value="Da0t" href="https://github.com/Da0t" chevron last />
+        <Row icon={<IcGithub />} label="GitHub" value="Da0t" href={PROFILE.github} chevron last />
       </Section>
     </div>
   )
 }
 
 /* ── Experience ─────────────────────────────────────────────── */
-const jobs = [
-  {
-    role: 'Co-Founder & Founding SWE',
-    org: 'Aria AI',
-    period: 'Jun 2026 – Present',
-    type: 'work',
-    color: '#FF2D55',
-    Icon: IcRocket,
-    bullets: [
-      'Co-founded a consumer wearable AI startup — 25,000+ launch views in 24h',
-      'Selected into Deepgram\'s startup program with 1,000+ sponsored API credits',
-      'Token-driven Tailwind design system, sub-140 KB first load + GitHub Actions CI',
-    ],
-  },
-  {
-    role: 'Founding Software Engineer',
-    org: 'Netra',
-    period: 'May 2026 – Present',
-    type: 'work',
-    color: '#007AFF',
-    Icon: IcBriefcase,
-    bullets: [
-      'Deployed the site for a $100k-funded startup via Nginx, Cloudflare, GitHub Actions',
-      'Designed the company visual identity — logo, site, investor pitch decks',
-    ],
-  },
-  {
-    role: 'Full-Stack Developer Intern',
-    org: 'SEO USA',
-    period: 'May 2026 – Present',
-    type: 'work',
-    color: '#5856D6',
-    Icon: IcCode,
-    bullets: [
-      'Containerized FastAPI + Docker REST API with Supabase/Firebase auth',
-      'Improved PostgreSQL query performance 15% via execution plans + indexing',
-      'Full-stack React + Python features in agile sprints with CI/CD',
-    ],
-  },
-  {
-    role: 'Software Engineer Lead',
-    org: 'AISC @ UC San Diego',
-    period: 'Apr – Jul 2026',
-    type: 'work',
-    color: '#34C759',
-    Icon: IcChart,
-    bullets: [
-      'Production platform for 350+ members (Next.js/React/Tailwind), 20% faster via ISR',
-      'Improved data retrieval 60% migrating JSON → Supabase PostgreSQL with RLS',
-    ],
-  },
-  {
-    role: 'Undergraduate Researcher, ML/AI',
-    org: 'Economics Research Lab @ UCSD',
-    period: 'Mar – Jun 2026',
-    type: 'research',
-    color: '#FF9500',
-    Icon: IcData,
-    bullets: [
-      'Random Forest: 0.982 ROC-AUC · 0.92 F1 on informal settlement detection',
-      'Preprocessed 2,000+ satellite images using QGIS, Python, GeoPandas',
-    ],
-  },
-  {
-    role: 'VP Project Operations',
-    org: 'DataWorks @ UC San Diego',
-    period: 'Mar 2026 – Present',
-    type: 'leadership',
-    color: '#FF2D55',
-    Icon: IcMicro,
-    bullets: [
-      'Lead 10-person team building LLM-powered receipt scanning app',
-      'Architecting camera → Supabase → Next.js dashboard pipeline',
-    ],
-  },
-  {
-    role: 'Campaign Lead',
-    org: 'CALPIRG Students – UCSD',
-    period: 'Dec 2024 – Jan 2026',
-    type: 'leadership',
-    color: '#FF9500',
-    Icon: IcStar,
-    bullets: [
-      '200+ volunteer hours, trained 6 volunteers',
-      'Built Excel dashboards and pivot tables for campaign metrics',
-    ],
-  },
-]
+const EXPERIENCE_ICONS = {
+  seo: IcCode,
+  research: IcData,
+  aisc: IcChart,
+}
 
 export function ExperienceContent() {
   return (
     <div className="ios-screen">
-      {jobs.map((j, i) => (
-        <div key={i} className="ios-exp-card">
+      {EXPERIENCE.map(item => {
+        const Icon = EXPERIENCE_ICONS[item.id] ?? IcBriefcase
+        return (
+        <div key={item.id} className="ios-exp-card">
           <div className="ios-exp-header">
-            <div className="ios-exp-icon-wrap" style={{ background: j.color + '20' }}>
-              <j.Icon />
+            <div className="ios-exp-icon-wrap" style={{ background: item.color + '20' }}>
+              <Icon />
             </div>
             <div className="ios-exp-meta">
-              <div className="ios-exp-role">{j.role}</div>
-              <div className="ios-exp-org">{j.org}</div>
-              <div className="ios-exp-period">{j.period}</div>
+              <div className="ios-exp-role">{item.role}</div>
+              <div className="ios-exp-org">{item.shortOrg}</div>
+              <div className="ios-exp-period">{item.period}</div>
             </div>
           </div>
-          {j.bullets.length > 0 && (
+          {item.mobileBullets.length > 0 && (
             <ul className="ios-exp-bullets">
-              {j.bullets.map((b, k) => (
-                <li key={k}>{b}</li>
+              {item.mobileBullets.map(bullet => (
+                <li key={bullet}>{bullet}</li>
               ))}
             </ul>
           )}
         </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
@@ -426,23 +348,23 @@ export function ContactContent() {
     <div className="ios-screen">
       <div className="ios-contact-hero">
         <div className="ios-contact-avatar">D</div>
-        <h2 className="ios-contact-name">Dat Nguyen</h2>
-        <p className="ios-contact-sub">Open to internships & new grad roles</p>
+        <h2 className="ios-contact-name">{PROFILE.name}</h2>
+        <p className="ios-contact-sub">Open to fintech, data, and software engineering internships</p>
       </div>
 
       <Section label="Get in Touch">
-        <Row icon={<IcMail />} label="Email" value="datq.nguyen06@gmail.com"
-          href="mailto:datq.nguyen06@gmail.com" chevron />
+        <Row icon={<IcMail />} label="Email" value={PROFILE.email}
+          href={`mailto:${PROFILE.email}`} chevron />
         <Divider />
         <Row icon={<IcLinkedin />} label="LinkedIn" value="datnguy3n"
-          href="https://www.linkedin.com/in/datnguy3n/" chevron />
+          href={PROFILE.linkedin} chevron />
         <Divider />
         <Row icon={<IcGithub />} label="GitHub" value="Da0t"
-          href="https://github.com/Da0t" chevron last />
+          href={PROFILE.github} chevron last />
       </Section>
 
       <Section label="Location">
-        <Row icon={<IcPin />} label="Based in" value="La Jolla, CA" last />
+        <Row icon={<IcPin />} label="Based in" value={PROFILE.location} last />
       </Section>
 
       <Section label="Quick Links">
@@ -457,9 +379,9 @@ export function ResumeContent() {
   return (
     <div className="ios-screen">
       <div className="ios-resume-hero">
-        <h1 className="ios-resume-name">Dat Nguyen</h1>
+        <h1 className="ios-resume-name">{PROFILE.name}</h1>
         <p className="ios-resume-contact">
-          datq.nguyen06@gmail.com · github.com/Da0t · dats-nguyen.vercel.app
+          {PROFILE.email} · {PROFILE.githubLabel} · {PROFILE.websiteLabel}
         </p>
         <a href="/Dat_resume.pdf" download className="ios-dl-btn">
           Download PDF
@@ -468,35 +390,28 @@ export function ResumeContent() {
 
       <Section label="Education">
         <div className="ios-resume-block">
-          <div className="ios-resume-title">University of California, San Diego</div>
-          <div className="ios-resume-sub">B.S. Data Science + B.A. Economics · Junior</div>
-          <div className="ios-resume-period">Expected June 2028 · La Jolla, CA</div>
+          <div className="ios-resume-title">{PROFILE.school}</div>
+          <div className="ios-resume-sub">{PROFILE.degree}</div>
+          <div className="ios-resume-period">Expected {PROFILE.graduation} · {PROFILE.location}</div>
         </div>
       </Section>
 
       <Section label="Experience">
-        {[
-          { role:'Co-Founder & Founding SWE', org:'Aria AI', period:'Jun 2026 – Present' },
-          { role:'Founding Software Engineer', org:'Netra', period:'May 2026 – Present' },
-          { role:'Full-Stack Developer Intern', org:'SEO USA', period:'May 2026 – Present' },
-          { role:'Software Engineer Lead', org:'AISC @ UCSD', period:'Apr – Jul 2026' },
-          { role:'Undergraduate Researcher, ML/AI', org:'Economics Research Lab @ UCSD', period:'Mar – Jun 2026' },
-        ].map((e, i, arr) => (
-          <div key={i}>
+        {EXPERIENCE.map((item, i) => (
+          <div key={item.id}>
             <div className="ios-resume-block">
-              <div className="ios-resume-title">{e.role}</div>
-              <div className="ios-resume-sub">{e.org}</div>
-              <div className="ios-resume-period">{e.period}</div>
+              <div className="ios-resume-title">{item.role}</div>
+              <div className="ios-resume-sub">{item.shortOrg}</div>
+              <div className="ios-resume-period">{item.period}</div>
             </div>
-            {i < arr.length - 1 && <Divider />}
+            {i < EXPERIENCE.length - 1 && <Divider />}
           </div>
         ))}
       </Section>
 
       <Section label="Technical Skills">
         <div className="ios-tags-wrap" style={{ padding: '12px 16px' }}>
-          {['Python','SQL','TypeScript','React','Next.js','FastAPI','PyTorch',
-            'Scikit-Learn','Pandas','Supabase','PostgreSQL','Docker','AWS','Git'].map(s => (
+          {SKILL_GROUPS.flatMap(group => group.items).map(s => (
             <Tag key={s}>{s}</Tag>
           ))}
         </div>

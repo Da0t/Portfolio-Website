@@ -2,12 +2,12 @@ import { useState } from 'react'
 import './WelcomeDialog.css'
 
 const tips = [
-  "Dat won 1st place at the SDx Hackathon 2026 with Rewind. — an AI fork-and-resume pipeline.",
-  "Dat is a Junior at UC San Diego studying Data Science and Economics.",
-  "Dat's multimodal RAG system (Atlas.) post-filters ~90% of cross-video noise from search results.",
-  "Dat trained a satellite image classifier with 0.982 ROC-AUC on informal settlement detection.",
-  "Dat reduced AISC's website load time by 20% using ISR caching on Netlify.",
-  "Dat leads a 10-person consulting team at DataWorks @ UCSD.",
+  'Dat studies Data Science and Economics at UC San Diego and graduates in June 2028.',
+  'Dat built Northstar to run 5,000 reproducible Monte Carlo financial-planning paths in the browser.',
+  'Dat built QuotaSignal to turn CRM relationships into explainable bookings forecasts.',
+  'Dat trained a satellite-image classifier to 0.982 ROC-AUC for informal-settlement detection.',
+  "Dat improved AISC's website load time by 20% with incremental static regeneration.",
+  'Dat has three verified project awards across the Berkeley AI, Bow Capital, and SDx hackathons.',
 ]
 
 export default function WelcomeDialog({ onClose, onWhatsNew, onProjects }) {

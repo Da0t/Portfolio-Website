@@ -17,6 +17,7 @@ import ResumeWindow from './windows/ResumeWindow'
 import RecycleBinWindow from './windows/RecycleBinWindow'
 import ExperienceWindow from './windows/ExperienceWindow'
 import MinesweeperWindow from './windows/MinesweeperWindow'
+import { EXPERIENCE, PROFILE } from './data/portfolioData'
 import './App.css'
 
 let nextZ = 100
@@ -55,7 +56,7 @@ function getWindowDefs(theme) {
       defaultSize: { w: 500, h: 430 },
       defaultPosition: { x: 120, y: 60 },
       content: <AboutWindow />,
-      statusBar: 'Dat Nguyen · UCSD Data Science + Economics · Co-Founder & SWE @ Aria AI',
+      statusBar: `${PROFILE.name} · UCSD Data Science + Economics · Fintech & Data Systems`,
     },
     projects: {
       title: 'Projects — Dat Nguyen',
@@ -95,7 +96,7 @@ function getWindowDefs(theme) {
       defaultSize: { w: 560, h: 460 },
       defaultPosition: { x: 140, y: 60 },
       content: <ExperienceWindow />,
-      statusBar: '7 roles · Work · Research · Leadership',
+      statusBar: `${EXPERIENCE.length} verified roles · Software · Research`,
     },
     minesweeper: {
       title: 'Minesweeper',
