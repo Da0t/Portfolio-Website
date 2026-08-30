@@ -89,8 +89,9 @@ export default function ResumeWindow() {
       </section>
 
       <div className="resume-actions">
-        <a href="/Dat_resume.pdf" download className="btn95 default-btn">Save As... (PDF)</a>
-        <a href="/Dat_resume.pdf" target="_blank" rel="noreferrer" className="btn95">Open</a>
+        <a href={PROFILE.github} target="_blank" rel="noreferrer" className="btn95 default-btn">
+          Open GitHub Profile
+        </a>
       </div>
     </div>
   )

@@ -75,12 +75,12 @@ function getWindowDefs(theme) {
       statusBar: 'datq.nguyen06@gmail.com',
     },
     resume: {
-      title: 'Resume / CV — Dat Nguyen',
+      title: 'Profile Snapshot — Dat Nguyen',
       icon: ic.briefcase,
       defaultSize: { w: 520, h: 480 },
       defaultPosition: { x: 180, y: 50 },
       content: <ResumeWindow />,
-      statusBar: 'Dat_resume.pdf · Expected Graduation June 2028',
+      statusBar: 'Based on github.com/Da0t · Class of 2028',
     },
     recycle: {
       title: 'Recycle Bin',
@@ -116,7 +116,7 @@ function getDesktopIcons(theme) {
     { id: 'projects',    icon: ic.documents,   label: 'Projects' },
     { id: 'contact',     icon: ic.inbox,       label: 'Contact Me' },
     { id: 'recycle',     icon: ic.recycle,     label: 'Recycle Bin' },
-    { id: 'resume',      icon: ic.briefcase,   label: 'Resume / CV' },
+    { id: 'resume',      icon: ic.briefcase,   label: 'Profile Snapshot' },
     { id: 'network',     icon: ic.network,     label: 'My GitHub' },
     { id: 'linkedin',    icon: ic.linkedin,    label: 'LinkedIn' },
     { id: 'experience',  icon: ic.experience,  label: 'Experience' },

@@ -5,7 +5,7 @@ const tiles = [
   { id: 'about',    label: 'About Me',    color: '#0078D4', size: 'wide',   icon: '/icons/about-win10.svg' },
   { id: 'projects', label: 'Projects',    color: '#E6A500', size: 'medium', icon: '/icons/projects-win10.svg' },
   { id: 'contact',  label: 'Contact Me',  color: '#6B2FA0', size: 'medium', icon: '/icons/contact-win10.svg' },
-  { id: 'resume',   label: 'Resume / CV', color: '#0063B1', size: 'wide',   icon: '/icons/resume-win10.svg' },
+  { id: 'resume',   label: 'Profile', color: '#0063B1', size: 'wide',   icon: '/icons/resume-win10.svg' },
   { id: 'recycle',  label: 'Recycle Bin', color: '#4A5560', size: 'small',  icon: '/icons/recycle-win10.svg' },
   { id: 'network',  label: 'GitHub',      color: '#1B1B1B', size: 'small',  icon: '/icons/github-win10.svg' },
 ]
@@ -14,7 +14,7 @@ const leftItems = [
   { label: 'About Me',    id: 'about',    icon: '/icons/about-win10.svg' },
   { label: 'Projects',    id: 'projects', icon: '/icons/projects-win10.svg' },
   { label: 'Contact Me',  id: 'contact',  icon: '/icons/contact-win10.svg' },
-  { label: 'Resume / CV', id: 'resume',   icon: '/icons/resume-win10.svg' },
+  { label: 'Profile Snapshot', id: 'resume', icon: '/icons/resume-win10.svg' },
 ]
 
 export default function Win10StartMenu({ onClose, onAction }) {

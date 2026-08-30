@@ -8,7 +8,7 @@ export default function StartMenu({ onClose, onAction, theme }) {
     { label: 'About Me',    action: 'open-about',    icon: '/icons/computer.svg' },
     { label: 'Projects',    action: 'open-projects', icon: '/icons/documents.svg' },
     { label: 'Contact Me',  action: 'open-contact',  icon: '/icons/inbox.svg' },
-    { label: 'Resume / CV', action: 'open-resume',   icon: '/icons/briefcase.svg' },
+    { label: 'Profile Snapshot', action: 'open-resume', icon: '/icons/briefcase.svg' },
     { separator: true },
     ...(theme === 'win95'
       ? [{ label: 'Windows Update → Win2000', action: 'windows-update', icon: '/icons/welcome.svg', highlight: true }]

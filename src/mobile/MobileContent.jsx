@@ -322,7 +322,7 @@ export function ContactContent() {
       </Section>
 
       <Section label="Quick Links">
-        <Row icon={<IcDoc />} label="Resume / CV" href="/Dat_resume.pdf" chevron last />
+        <Row icon={<IcGithub />} label="GitHub Profile" href={PROFILE.github} chevron last />
       </Section>
     </div>
   )
@@ -337,8 +337,8 @@ export function ResumeContent() {
         <p className="ios-resume-contact">
           {PROFILE.email} · {PROFILE.githubLabel} · {PROFILE.websiteLabel}
         </p>
-        <a href="/Dat_resume.pdf" download className="ios-dl-btn">
-          Download PDF
+        <a href={PROFILE.github} target="_blank" rel="noreferrer" className="ios-dl-btn">
+          Open GitHub Profile
         </a>
       </div>
 

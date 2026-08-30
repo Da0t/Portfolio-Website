@@ -60,7 +60,6 @@ src/
 ├── hooks/useMobile.js            # Layout boundary
 └── index.css                     # Windows theme tokens and primitives
 public/
-├── Dat_resume.pdf                # Current downloadable resume
 ├── portfolio-preview.png         # Repository and social preview
 ├── projects/                     # Authentic project screenshots
 └── icons/                        # Windows-inspired icon assets
@@ -85,7 +84,7 @@ npm run preview
 ## Updating content
 
 - Edit `src/data/portfolioData.js` for profile, experience, skills, resume projects, or portfolio projects.
-- Replace `public/Dat_resume.pdf` when the resume changes.
+- Keep the rendered profile aligned with the public GitHub profile README.
 - Store project screenshots in `public/projects/` and reference them from the shared project record.
 - Keep desktop and mobile presentation logic separate; shared facts should remain in the data module.
 - Run `npm run build` before committing.

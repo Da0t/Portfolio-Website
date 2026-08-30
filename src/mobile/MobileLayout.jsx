@@ -43,7 +43,7 @@ const APPS = [
   },
   {
     id: 'resume',
-    label: 'Resume',
+    label: 'Profile',
     bg: 'linear-gradient(145deg,#FFD54F,#F57F17)',
     icon: <DocIcon />,
     content: <ResumeContent />,
