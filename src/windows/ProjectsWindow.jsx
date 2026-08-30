@@ -7,18 +7,22 @@ import {
 import './ProjectsWindow.css'
 
 export default function ProjectsWindow() {
-  const [activeCategory, setCategory] = useState('All')
+  const [activeCategory, setCategory] = useState('Spotlight')
   const [selected, setSelected] = useState(PORTFOLIO_PROJECTS[0].id)
 
   const filtered = activeCategory === 'All'
     ? PORTFOLIO_PROJECTS
-    : PORTFOLIO_PROJECTS.filter(project => project.category === activeCategory)
+    : activeCategory === 'Spotlight'
+      ? PORTFOLIO_PROJECTS.filter(project => project.featured)
+      : PORTFOLIO_PROJECTS.filter(project => project.category === activeCategory)
   const project = PORTFOLIO_PROJECTS.find(item => item.id === selected)
 
   function selectCategory(category) {
     const nextProjects = category === 'All'
       ? PORTFOLIO_PROJECTS
-      : PORTFOLIO_PROJECTS.filter(item => item.category === category)
+      : category === 'Spotlight'
+        ? PORTFOLIO_PROJECTS.filter(item => item.featured)
+        : PORTFOLIO_PROJECTS.filter(item => item.category === category)
     setCategory(category)
     setSelected(nextProjects[0]?.id ?? null)
   }

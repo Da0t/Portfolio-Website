@@ -259,7 +259,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'AI / ML',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '1st Place, Akash Track · Loop Engineering Hackathon',
     description:
       'An autonomous incident-remediation demo with zero standing production credentials. Risky actions require single-use scoped grants, disposable diagnostics, and a policy gate that records the audit trail and denies excessive blast radius.',
@@ -276,7 +276,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'AI / ML',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '1st Place Overall · SDx x Omnara',
     description:
       'A coding-agent session viewer and branching tool that loads Omnara history, truncates a conversation at a selected breakpoint, imports the corrected context, and launches a new agent run.',
@@ -293,7 +293,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'AI / ML',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '1st Place Overall · Voice Cursor x Convex',
     description:
       'A voice-driven search-and-rescue command center where a seeded Monte Carlo heatmap and pure-math planner run on a fast clock while LLM hypothesis reasoning runs only when new evidence arrives. Convex subscriptions keep the map reactive.',
@@ -310,7 +310,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'Systems',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '1st Place Overall · DSA x Intel Building for Good',
     description:
       'A human-controlled food-relief decision-support platform connecting EyePop field observations, San Diego community data, geospatial demand priors, inventory, and deterministic allocation in one reviewed workflow.',
@@ -327,7 +327,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'AI / ML',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '1st Place Overall · Memory Meets Motion',
     description:
       'An agentic education platform that remembers student misconceptions in a graph, forms temporary learning rooms around shared barriers, adapts assignments without lowering rigor, and renders the process as a living isometric school.',
@@ -344,7 +344,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'Systems',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '1st Place, Beginner Track · MLH x DigitalOcean',
     description:
       'A San Francisco food-truck location and permit-planning PWA. Deterministic code owns legality, scoring, travel time, and hard constraints; language models only phrase grounded explanations and read menus or forms.',
@@ -361,7 +361,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'Web / UI',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '1st Place, UI/UX · SEO Tech Developer',
     description:
       'A social platform for interns arriving in a new city, combining verified onboarding, event discovery, short-term sublets, commute planning, real-time messaging, and deterministic affordability checks.',
@@ -396,7 +396,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'Systems',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '2nd Place Overall · IEEE Quarterly Project',
     description:
       'An ESP32-to-cloud energy-monitoring prototype that streams fan telemetry to Supabase and layers Open-Meteo weather context, time-weighted kWh, baseline comparisons, and cost estimates into a Streamlit dashboard.',
@@ -598,7 +598,7 @@ export const PORTFOLIO_PROJECTS = [
   },
 ]
 
-export const PROJECT_CATEGORIES = ['All', 'Fintech', 'AI / ML', 'Systems', 'Data', 'Web / UI']
+export const PROJECT_CATEGORIES = ['Spotlight', 'All', 'Fintech', 'AI / ML', 'Systems', 'Data', 'Web / UI']
 
 export const PROJECT_CATEGORY_COLORS = {
   Fintech: '#000080',
