@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './MobileContent.css'
 import {
   EXPERIENCE,
@@ -258,14 +259,35 @@ export function ExperienceContent() {
 /* ── Projects ────────────────────────────────────────────────── */
 const PROJECT_ICONS = {
   Fintech: IcChart,
-  Hackathon: IcStar,
-  Engineering: IcCode,
+  'AI / ML': IcStar,
+  Systems: IcCode,
+  Data: IcData,
+  'Web / UI': IcRocket,
 }
 
 export function ProjectsContent() {
+  const featuredProjects = PORTFOLIO_PROJECTS.filter(project => project.featured)
+  const [showAll, setShowAll] = useState(false)
+  const visibleProjects = showAll ? PORTFOLIO_PROJECTS : featuredProjects
+
   return (
     <div className="ios-screen">
-      {PORTFOLIO_PROJECTS.map(project => {
+      <div className="ios-project-catalog-bar">
+        <div>
+          <strong>{PORTFOLIO_PROJECTS.length} public projects</strong>
+          <span>{showAll ? 'Complete GitHub-backed catalog' : `${featuredProjects.length} featured first`}</span>
+        </div>
+        <button
+          type="button"
+          className="ios-catalog-toggle"
+          aria-expanded={showAll}
+          onClick={() => setShowAll(value => !value)}
+        >
+          {showAll ? 'Featured' : `Show all ${PORTFOLIO_PROJECTS.length}`}
+        </button>
+      </div>
+
+      {visibleProjects.map(project => {
         const CatIcon = PROJECT_ICONS[project.category] ?? IcCode
         const color = PROJECT_CATEGORY_COLORS[project.category] ?? '#007AFF'
         return (
@@ -302,6 +324,16 @@ export function ProjectsContent() {
         </div>
         )
       })}
+
+      {!showAll && (
+        <button
+          type="button"
+          className="ios-catalog-more"
+          onClick={() => setShowAll(true)}
+        >
+          Show all {PORTFOLIO_PROJECTS.length} projects
+        </button>
+      )}
     </div>
   )
 }
