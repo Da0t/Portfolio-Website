@@ -64,7 +64,7 @@ function getWindowDefs(theme) {
       defaultSize: { w: 720, h: 480 },
       defaultPosition: { x: 160, y: 80 },
       content: <ProjectsWindow />,
-      statusBar: `${PORTFOLIO_PROJECTS.length} curated projects · Fintech first`,
+      statusBar: `${PORTFOLIO_PROJECTS.length} public projects · GitHub-backed`,
     },
     contact: {
       title: 'Inbox — Message Dat',
