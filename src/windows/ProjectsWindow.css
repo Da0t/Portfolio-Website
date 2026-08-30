@@ -75,6 +75,11 @@
   gap: 4px;
   cursor: default;
   font: 11px var(--font);
+  width: 100%;
+  border: 0;
+  color: var(--text);
+  background: transparent;
+  text-align: left;
 }
 
 .filelist-row:hover { background: #d0d0d0; }
@@ -94,7 +99,7 @@
 .col-date  { width: 36px; text-align: right; flex-shrink: 0; white-space: nowrap; }
 
 .projects-detail {
-  width: 180px;
+  width: 240px;
   flex-shrink: 0;
   padding: 8px;
   background: var(--gray);
@@ -125,6 +130,31 @@
   font: 11px var(--font);
   line-height: 1.5;
   color: var(--text);
+}
+
+.detail-award {
+  padding: 4px 6px;
+  background: #FFFFCC;
+  color: var(--text);
+  font: bold 10px var(--font);
+  border: 1px solid var(--gray-dark);
+  box-shadow: inset -1px -1px 0 var(--white);
+}
+
+.detail-preview {
+  width: 100%;
+  height: 124px;
+  padding: 2px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.detail-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
 }
 
 .detail-tech {

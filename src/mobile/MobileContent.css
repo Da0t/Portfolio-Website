@@ -268,11 +268,42 @@
 }
 
 /* ── Project card specifics ─────────────────────────────────── */
+.ios-project-preview {
+  height: 176px;
+  margin: -15px -15px 14px;
+  overflow: hidden;
+  background: #1a2230;
+  border-bottom: 1px solid var(--ios-cell-border);
+  border-radius: 11px 11px 0 0 !important;
+}
+
+.ios-project-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .ios-project-header {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 8px;
+}
+
+.ios-project-award {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 4px 10px;
+  border-radius: 999px !important;
+  border: 1px solid #9b7410;
+  background: linear-gradient(to bottom, #fff4a3, #e2bd45);
+  color: #493500;
+  font-size: 12px;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.65);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 1px rgba(0,0,0,0.18);
 }
 
 .ios-project-dot {

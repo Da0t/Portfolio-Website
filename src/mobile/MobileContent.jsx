@@ -2,7 +2,9 @@ import './MobileContent.css'
 import {
   EXPERIENCE,
   FEATURED_SKILLS,
+  PORTFOLIO_PROJECTS,
   PROFILE,
+  PROJECT_CATEGORY_COLORS,
   SKILL_GROUPS,
 } from '../data/portfolioData'
 
@@ -244,100 +246,52 @@ export function ExperienceContent() {
 }
 
 /* ── Projects ────────────────────────────────────────────────── */
-const projects = [
-  { name:'Rewind.', cat:'Hackathon', color:'#007AFF',
-    desc:'1st place SDx Hackathon. AI fork-and-resume pipeline with a typed Omnara API client for 6 endpoints.',
-    tech:['Python','Next.js','TypeScript','Omnara API'], link:'https://github.com/Da0t',
-    CatIcon: IcStar },
-  { name:'Atlas.', cat:'Hackathon', color:'#5856D6',
-    desc:'Multimodal RAG pipeline (TwelveLabs + Claude Sonnet 4.6). Filters ~90% cross-video noise. Study suite with notes, flashcards, PDF problems.',
-    tech:['Next.js','FastAPI','SQLite','TwelveLabs','Claude API'], link:'https://github.com/Da0t',
-    CatIcon: IcStar },
-  { name:'SpectraStruct', cat:'Hackathon', color:'#34C759',
-    desc:'DiamondHacks — molecular ID from NMR/MS/IR spectra. Top-10 candidates with 3D conformers.',
-    tech:['FastAPI','RDKit','Next.js','MIST (MIT)'], link:'https://github.com/Da0t/SpectraStruct',
-    CatIcon: IcStar },
-  { name:'whatyoudoin', cat:'Hackathon', color:'#FF9500',
-    desc:'Voice-driven CLI: ask what\'s wrong with your code out loud, then Deepgram + Claude find the broken file and apply the fix.',
-    tech:['Python','Claude API','Deepgram','SQLite'], link:'https://github.com/Da0t/whatyadoin-',
-    CatIcon: IcStar },
-  { name:'Aside — The Narrator', cat:'Hackathon', color:'#FF2D55',
-    desc:'1st place (Deepgram Track), Berkeley AI Hackathon. A wearable that watches a room and narrates your life out loud in a personality you can swap on the fly.',
-    tech:['React Native','Python','Claude','Deepgram'], link:'https://github.com/Da0t/AsideAI',
-    live:'https://aside-website.vercel.app/',
-    CatIcon: IcStar },
-  { name:'dazineui', cat:'Open Source', color:'#5856D6',
-    desc:'npm-published React/Three.js library of six motion primitives that auto-teaches AI coding tools how to use it via injected Cursor/Claude rules.',
-    tech:['TypeScript','Three.js','react-three-fiber','GLSL'], link:'https://github.com/Da0t/dazineui',
-    CatIcon: IcRocket },
-  { name:'IoT Energy Monitor', cat:'Engineering', color:'#FF9500',
-    desc:'ESP32 + Supabase + Streamlit. Real-time energy tracking against live weather data across 1–10 devices.',
-    tech:['ESP32','Python','Supabase','Open-Meteo'], link:'https://github.com/Da0t/Weather-Adaptive-IoT-Energy-Monitor',
-    live:'https://weather-adaptive-io-t-energy-monito.vercel.app',
-    CatIcon: IcCode },
-  { name:'Lattice (Pylon)', cat:'Engineering', color:'#007AFF',
-    desc:'2nd place, Bow Capital Hackathon. Counter-drone mesh system: a deck.gl/Mapbox relay-simulation dashboard plus a Python RTL-SDR RF anomaly detector and gossip-based mesh relay.',
-    tech:['Next.js','deck.gl','Python','RTL-SDR'], link:'https://github.com/Da0t/Lattice',
-    live:'https://lattice-pm4d.vercel.app/',
-    CatIcon: IcCode },
-  { name:'Win95 Portfolio', cat:'Engineering', color:'#34C759',
-    desc:'This very site — a portfolio reimagined as an interactive Windows 95 desktop, with a native iOS interface on mobile.',
-    tech:['React','Vite','react-draggable'], link:'https://github.com/Da0t/Portfolio-Website',
-    live:'https://dats-nguyen.vercel.app',
-    CatIcon: IcCode },
-  { name:'SJ Housing Analysis', cat:'Data Science', color:'#AF52DE',
-    desc:'Price-to-income ratios + time-series forecasting on 130 months of San Jose MSA housing data.',
-    tech:['Python','Scikit-Learn','Pandas','Jupyter'], link:'https://github.com/Da0t/SJ-housing-analysis',
-    CatIcon: IcData },
-  { name:'TSwift Recommender', cat:'Data Science', color:'#FF2D55',
-    desc:'TF-IDF + audio feature recommender across Taylor Swift\'s full discography.',
-    tech:['Python','TF-IDF','Jupyter'], link:'https://github.com/Da0t/TSwift-Song-Recommender',
-    CatIcon: IcData },
-  { name:'Friends Analysis', cat:'Data Science', color:'#FF9500',
-    desc:'Bayesian + bootstrap analysis of character dynamics and viewership drivers across all 10 seasons.',
-    tech:['Python','Bayesian Modeling','Jupyter'], link:'https://github.com/Da0t/Friends-Data-Driven-Analysis-for-Enhanced-Engagement',
-    CatIcon: IcData },
-  { name:'Mila Expense Dashboard', cat:'Data Science', color:'#34C759',
-    desc:'Real-time React dashboard visualizing boutique receipt data from Supabase with Sankey, area, radar, and donut charts.',
-    tech:['React','Supabase','Recharts','Nivo'], link:'https://github.com/Da0t/Dashboard-Supabase-and-Shenanigans',
-    CatIcon: IcData },
-  { name:'First Baron Predictor', cat:'Data Science', color:'#AF52DE',
-    desc:'Data-science report on whether first Baron control predicts wins in competitive League of Legends, with a scikit-learn win classifier.',
-    tech:['Python','scikit-learn','Plotly','Jekyll'], link:'https://github.com/Da0t/dsc80-project-website',
-    live:'https://da0t.github.io/dsc80-project-website/',
-    CatIcon: IcData },
-]
+const PROJECT_ICONS = {
+  Fintech: IcChart,
+  Hackathon: IcStar,
+  Engineering: IcCode,
+}
 
 export function ProjectsContent() {
   return (
     <div className="ios-screen">
-      {projects.map((p, i) => (
-        <div key={i} className="ios-project-card">
+      {PORTFOLIO_PROJECTS.map(project => {
+        const CatIcon = PROJECT_ICONS[project.category] ?? IcCode
+        const color = PROJECT_CATEGORY_COLORS[project.category] ?? '#007AFF'
+        return (
+        <div key={project.id} className="ios-project-card">
+          {project.image && (
+            <div className="ios-project-preview">
+              <img src={project.image} alt={project.imageAlt} loading="lazy" />
+            </div>
+          )}
           <div className="ios-project-header">
-            <div className="ios-project-dot" style={{ background: p.color }} />
+            <div className="ios-project-dot" style={{ background: color }} />
             <div>
-              <div className="ios-project-name">{p.name}</div>
-              <div className="ios-project-cat" style={{ color: p.color }}>
-                <p.CatIcon /> {p.cat}
+              <div className="ios-project-name">{project.name}</div>
+              <div className="ios-project-cat" style={{ color }}>
+                <CatIcon /> {project.category}
               </div>
             </div>
           </div>
-          <p className="ios-project-desc">{p.desc}</p>
+          {project.award && <div className="ios-project-award">{project.award}</div>}
+          <p className="ios-project-desc">{project.description}</p>
           <div className="ios-tags-wrap">
-            {p.tech.map(t => <Tag key={t} color={p.color}>{t}</Tag>)}
+            {project.tech.map(technology => <Tag key={technology} color={color}>{technology}</Tag>)}
           </div>
           <div className="ios-project-actions">
-            <a href={p.link} target="_blank" rel="noreferrer" className="ios-action-btn">
-              View on GitHub
+            <a href={project.github} target="_blank" rel="noreferrer" className="ios-action-btn">
+              {project.githubLabel}
             </a>
-            {p.live && (
-              <a href={p.live} target="_blank" rel="noreferrer" className="ios-action-btn ios-action-btn-alt">
+            {project.live && (
+              <a href={project.live} target="_blank" rel="noreferrer" className="ios-action-btn ios-action-btn-alt">
                 Live Demo
               </a>
             )}
           </div>
         </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

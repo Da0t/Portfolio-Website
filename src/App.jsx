@@ -17,7 +17,7 @@ import ResumeWindow from './windows/ResumeWindow'
 import RecycleBinWindow from './windows/RecycleBinWindow'
 import ExperienceWindow from './windows/ExperienceWindow'
 import MinesweeperWindow from './windows/MinesweeperWindow'
-import { EXPERIENCE, PROFILE } from './data/portfolioData'
+import { EXPERIENCE, PORTFOLIO_PROJECTS, PROFILE } from './data/portfolioData'
 import './App.css'
 
 let nextZ = 100
@@ -61,10 +61,10 @@ function getWindowDefs(theme) {
     projects: {
       title: 'Projects — Dat Nguyen',
       icon: ic.documents,
-      defaultSize: { w: 580, h: 390 },
+      defaultSize: { w: 720, h: 480 },
       defaultPosition: { x: 160, y: 80 },
       content: <ProjectsWindow />,
-      statusBar: '14 project(s) — double-click to open on GitHub',
+      statusBar: `${PORTFOLIO_PROJECTS.length} curated projects · Fintech first`,
     },
     contact: {
       title: 'Inbox — Message Dat',
