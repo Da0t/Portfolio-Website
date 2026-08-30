@@ -2,6 +2,8 @@ import './MobileContent.css'
 import {
   EXPERIENCE,
   FEATURED_SKILLS,
+  HACKATHON_AWARDS,
+  LEADERSHIP,
   PORTFOLIO_PROJECTS,
   PROFILE,
   PROJECT_CATEGORY_COLORS,
@@ -165,7 +167,7 @@ export function AboutContent() {
         />
         <h1 className="ios-profile-name">{PROFILE.name}</h1>
         <p className="ios-profile-sub">Data Science + Economics · UC San Diego</p>
-        <p className="ios-profile-sub2">Fintech + data systems · Class of 2028</p>
+        <p className="ios-profile-sub2">Applied AI + geospatial systems · {PROFILE.graduation}</p>
         <div className="ios-social-row">
           <a href={PROFILE.github} target="_blank" rel="noreferrer" className="ios-social-btn">
             GitHub
@@ -185,7 +187,7 @@ export function AboutContent() {
       <Section label="Details">
         <Row icon={<IcGrad />} label="University" value="UC San Diego" />
         <Divider />
-        <Row icon={<IcPin />} label="Location" value={PROFILE.location} />
+        <Row icon={<IcStar />} label="GPA" value={PROFILE.gpa} />
         <Divider />
         <Row icon={<IcCal />} label="Graduation" value={PROFILE.graduation} />
         <Divider />
@@ -209,15 +211,21 @@ export function AboutContent() {
 
 /* ── Experience ─────────────────────────────────────────────── */
 const EXPERIENCE_ICONS = {
+  netra: IcCode,
   seo: IcCode,
   research: IcData,
   aisc: IcChart,
+  'boa-ai': IcCode,
+  dataworks: IcRocket,
+  calpirg: IcStar,
 }
 
 export function ExperienceContent() {
+  const roles = [...EXPERIENCE, ...LEADERSHIP]
+
   return (
     <div className="ios-screen">
-      {EXPERIENCE.map(item => {
+      {roles.map(item => {
         const Icon = EXPERIENCE_ICONS[item.id] ?? IcBriefcase
         return (
         <div key={item.id} className="ios-exp-card">
@@ -228,12 +236,14 @@ export function ExperienceContent() {
             <div className="ios-exp-meta">
               <div className="ios-exp-role">{item.role}</div>
               <div className="ios-exp-org">{item.shortOrg}</div>
-              <div className="ios-exp-period">{item.period}</div>
+              <div className="ios-exp-period">
+                {item.type === 'leadership' ? 'Leadership' : item.type === 'research' ? 'Research' : 'Experience'}
+              </div>
             </div>
           </div>
-          {item.mobileBullets.length > 0 && (
+          {(item.mobileBullets ?? item.bullets ?? []).length > 0 && (
             <ul className="ios-exp-bullets">
-              {item.mobileBullets.map(bullet => (
+              {(item.mobileBullets ?? item.bullets).slice(0, 2).map(bullet => (
                 <li key={bullet}>{bullet}</li>
               ))}
             </ul>
@@ -303,7 +313,7 @@ export function ContactContent() {
       <div className="ios-contact-hero">
         <div className="ios-contact-avatar">D</div>
         <h2 className="ios-contact-name">{PROFILE.name}</h2>
-        <p className="ios-contact-sub">Open to fintech, data, and software engineering internships</p>
+        <p className="ios-contact-sub">Applied AI · geospatial systems · defense technology</p>
       </div>
 
       <Section label="Get in Touch">
@@ -346,7 +356,7 @@ export function ResumeContent() {
         <div className="ios-resume-block">
           <div className="ios-resume-title">{PROFILE.school}</div>
           <div className="ios-resume-sub">{PROFILE.degree}</div>
-          <div className="ios-resume-period">Expected {PROFILE.graduation} · {PROFILE.location}</div>
+          <div className="ios-resume-period">{PROFILE.graduation} · GPA {PROFILE.gpa}</div>
         </div>
       </Section>
 
@@ -356,9 +366,35 @@ export function ResumeContent() {
             <div className="ios-resume-block">
               <div className="ios-resume-title">{item.role}</div>
               <div className="ios-resume-sub">{item.shortOrg}</div>
-              <div className="ios-resume-period">{item.period}</div>
             </div>
             {i < EXPERIENCE.length - 1 && <Divider />}
+          </div>
+        ))}
+      </Section>
+
+      <Section label="Leadership">
+        {LEADERSHIP.map((item, i) => (
+          <div key={item.id}>
+            <div className="ios-resume-block">
+              <div className="ios-resume-title">{item.role}</div>
+              <div className="ios-resume-sub">{item.shortOrg}</div>
+            </div>
+            {i < LEADERSHIP.length - 1 && <Divider />}
+          </div>
+        ))}
+      </Section>
+
+      <Section label="10 Hackathon Awards">
+        {HACKATHON_AWARDS.map((award, i) => (
+          <div key={award.id}>
+            <a href={award.href} target="_blank" rel="noreferrer" className="ios-row-link">
+              <div className="ios-resume-block">
+                <div className="ios-resume-title">{award.name}</div>
+                <div className="ios-resume-sub">{award.award}</div>
+                <div className="ios-resume-period">{award.summary}</div>
+              </div>
+            </a>
+            {i < HACKATHON_AWARDS.length - 1 && <Divider />}
           </div>
         ))}
       </Section>

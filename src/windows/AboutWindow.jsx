@@ -3,13 +3,13 @@ import { FEATURED_SKILLS, PROFILE } from '../data/portfolioData'
 
 const specs = [
   { label: 'Full Name', value: PROFILE.name },
-  { label: 'Processor', value: 'Python · TypeScript · SQL @ 100MHz' },
-  { label: 'Memory', value: 'Data Science + Economics (Dual-Core)' },
-  { label: 'Storage', value: 'Financial simulations · CRM forecasting · 3 project awards' },
-  { label: 'OS', value: `UC San Diego · ${PROFILE.degree} · Class of 2028` },
-  { label: 'Display', value: 'Full-Stack · Data · Financial Systems' },
-  { label: 'Location', value: `${PROFILE.location} (San Diego)` },
-  { label: 'Network', value: PROFILE.availability },
+  { label: 'Processor', value: 'Python · TypeScript · JavaScript @ 100MHz' },
+  { label: 'Memory', value: `${PROFILE.degree} (Dual-Core)` },
+  { label: 'Storage', value: '10 hackathon awards · ML pipelines · deployed hardware' },
+  { label: 'OS', value: `${PROFILE.school} · ${PROFILE.graduation} · GPA ${PROFILE.gpa}` },
+  { label: 'Display', value: 'Applied AI · Geospatial Systems · Defense Technology' },
+  { label: 'Location', value: PROFILE.location },
+  { label: 'Network', value: PROFILE.focus },
 ]
 
 // Tries /public/photo.jpg first; falls back to GitHub avatar
@@ -33,7 +33,7 @@ export default function AboutWindow() {
         <div className="about-header-text">
           <div className="about-name">{PROFILE.name}</div>
           <div className="about-role">
-            {PROFILE.headline} &nbsp;|&nbsp; UC San Diego · Class of 2028
+            {PROFILE.headline} &nbsp;|&nbsp; UC San Diego · {PROFILE.graduation}
           </div>
           <div className="about-social-links">
             <a

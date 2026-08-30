@@ -83,7 +83,7 @@ npm run preview
 
 ## Updating content
 
-- Edit `src/data/portfolioData.js` for profile, experience, skills, resume projects, or portfolio projects.
+- Edit `src/data/portfolioData.js` for profile, experience, leadership, skills, awards, or portfolio projects.
 - Keep the rendered profile aligned with the public GitHub profile README.
 - Store project screenshots in `public/projects/` and reference them from the shared project record.
 - Keep desktop and mobile presentation logic separate; shared facts should remain in the data module.
@@ -97,4 +97,4 @@ Desktop follows the repository's Windows 95/2000 rules: fixed system colors, sha
 
 Dat Nguyen · [datq.nguyen06@gmail.com](mailto:datq.nguyen06@gmail.com)
 
-UC San Diego · B.S. Data Science & B.A. Economics · Expected June 2028
+UC San Diego · Data Science & Economics · Class of 2028

@@ -2,12 +2,12 @@ import { useState } from 'react'
 import './WelcomeDialog.css'
 
 const tips = [
-  'Dat studies Data Science and Economics at UC San Diego and graduates in June 2028.',
-  'Dat built Northstar to run 5,000 reproducible Monte Carlo financial-planning paths in the browser.',
-  'Dat built QuotaSignal to turn CRM relationships into explainable bookings forecasts.',
-  'Dat trained a satellite-image classifier to 0.982 ROC-AUC for informal-settlement detection.',
-  "Dat improved AISC's website load time by 20% with incremental static regeneration.",
-  'Dat has three verified project awards across the Berkeley AI, Bow Capital, and SDx hackathons.',
+  'Dat studies Data Science and Economics at UC San Diego and is in the Class of 2028.',
+  'Dat focuses on applied AI, geospatial systems, and defense technology.',
+  'Dat has earned 10 hackathon awards, including wins at Berkeley AI and SDx x Omnara.',
+  'Dat builds end-to-end systems spanning ML pipelines, full-stack software, and deployed hardware.',
+  'Aria AI was selected for the Deepgram Startup Program.',
+  'Dat serves as VP of Project Operations for DataWorks at UC San Diego.',
 ]
 
 export default function WelcomeDialog({ onClose, onWhatsNew, onProjects }) {
