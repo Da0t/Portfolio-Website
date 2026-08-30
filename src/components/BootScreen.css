@@ -1,0 +1,103 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 90ms linear;
+}
+
+.boot-fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bios-screen {
+  position: absolute;
+  top: 32px;
+  left: 40px;
+  color: #c0c0c0;
+  font: 14px/1.6 "Courier New", Courier, monospace;
+}
+
+.bios-screen p { margin: 0; }
+
+.bios-blink { animation: boot-blink 300ms step-end infinite; }
+
+@keyframes boot-blink {
+  50% { opacity: 0; }
+}
+
+.win95-boot,
+.boot-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.win95-boot { gap: 26px; }
+.boot-logo { gap: 10px; }
+
+.boot-flag {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  width: 58px;
+  height: 58px;
+  gap: 3px;
+}
+
+.flag-pane.red { background: #f00; }
+.flag-pane.green { background: #0a0; }
+.flag-pane.blue { background: #00f; }
+.flag-pane.yellow { background: #fc0; }
+
+.boot-wordmark {
+  display: flex;
+  gap: 5px;
+  color: #fff;
+  font: italic bold 30px "MS Sans Serif", Tahoma, Arial, sans-serif;
+}
+
+.boot-bar-track {
+  width: 170px;
+  height: 10px;
+  overflow: hidden;
+  border: 2px solid #808080;
+  background: #000;
+  box-shadow: inset 1px 1px 0 #404040;
+}
+
+.boot-bar-fill {
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: repeating-linear-gradient(90deg, #0000aa 0 10px, #000088 10px 12px);
+  animation: boot-progress 420ms linear forwards;
+}
+
+@keyframes boot-progress {
+  to { transform: scaleX(1); }
+}
+
+.boot-skip {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  color: #9a9a9a;
+  font: 11px "MS Sans Serif", Tahoma, Arial, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-screen,
+  .boot-bar-fill,
+  .bios-blink {
+    animation: none;
+    transition: none;
+  }
+}

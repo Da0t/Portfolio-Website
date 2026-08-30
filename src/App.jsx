@@ -5,6 +5,7 @@ import Window from './components/Window'
 import DesktopIcon from './components/DesktopIcon'
 import Taskbar from './components/Taskbar'
 import DesktopContextMenu from './components/DesktopContextMenu'
+import BootScreen from './components/BootScreen'
 import AboutWindow from './windows/AboutWindow'
 import RecruiterWindow from './windows/RecruiterWindow'
 import { EXPERIENCE, HACKATHON_AWARDS, LEADERSHIP, PORTFOLIO_PROJECTS, PROFILE } from './data/portfolioData'
@@ -173,6 +174,7 @@ function rectsOverlap(ax, ay, aw, ah, bx, by, bw, bh) {
 
 export default function App() {
   const isMobile = useMobile()
+  const [booting, setBooting]               = useState(true)
   const [windows, setWindows]               = useState([])
   const [showWelcome, setShowWelcome]       = useState(false)
   const [theme, setTheme]                   = useState('win95')
@@ -448,6 +450,8 @@ export default function App() {
 
   return (
     <>
+      {booting && <BootScreen onDone={() => setBooting(false)} />}
+
       {contextMenu && (
         <DesktopContextMenu
           x={contextMenu.x}
