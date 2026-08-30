@@ -12,7 +12,7 @@ import './MobileLayout.css'
 function useTime() {
   const [t, setT] = useState(new Date())
   useEffect(() => {
-    const id = setInterval(() => setT(new Date()), 1000)
+    const id = setInterval(() => setT(new Date()), 60_000)
     return () => clearInterval(id)
   }, [])
   return t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })

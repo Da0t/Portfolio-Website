@@ -7,7 +7,7 @@ export default function Taskbar({ windows, onWindowClick, onStartAction, theme }
   const [startOpen, setStartOpen] = useState(false)
 
   useEffect(() => {
-    const t = setInterval(() => setTime(getTime()), 1000)
+    const t = setInterval(() => setTime(getTime()), 60_000)
     return () => clearInterval(t)
   }, [])
 
