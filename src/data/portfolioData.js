@@ -25,6 +25,8 @@ export const EXPERIENCE = [
     role: 'Software Engineer Intern',
     org: 'Netra',
     shortOrg: 'Netra',
+    description:
+      'Contributes to product implementation and engineering delivery as a software engineering intern at Netra.',
     type: 'work',
     color: '#000080',
   },
@@ -33,6 +35,8 @@ export const EXPERIENCE = [
     role: 'Full-Stack Developer Intern',
     org: 'SEO (Sponsors for Educational Opportunity)',
     shortOrg: 'SEO',
+    description:
+      'Built and refined an AI food-scanning prototype in React Native and Expo that turns food photos into structured nutrition and recipe results with OpenAI Vision.',
     type: 'work',
     color: '#5856D6',
   },
@@ -41,6 +45,8 @@ export const EXPERIENCE = [
     role: 'Software Engineer',
     org: 'AISC @ UC San Diego',
     shortOrg: 'AISC @ UC San Diego',
+    description:
+      'Contributed to AISC\'s Next.js and TypeScript website, improving motion, event-carousel controls, content, and project empty states for an organization expanding AI literacy.',
     type: 'work',
     color: '#34C759',
   },
@@ -49,6 +55,8 @@ export const EXPERIENCE = [
     role: 'Undergraduate Researcher',
     org: 'Economics Research Lab @ UC San Diego',
     shortOrg: 'Economics Research Lab @ UCSD',
+    description:
+      'Built geospatial research assets in QGIS, including clipped 100-meter grids from satellite and vector layers to support spatial-economics analysis.',
     type: 'research',
     color: '#FF9500',
   },
@@ -57,6 +65,8 @@ export const EXPERIENCE = [
     role: 'Software Engineer Intern',
     org: 'Boa AI',
     shortOrg: 'Boa AI',
+    description:
+      'Supports product development in an AI-focused engineering team, contributing across implementation and delivery.',
     type: 'work',
     color: '#AF52DE',
   },
@@ -68,6 +78,8 @@ export const LEADERSHIP = [
     role: 'VP of Project Operations',
     org: 'DataWorks @ UC San Diego',
     shortOrg: 'DataWorks @ UC San Diego',
+    description:
+      'Oversees project operations for UC San Diego\'s data science consulting and research club, helping teams move work from planning through delivery.',
     type: 'leadership',
     color: '#7A3000',
   },
@@ -76,6 +88,8 @@ export const LEADERSHIP = [
     role: 'Volunteer',
     org: 'CALPIRG Students',
     shortOrg: 'CALPIRG Students',
+    description:
+      'Supports student-led public-interest campaigns and campus outreach as a CALPIRG Students volunteer.',
     type: 'leadership',
     color: '#7A3000',
   },

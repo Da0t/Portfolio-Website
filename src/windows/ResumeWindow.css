@@ -68,6 +68,12 @@
   margin-bottom: 3px;
 }
 
+.resume-description {
+  margin: 3px 0 0;
+  color: var(--text);
+  line-height: 1.5;
+}
+
 .resume-bullets {
   padding-left: 16px;
   margin: 0;

@@ -66,6 +66,13 @@
   white-space: nowrap;
 }
 
+.exp-description {
+  margin: 0;
+  color: var(--text);
+  font: 11px var(--font);
+  line-height: 1.55;
+}
+
 .exp-bullets {
   padding-left: 16px;
   margin: 0;

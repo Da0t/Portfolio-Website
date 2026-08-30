@@ -100,6 +100,15 @@
 
 .recruiter-role strong { font: bold 10px var(--font); }
 .recruiter-role span { color: var(--gray-darker); font: 10px var(--font); }
+.recruiter-role .recruiter-role-description {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 9px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
 
 .recruiter-project {
   display: grid;

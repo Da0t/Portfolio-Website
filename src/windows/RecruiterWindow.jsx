@@ -42,7 +42,10 @@ export default function RecruiterWindow({ onOpen }) {
             {EXPERIENCE.map(item => (
               <div className="recruiter-role" key={item.id}>
                 <strong>{item.role}</strong>
-                <span>{item.shortOrg}</span>
+                <span className="recruiter-role-org">{item.shortOrg}</span>
+                <span className="recruiter-role-description" title={item.description}>
+                  {item.description}
+                </span>
               </div>
             ))}
           </div>

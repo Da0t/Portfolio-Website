@@ -30,6 +30,8 @@ export default function ExperienceWindow() {
             </div>
           </div>
 
+          {e.description && <p className="exp-description">{e.description}</p>}
+
           {e.bullets?.length > 0 && (
             <ul className="exp-bullets">
               {e.bullets.map((b, j) => <li key={j}>{b}</li>)}

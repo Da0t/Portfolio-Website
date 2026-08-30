@@ -255,6 +255,7 @@ export function ExperienceContent() {
               </div>
             </div>
           </div>
+          {item.description && <p className="ios-exp-description">{item.description}</p>}
           {(item.mobileBullets ?? item.bullets ?? []).length > 0 && (
             <ul className="ios-exp-bullets">
               {(item.mobileBullets ?? item.bullets).slice(0, 2).map(bullet => (
@@ -418,6 +419,7 @@ export function ResumeContent() {
             <div className="ios-resume-block">
               <div className="ios-resume-title">{item.role}</div>
               <div className="ios-resume-sub">{item.shortOrg}</div>
+              {item.description && <p className="ios-resume-description">{item.description}</p>}
             </div>
             {i < EXPERIENCE.length - 1 && <Divider />}
           </div>
@@ -430,6 +432,7 @@ export function ResumeContent() {
             <div className="ios-resume-block">
               <div className="ios-resume-title">{item.role}</div>
               <div className="ios-resume-sub">{item.shortOrg}</div>
+              {item.description && <p className="ios-resume-description">{item.description}</p>}
             </div>
             {i < LEADERSHIP.length - 1 && <Divider />}
           </div>

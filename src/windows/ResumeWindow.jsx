@@ -48,6 +48,7 @@ export default function ResumeWindow() {
               <span className="resume-job-role">{item.role} &mdash; {item.org}</span>
               {item.period && <span className="resume-job-period">{item.period}</span>}
             </div>
+            {item.description && <p className="resume-description">{item.description}</p>}
           </div>
         ))}
       </section>
@@ -61,6 +62,7 @@ export default function ResumeWindow() {
             <div className="resume-job-header">
               <span className="resume-job-role">{item.role} &mdash; {item.org}</span>
             </div>
+            {item.description && <p className="resume-description">{item.description}</p>}
           </div>
         ))}
       </section>
