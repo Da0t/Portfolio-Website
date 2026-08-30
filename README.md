@@ -1,84 +1,101 @@
 # Dat Nguyen — Portfolio
 
-A portfolio website styled as a Windows 95 / Windows 2000 desktop experience, with a native iOS interface on mobile.
+[Live portfolio](https://dats-nguyen.vercel.app) · [GitHub](https://github.com/Da0t) · [LinkedIn](https://www.linkedin.com/in/datnguy3n/)
 
-## Features
+An interactive portfolio for Dat Nguyen, a UC San Diego Data Science and Economics student building reliable fintech, data, and full-stack systems.
 
-**Desktop**
-- Draggable, resizable windows with Win95 3D chrome
-- Windows Update flow: upgrade from Win95 → Windows 2000 (icon set swap, gradient titlebar, new theme)
-- Rubber-band selection, multi-icon drag, right-click context menu
-- Minesweeper easter egg (9×9 beginner, left-click reveal, right-click flag)
+![Dat Nguyen's Windows desktop portfolio](public/portfolio-preview.png)
 
-**Mobile**
-- iPod Touch / iOS 6 home screen: squircle icons, frosted glass dock, blue dot wallpaper
-- Fully native iOS-style UIs per app (no Win95 components on mobile)
-- Tetris game with touch controls
+## What makes it different
 
-**Apps / Sections**
-- About Me — bio, skills, profile photo
-- Experience — 6 roles across internships, research, and leadership
-- Projects — 8 real GitHub projects with links and live demos
-- Resume — full CV with PDF download
-- Contact — email, LinkedIn, GitHub
-- Recycle Bin — easter egg (desktop only)
+The desktop experience behaves like a compact Windows 95/2000 environment instead of a conventional landing page. Visitors can open, drag, resize, minimize, and maximize app windows; select desktop icons; use a contextual menu; run the Windows Update theme flow; and play Minesweeper.
 
-## Tech Stack
+Mobile intentionally becomes a different product: a skeuomorphic early-iPhone interface with touch-first app navigation and Tetris. Both experiences render the same verified profile, experience, skills, and project data from one shared module.
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | React 18 + Vite |
-| Language | JavaScript (JSX) |
-| Styling | Vanilla CSS (CSS custom properties for theming) |
-| Drag | react-draggable v4 (controlled mode) |
-| Mobile detection | `window.matchMedia` hook |
-| Deployment | Vercel |
+## Featured work
 
-## Project Structure
+The portfolio is curated for fintech and software-engineering applications:
 
+1. [Northstar](https://github.com/Da0t/northstar) — a local-first financial planning lab with 5,000 seeded monthly Monte Carlo paths, a Web Worker execution boundary, fees/inflation modeling, downside metrics, and fixed-path funding solvers.
+2. [QuotaSignal](https://github.com/Da0t/quota-signal) — a local-first CRM and explainable bookings-forecasting workbench with relationship validation, integer financial arithmetic, atomic CSV exchange, and an optional seeded deal simulation.
+3. [Rewind](https://github.com/pynay/rewind) — a first-place SDx Hackathon agent-session replay and branching tool. This link points to the team repository.
+4. [Pylon / Lattice](https://github.com/Da0t/Lattice) — a second-place Bow Capital Hackathon counter-UAV mesh with terrain-aware visualization, RF anomaly detection, and UDP gossip.
+5. [Aside AI](https://github.com/Da0t/AsideAI) — a first-place Berkeley AI Hackathon Deepgram-track wearable narration system.
+6. [Windows Portfolio](https://github.com/Da0t/Portfolio-Website) — this desktop/mobile interface and its OS-inspired interaction model.
+
+Northstar and QuotaSignal are educational decision-support projects. Their modeled outcomes are not financial advice, calibrated predictions, or guarantees.
+
+## Architecture
+
+```text
+src/data/portfolioData.js
+  ├── desktop windows (about, experience, projects, resume)
+  └── mobile apps (about, experience, projects, resume, contact)
+
+src/App.jsx
+  └── Windows desktop shell, window state, icon state, themes
+
+src/mobile/MobileLayout.jsx
+  └── early-iPhone shell, home screen, app navigation
 ```
+
+Key implementation choices:
+
+- React 18 and Vite for the single-page application
+- Vanilla CSS for the Windows and early-iPhone design systems
+- `react-draggable` for controlled desktop window movement
+- Separate desktop and mobile shells instead of a compressed desktop layout
+- Shared content data to prevent profile drift between layouts
+- Static deployment with no analytics, authentication, backend, or visitor-data collection
+
+## Repository map
+
+```text
 src/
-├── App.jsx                  # Desktop orchestrator (windows, icons, theme)
-├── components/              # Win95 UI primitives
-│   ├── Window.jsx           # Draggable resizable window
-│   ├── DesktopIcon.jsx      # Free-drag icon with selection
-│   ├── Taskbar.jsx
-│   ├── StartMenu.jsx
-│   ├── BootScreen.jsx
-│   ├── WelcomeDialog.jsx
-│   ├── WindowsUpdate.jsx    # Win95 → Win2000 upgrade animation
-│   └── Win2000Welcome.jsx
-├── windows/                 # Desktop app content
-│   ├── AboutWindow.jsx
-│   ├── ExperienceWindow.jsx
-│   ├── ProjectsWindow.jsx
-│   ├── ResumeWindow.jsx
-│   ├── ContactWindow.jsx
-│   ├── RecycleBinWindow.jsx
-│   └── MinesweeperWindow.jsx
-├── mobile/                  # Mobile (iOS) layout + content
-│   ├── MobileLayout.jsx     # Home screen shell
-│   ├── MobileContent.jsx    # iOS-native app UIs
-│   ├── TetrisContent.jsx    # Tetris game
-│   ├── MobileLayout.css
-│   └── MobileContent.css
-├── hooks/
-│   └── useMobile.js         # 768px breakpoint hook
-└── index.css                # Win95 base + Win2000 theme overrides
+├── App.jsx                       # Desktop orchestration and window state
+├── data/portfolioData.js         # Shared verified content
+├── components/                   # OS shell, taskbar, dialogs, update flow
+├── windows/                      # Desktop app content
+├── mobile/                       # Mobile shell, app content, Tetris
+├── hooks/useMobile.js            # Layout boundary
+└── index.css                     # Windows theme tokens and primitives
 public/
-├── icons/                   # Win95 + Win2000 pixel SVG icons
-├── photo.jpg                # Profile photo
-└── Dat_resume.pdf
+├── Dat_resume.pdf                # Current downloadable resume
+├── portfolio-preview.png         # Repository and social preview
+├── projects/                     # Authentic project screenshots
+└── icons/                        # Windows-inspired icon assets
 ```
 
-## Running Locally
+## Run locally
+
+Requirements: Node.js 18+ and npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-## About
+Vite prints the local URL. To verify the production bundle:
 
-Built by Dat Nguyen — UCSD Data Science + Economics, Junior (Expected June 2028).
-SWE Intern @ SEO · SDx Hackathon Winner · AISC Software Engineer
+```bash
+npm run build
+npm run preview
+```
+
+## Updating content
+
+- Edit `src/data/portfolioData.js` for profile, experience, skills, resume projects, or portfolio projects.
+- Replace `public/Dat_resume.pdf` when the resume changes.
+- Store project screenshots in `public/projects/` and reference them from the shared project record.
+- Keep desktop and mobile presentation logic separate; shared facts should remain in the data module.
+- Run `npm run build` before committing.
+
+## Design direction
+
+Desktop follows the repository's Windows 95/2000 rules: fixed system colors, sharp raised/sunken borders, bitmap-era typography, and functional motion only. Mobile follows its own early-iPhone rules: Aqua gloss, pinstripe surfaces, grouped lists, and touch-sized controls. See [DESIGN.md](DESIGN.md) for the complete design system.
+
+## Contact
+
+Dat Nguyen · [datq.nguyen06@gmail.com](mailto:datq.nguyen06@gmail.com)
+
+UC San Diego · B.S. Data Science & B.A. Economics · Expected June 2028
