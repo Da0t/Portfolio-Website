@@ -6,7 +6,8 @@ import DesktopIcon from './components/DesktopIcon'
 import Taskbar from './components/Taskbar'
 import DesktopContextMenu from './components/DesktopContextMenu'
 import AboutWindow from './windows/AboutWindow'
-import { EXPERIENCE, LEADERSHIP, PORTFOLIO_PROJECTS, PROFILE } from './data/portfolioData'
+import RecruiterWindow from './windows/RecruiterWindow'
+import { EXPERIENCE, HACKATHON_AWARDS, LEADERSHIP, PORTFOLIO_PROJECTS, PROFILE } from './data/portfolioData'
 import './App.css'
 
 const MobileLayout = lazy(() => import('./mobile/MobileLayout'))
@@ -55,9 +56,17 @@ const ICONS = {
   },
 }
 
-function getWindowDefs(theme) {
+function getWindowDefs(theme, onOpen) {
   const ic = ICONS[theme] ?? ICONS.win95
   return {
+    recruiter: {
+      title: 'Recruiter Quick View — Dat Nguyen',
+      icon: ic.briefcase,
+      defaultSize: { w: 680, h: 500 },
+      defaultPosition: { x: 110, y: 38 },
+      content: <RecruiterWindow onOpen={onOpen} />,
+      statusBar: `${EXPERIENCE.length} roles · ${HACKATHON_AWARDS.length} awards · ${PORTFOLIO_PROJECTS.length} projects`,
+    },
     about: {
       title: 'About Me — Dat Nguyen',
       icon: ic.computer,
@@ -120,6 +129,7 @@ function getWindowDefs(theme) {
 function getDesktopIcons(theme) {
   const ic = ICONS[theme] ?? ICONS.win95
   return [
+    { id: 'recruiter',   icon: ic.briefcase,   label: 'Recruiter View' },
     { id: 'about',       icon: ic.computer,    label: 'About Me' },
     { id: 'projects',    icon: ic.documents,   label: 'Projects' },
     { id: 'contact',     icon: ic.inbox,       label: 'Contact Me' },
@@ -132,20 +142,21 @@ function getDesktopIcons(theme) {
   ]
 }
 
-function makeWindow(id, theme) {
-  const def = getWindowDefs(theme)[id]
+function makeWindow(id, theme, onOpen) {
+  const def = getWindowDefs(theme, onOpen)[id]
   if (!def) return null
   return { id, ...def, isMinimized: false, isMaximized: false, isActive: true, zIndex: ++nextZ }
 }
 
 // Initial icon grid — left column, 114px vertical spacing
 const INITIAL_ICON_POSITIONS = {
-  about:        { x: 16, y: 16 },
+  recruiter:    { x: 16, y: 16 },
+  about:        { x: 16, y: 358 },
   projects:     { x: 16, y: 130 },
   experience:   { x: 16, y: 244 },
-  contact:      { x: 16, y: 358 },
-  resume:       { x: 16, y: 472 },
-  recycle:      { x: 16, y: 586 },
+  contact:      { x: 16, y: 472 },
+  resume:       { x: 130, y: 472 },
+  recycle:      { x: 130, y: 358 },
   network:      { x: 130, y: 16 },
   linkedin:     { x: 130, y: 130 },
   minesweeper:  { x: 130, y: 244 },
@@ -178,12 +189,19 @@ export default function App() {
   const [contextMenu, setContextMenu] = useState(null) // { x, y } | null
 
   const desktopRef       = useRef(null)
+  const overviewOpened   = useRef(false)
   const selStart         = useRef(null)   // { x, y } where rubber-band started
   const dragStartPos     = useRef({})     // icon positions at drag start
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    if (isMobile || overviewOpened.current) return
+    overviewOpened.current = true
+    setWindows([makeWindow('recruiter', theme, openWindow)])
+  }, [isMobile])
 
   // Global click sound — desktop only
   useEffect(() => {
@@ -364,7 +382,7 @@ export default function App() {
     setShowW2kWelcome(true)
     const ic = ICONS.win2000
     const iconMap = {
-      about: ic.computer, projects: ic.documents,
+      recruiter: ic.briefcase, about: ic.computer, projects: ic.documents,
       contact: ic.inbox,  resume: ic.briefcase,
       recycle: ic.recycle, linkedin: ic.linkedin,
       experience: ic.experience,
@@ -382,7 +400,7 @@ export default function App() {
             : { ...w, isActive: false }
         )
       }
-      const w = makeWindow(id, theme)
+      const w = makeWindow(id, theme, openWindow)
       if (!w) return prev
       return [...prev.map(p => ({ ...p, isActive: false })), w]
     })
@@ -413,7 +431,7 @@ export default function App() {
   }
 
   function handleStartAction(action) {
-    const map = { 'open-about': 'about', 'open-projects': 'projects', 'open-contact': 'contact', 'open-resume': 'resume' }
+    const map = { 'open-recruiter': 'recruiter', 'open-about': 'about', 'open-projects': 'projects', 'open-contact': 'contact', 'open-resume': 'resume' }
     if (map[action]) openWindow(map[action])
     if (action === 'shutdown')        setShowWelcome(true)
     if (action === 'windows-update')  startUpdate()

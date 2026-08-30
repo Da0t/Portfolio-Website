@@ -198,6 +198,16 @@ export function AboutContent() {
         <Row icon={<IcMail />} label="Email" value={PROFILE.email} last />
       </Section>
 
+      <Section label="Portfolio Snapshot">
+        <Row icon={<IcBriefcase />} label="Experience" value={`${EXPERIENCE.length} roles`} />
+        <Divider />
+        <Row icon={<IcStar />} label="Leadership" value={`${LEADERSHIP.length} roles`} />
+        <Divider />
+        <Row icon={<IcStar />} label="Hackathons" value={`${HACKATHON_AWARDS.length} awards`} />
+        <Divider />
+        <Row icon={<IcCode />} label="Projects" value={`${PORTFOLIO_PROJECTS.length} public projects`} last />
+      </Section>
+
       <Section label="Skills">
         <div className="ios-tags-wrap" style={{ padding: '12px 16px' }}>
           {FEATURED_SKILLS.map(s => (

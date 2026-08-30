@@ -5,6 +5,7 @@ export default function StartMenu({ onClose, onAction, theme }) {
   const ref = useRef(null)
 
   const items = [
+    { label: 'Recruiter Quick View', action: 'open-recruiter', icon: '/icons/briefcase.svg' },
     { label: 'About Me',    action: 'open-about',    icon: '/icons/computer.svg' },
     { label: 'Projects',    action: 'open-projects', icon: '/icons/documents.svg' },
     { label: 'Contact Me',  action: 'open-contact',  icon: '/icons/inbox.svg' },

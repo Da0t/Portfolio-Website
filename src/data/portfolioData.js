@@ -205,6 +205,7 @@ export const PORTFOLIO_PROJECTS = [
     award: null,
     description:
       'A local-first goal-resilience planner that runs 5,000 seeded monthly Monte Carlo paths in a Web Worker. It models fees and inflation, reports real and nominal outcome bands plus downside metrics, and solves contribution or goal targets against the same fixed paths.',
+    scanLine: 'Seeded Monte Carlo goal modeling with fixed-path funding solvers.',
     tech: ['React', 'TypeScript', 'Web Workers', 'Monte Carlo', 'Vitest'],
     github: 'https://github.com/Da0t/northstar',
     githubLabel: 'GitHub',
@@ -224,6 +225,7 @@ export const PORTFOLIO_PROJECTS = [
     award: null,
     description:
       'A local-first CRM and explainable bookings forecast for Salesforce-shaped opportunity data. It uses integer cents and basis points, deterministic scenarios, validated persistence, atomic CSV import, and an optional seeded deal-level Monte Carlo comparison.',
+    scanLine: 'Salesforce-shaped CRM with explainable forecasting and exact money math.',
     tech: ['React', 'TypeScript', 'CRM', 'BigInt', 'Monte Carlo', 'Vitest'],
     github: 'https://github.com/Da0t/quota-signal',
     githubLabel: 'GitHub',
@@ -243,6 +245,7 @@ export const PORTFOLIO_PROJECTS = [
     award: '1st Place, Deepgram Track · UC Berkeley AI Hackathon',
     description:
       'A real-time Raspberry Pi/QNX wearable that sends camera and audio signals to a laptop orchestrator for personality-driven narration. Claude vision, Deepgram speech, Redis state, WebSockets, and an Expo client form the end-to-end loop.',
+    scanLine: 'Real-time AI wearable spanning QNX hardware, vision, speech, and mobile.',
     tech: ['Python', 'C++ / QNX', 'React Native', 'Claude', 'Deepgram', 'Redis'],
     github: 'https://github.com/Da0t/AsideAI',
     githubLabel: 'GitHub',
@@ -379,6 +382,7 @@ export const PORTFOLIO_PROJECTS = [
     award: '2nd Place Overall · Bow Capital Defense Hackathon',
     description:
       'A counter-UAV system combining RF open-world anomaly detection, SDR hardware, a leaderless UDP relay mesh, self-healing routes, and a terrain-aware command dashboard.',
+    scanLine: 'Counter-UAV detection, SDR hardware, mesh networking, and terrain maps.',
     tech: ['Python', 'Next.js', 'TypeScript', 'deck.gl', 'Mapbox', 'UDP'],
     github: 'https://github.com/Da0t/Lattice',
     githubLabel: 'GitHub',

@@ -97,7 +97,7 @@ const DOCK = [
 
 export default function MobileLayout() {
   const time   = useTime()
-  const [open, setOpen] = useState(null)
+  const [open, setOpen] = useState('about')
 
   const activeApp = APPS.find(a => a.id === open)
 
