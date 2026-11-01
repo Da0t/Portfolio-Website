@@ -9,7 +9,7 @@ An interactive portfolio for Dat Nguyen, a UC San Diego Data Science & Economics
 ## At a glance
 
 - UC San Diego · Data Science & Economics · Class of 2028 · GPA 3.6
-- 11 hackathon awards across AI, fintech, infrastructure, geospatial, education, civic technology, and IoT projects
+- 12 hackathon awards across AI, fintech, infrastructure, geospatial, education, civic technology, and IoT projects
 - 32 public projects backed by GitHub repositories and their current documentation
 - Separate desktop and mobile experiences powered by one shared content model
 - An immediate recruiter quick view with four spotlight projects and one-click access to the full catalog
@@ -25,7 +25,6 @@ The rendered profile follows the public [Da0t profile README](https://github.com
 | [Northstar](https://github.com/Da0t/northstar) | Local-first financial goal modeling with 5,000 seeded Monte Carlo paths, fees and inflation, real/nominal outcome bands, downside metrics, and fixed-path solvers. |
 | [MarketLab](https://github.com/Da0t/marketlab) | Paper-trading application with a Java price/time-priority matching engine, feed recovery, deterministic replay, and a [public demo](https://dat-marketlab.vercel.app). |
 | [ClearLedger](https://github.com/Da0t/clearledger) | Auditable money movement with an append-only journal, idempotent payments, failure recovery, reconciliation, and a [public demo](https://dat-clearledger.vercel.app). |
-| [Covenant Watch](https://github.com/lgoyal6/covenant-watch)¹ | Loan covenants rebuilt from SEC EDGAR credit agreements and recomputed from XBRL financials, with every number cited to the filing. |
 | [QuotaSignal](https://github.com/Da0t/quota-signal) | A Salesforce-shaped CRM with explainable bookings forecasts, integer financial arithmetic, validated persistence, atomic CSV import, and optional seeded deal simulation. |
 
 Northstar and QuotaSignal are educational decision-support projects. Their modeled outcomes are not financial advice, calibrated predictions, or guarantees. MarketLab and ClearLedger use only synthetic funds.
@@ -34,6 +33,7 @@ Northstar and QuotaSignal are educational decision-support projects. Their model
 
 | Project | Recognition | System |
 | --- | --- | --- |
+| [Covenant Watch](https://github.com/lgoyal6/covenant-watch)¹ | 1st, AI in Finance Track · Solix AI Hackathon 2026 | Loan covenants rebuilt from SEC EDGAR credit agreements and recomputed from XBRL financials, with every number cited to the filing. |
 | [Coherent](https://github.com/Da0t/LPL-Hackathon)¹ | Best Technical Execution · 2026 LPL Financial University Hackathon | Wealth-management intake that turns everyday language into a confirmed, routed request, with grounded Amazon Bedrock agents and an independent verifier. |
 | [Aria AI / The Narrator](https://github.com/Da0t/AsideAI) | 1st, Deepgram Track · UC Berkeley AI Hackathon | Raspberry Pi/QNX wearable, Claude vision, Deepgram speech, Redis state, and an Expo client for real-time personality-driven narration. |
 | [Vigil](https://github.com/Da0t/vigil) | 1st, Akash Track · Loop Engineering Hackathon | Autonomous incident-remediation demo using scoped single-use credentials, policy gates, disposable diagnostics, and a complete audit trail. |
