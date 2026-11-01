@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
-  <!-- Orbit -->
-  <path d="M26,4 H30 V8 H28 V6 H26 Z M4,24 H6 V26 H10 V28 H4 Z" fill="#FFC000"/>
-  <path d="M24,2 H28 V4 H24 Z M2,20 H4 V24 H2 Z" fill="#C08000"/>
-  <!-- The e -->
-  <path d="M12,6 H20 V8 H24 V10 H26 V18 H10 V22 H12 V24 H20 V22 H26 V24 H24 V26 H20 V28 H12 V26 H8 V24 H6 V20 H4 V14 H6 V10 H8 V8 H12 Z M12,10 V14 H20 V10 Z" fill="#0060D0" fill-rule="evenodd"/>
-  <path d="M12,6 H20 V8 H12 Z M8,8 H12 V10 H8 Z M6,10 H8 V14 H6 Z" fill="#40A0FF"/>
-  <path d="M12,26 H20 V28 H12 Z M20,24 H24 V26 H20 Z" fill="#000080"/>
-</svg>
