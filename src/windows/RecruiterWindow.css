@@ -1,6 +1,5 @@
 .recruiter-window {
-  height: 100%;
-  overflow-y: auto;
+  min-height: 100%;
   padding: 10px;
   background: var(--gray);
 }
@@ -133,9 +132,12 @@
 .recruiter-actions {
   display: flex;
   flex-wrap: wrap;
+  position: sticky;
+  bottom: 0;
   gap: 5px;
-  margin-top: 9px;
+  margin-top: 8px;
   padding: 6px;
+  background: var(--gray);
 }
 
 .recruiter-actions .btn95 {
