@@ -232,7 +232,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'Fintech',
     year: '2026',
-    featured: false,
+    featured: true,
     award: 'Best Technical Execution · 2026 LPL Financial University Hackathon',
     description:
       'A wealth-management intake app that turns loose language like "the Roth thing from my old job" into a confirmed, correctly routed request and a prepared advisor packet. Amazon Bedrock proposes interpretations grounded in real account records, and an independent verifier gates advisor replies. Dat owned the AWS layer: the Bedrock Converse adapter, least-privilege IAM, and guardrails. All records are fictional.',
@@ -541,7 +541,7 @@ export const PORTFOLIO_PROJECTS = [
     type: 'folder',
     category: 'Systems',
     year: '2026',
-    featured: true,
+    featured: false,
     award: '2nd Place Overall · Bow Capital Defense Hackathon',
     description:
       'A counter-UAV system combining RF open-world anomaly detection, SDR hardware, a leaderless UDP relay mesh, self-healing routes, and a terrain-aware command dashboard.',
