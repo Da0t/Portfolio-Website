@@ -1,4 +1,4 @@
-# Dat Nguyen — Interactive Portfolio
+# Dat Nguyen: Interactive Portfolio
 
 [Live site](https://dats-nguyen.vercel.app) · [GitHub profile](https://github.com/Da0t) · [LinkedIn](https://www.linkedin.com/in/datnguy3n/)
 
@@ -9,8 +9,8 @@ An interactive portfolio for Dat Nguyen, a UC San Diego Data Science & Economics
 ## At a glance
 
 - UC San Diego · Data Science & Economics · Class of 2028 · GPA 3.6
-- 10 hackathon awards across AI, infrastructure, geospatial, education, civic technology, and IoT projects
-- 23 public projects backed by GitHub repositories and their current documentation
+- 11 hackathon awards across AI, fintech, infrastructure, geospatial, education, civic technology, and IoT projects
+- 32 public projects backed by GitHub repositories and their current documentation
 - Separate desktop and mobile experiences powered by one shared content model
 - An immediate recruiter quick view with four spotlight projects and one-click access to the full catalog
 
@@ -23,14 +23,18 @@ The rendered profile follows the public [Da0t profile README](https://github.com
 | Project | What it demonstrates |
 | --- | --- |
 | [Northstar](https://github.com/Da0t/northstar) | Local-first financial goal modeling with 5,000 seeded Monte Carlo paths, fees and inflation, real/nominal outcome bands, downside metrics, and fixed-path solvers. |
+| [MarketLab](https://github.com/Da0t/marketlab) | Paper-trading application with a Java price/time-priority matching engine, feed recovery, deterministic replay, and a [public demo](https://dat-marketlab.vercel.app). |
+| [ClearLedger](https://github.com/Da0t/clearledger) | Auditable money movement with an append-only journal, idempotent payments, failure recovery, reconciliation, and a [public demo](https://dat-clearledger.vercel.app). |
+| [Covenant Watch](https://github.com/lgoyal6/covenant-watch)¹ | Loan covenants rebuilt from SEC EDGAR credit agreements and recomputed from XBRL financials, with every number cited to the filing. |
 | [QuotaSignal](https://github.com/Da0t/quota-signal) | A Salesforce-shaped CRM with explainable bookings forecasts, integer financial arithmetic, validated persistence, atomic CSV import, and optional seeded deal simulation. |
 
-Northstar and QuotaSignal are educational decision-support projects. Their modeled outcomes are not financial advice, calibrated predictions, or guarantees.
+Northstar and QuotaSignal are educational decision-support projects. Their modeled outcomes are not financial advice, calibrated predictions, or guarantees. MarketLab and ClearLedger use only synthetic funds.
 
 ### Hackathon work
 
 | Project | Recognition | System |
 | --- | --- | --- |
+| [Coherent](https://github.com/Da0t/LPL-Hackathon)¹ | Best Technical Execution · 2026 LPL Financial University Hackathon | Wealth-management intake that turns everyday language into a confirmed, routed request, with grounded Amazon Bedrock agents and an independent verifier. |
 | [Aria AI / The Narrator](https://github.com/Da0t/AsideAI) | 1st, Deepgram Track · UC Berkeley AI Hackathon | Raspberry Pi/QNX wearable, Claude vision, Deepgram speech, Redis state, and an Expo client for real-time personality-driven narration. |
 | [Vigil](https://github.com/Da0t/vigil) | 1st, Akash Track · Loop Engineering Hackathon | Autonomous incident-remediation demo using scoped single-use credentials, policy gates, disposable diagnostics, and a complete audit trail. |
 | [Rewind](https://github.com/pynay/rewind)¹ | 1st Overall · SDx x Omnara | Omnara coding-agent session review and branching from a selected conversation breakpoint. |
@@ -48,12 +52,17 @@ Northstar and QuotaSignal are educational decision-support projects. Their model
 
 | Project | Area | What it demonstrates |
 | --- | --- | --- |
+| [Apogee Ground Control](https://github.com/Da0t/apogee-ground-control) | Systems / Java | Spacecraft command verification, telemetry, PostgreSQL persistence, and evidence-based recovery from lost acknowledgments. |
+| [Mission Scheduler](https://github.com/Da0t/mission-scheduler) | Systems / Java | Exact branch-and-bound planning of ground-station contact windows with conflict explanations and outage replanning. |
+| [Verity](https://github.com/Da0t/Verity)¹ | Hardware / AI | Hands-free circuit debugging with ESP32 camera glasses, head gestures, voice, and a Gemini inspection agent. |
+| [Recco](https://github.com/Da0t/Recco)¹ | iOS / AI | iPhone AR networking assistant with scene context, a memory graph, and drafted follow-ups. |
 | [Sortflow](https://github.com/Da0t/sortflow) | Desktop / local AI | Offline macOS node-based file automation with review-first proposals, journal-before-move behavior, and collision-safe undo. |
 | [Stub / Wrapped for the Weekend](https://github.com/Da0t/Stub) | Offline-first web | Write-before-network festival camera using IndexedDB, service workers, location context, and idempotent Convex sync. |
 | [SpectraStruct](https://github.com/Da0t/SpectraStruct) | Scientific ML | Multimodal NMR/MS/IR inputs, ranked molecular candidates, fixture mode, and RDKit 3D conformers. |
 | [whatyoudoin](https://github.com/Da0t/whatyadoin-) | Developer tools | Voice-driven Python debugging with Deepgram, Claude, subprocess trace capture, SQLite memory, and backup recovery. |
 | [specscope](https://github.com/Da0t/specscope) | Signal processing | Shared-scale WAV spectrogram comparison with grid, strip, mean, headless, and Docker workflows. |
 | [dazineui](https://github.com/Da0t/dazineui) | UI / graphics | Six WebGL motion primitives plus design rules for AI-assisted coding tools. |
+| [Mila Expense Dashboard](https://github.com/Da0t/Dashboard-Supabase-and-Shenanigans) | Data / web | Real-time receipt analytics for a boutique using Supabase subscriptions, Recharts, and Nivo. |
 | [San Jose Housing Affordability](https://github.com/Da0t/SJ-housing-analysis) | Economics / data | Zillow and Census time-series exploration of home-price-to-income ratios and rent burden; modeling is documented as in progress. |
 | [First Baron & LoL Outcomes](https://github.com/Da0t/dsc80-project-website) | Data science | Permutation testing, a 15-minute win classifier, fairness analysis, and interactive Plotly reporting. |
 | [Taylor Swift Song Recommender](https://github.com/Da0t/TSwift-Song-Recommender) | Data science | Audio similarity, lyric search, TF-IDF extraction, word clouds, and notebook widgets. |
@@ -71,7 +80,7 @@ Mobile intentionally becomes a different product: a skeuomorphic early-iPhone in
 ```text
 src/data/portfolioData.js
   ├── profile, experience, leadership, skills, awards
-  └── 23-project GitHub-backed catalog
+  └── 32-project GitHub-backed catalog
 
 src/App.jsx
   └── Windows desktop shell, windows, icon state, and themes
