@@ -147,6 +147,13 @@ export const FEATURED_SKILLS = [
 
 export const HACKATHON_AWARDS = [
   {
+    id: 'covenant-watch',
+    name: 'Covenant Watch',
+    award: '1st Place, AI in Finance Track · Solix AI Hackathon 2026',
+    href: 'https://github.com/lgoyal6/covenant-watch',
+    summary: 'Rebuilds loan covenants from SEC filings and recomputes headroom from XBRL financials, with every number cited.',
+  },
+  {
     id: 'coherent',
     name: 'Coherent',
     award: 'Best Technical Execution · 2026 LPL Financial University Hackathon',
@@ -290,9 +297,9 @@ export const PORTFOLIO_PROJECTS = [
     category: 'Fintech',
     year: '2026',
     featured: false,
-    award: null,
+    award: '1st Place, AI in Finance Track · Solix AI Hackathon 2026',
     description:
-      'Rebuilds the financial covenants in a public company\'s credit agreement from SEC EDGAR, recomputes them each quarter from its XBRL financials, and shows the remaining headroom with every number cited to the filing. Built for the Solix AI Hackathon 2026.',
+      'Rebuilds the financial covenants in a public company\'s credit agreement from SEC EDGAR, recomputes them each quarter from its XBRL financials, and shows the remaining headroom with every number cited to the filing.',
     tech: ['Python', 'FastAPI', 'Next.js', 'Claude', 'SEC EDGAR', 'XBRL'],
     github: 'https://github.com/lgoyal6/covenant-watch',
     githubLabel: 'Team GitHub',
