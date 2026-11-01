@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import useClock from '../hooks/useClock'
 import {
   AboutContent,
   ExperienceContent,
@@ -8,15 +9,6 @@ import {
 } from './MobileContent'
 import TetrisContent from './TetrisContent'
 import './MobileLayout.css'
-
-function useTime() {
-  const [t, setT] = useState(new Date())
-  useEffect(() => {
-    const id = setInterval(() => setT(new Date()), 60_000)
-    return () => clearInterval(id)
-  }, [])
-  return t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-}
 
 // ── App icon definitions ─────────────────────────────────────
 const APPS = [
@@ -96,7 +88,7 @@ const DOCK = [
 ]
 
 export default function MobileLayout() {
-  const time   = useTime()
+  const time   = useClock()
   const [open, setOpen] = useState('about')
 
   const activeApp = APPS.find(a => a.id === open)
@@ -110,7 +102,7 @@ export default function MobileLayout() {
       <div className="ipod-wallpaper" />
 
       {/* Status bar */}
-      <div className="ipod-status">
+      <div className={`ipod-status ${open ? 'ipod-status-app' : ''}`}>
         <span className="ipod-carrier">Dat.dev</span>
         <span className="ipod-time">{time}</span>
         <div className="ipod-status-right">

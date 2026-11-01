@@ -58,11 +58,12 @@
 /* ── Status bar ─────────────────────────────────────────── */
 .ipod-status {
   position: relative;
-  z-index: 10;
+  z-index: 110;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 8px 4px;
+  height: 24px;
+  padding: 0 8px;
   color: #fff;
   font-size: 13px;
   font-weight: 700;
@@ -249,9 +250,13 @@
 }
 
 /* ── Full-screen app ────────────────────────────────────── */
+.ipod-status-app {
+  background: #000;
+}
+
 .ipod-app-screen {
   position: fixed;
-  inset: 0;
+  inset: 24px 0 0;
   z-index: 100;
   display: flex;
   flex-direction: column;
