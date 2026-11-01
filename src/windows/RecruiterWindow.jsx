@@ -7,12 +7,8 @@ import {
 } from '../data/portfolioData'
 import './RecruiterWindow.css'
 
-const SPOTLIGHT_IDS = ['northstar', 'quota-signal', 'aria-ai', 'pylon']
-
 export default function RecruiterWindow({ onOpen }) {
-  const spotlightProjects = SPOTLIGHT_IDS
-    .map(id => PORTFOLIO_PROJECTS.find(project => project.id === id))
-    .filter(Boolean)
+  const spotlightProjects = PORTFOLIO_PROJECTS.filter(project => project.featured)
 
   return (
     <div className="recruiter-window">
