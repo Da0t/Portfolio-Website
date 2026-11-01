@@ -75,7 +75,7 @@ export const EXPERIENCE = [
 export const LEADERSHIP = [
   {
     id: 'dataworks',
-    role: 'VP of Project Operations',
+    role: 'VP Project Operations',
     org: 'DataWorks @ UC San Diego',
     shortOrg: 'DataWorks @ UC San Diego',
     description:
@@ -85,11 +85,21 @@ export const LEADERSHIP = [
   },
   {
     id: 'calpirg',
-    role: 'Volunteer',
+    role: 'Campaign Lead',
     org: 'CALPIRG Students',
     shortOrg: 'CALPIRG Students',
     description:
-      'Supports student-led public-interest campaigns and campus outreach as a CALPIRG Students volunteer.',
+      'Leads student public-interest campaign work and campus outreach with CALPIRG Students.',
+    type: 'leadership',
+    color: '#7A3000',
+  },
+  {
+    id: 'adobe',
+    role: 'Campus Ambassador',
+    org: 'Adobe',
+    shortOrg: 'Adobe',
+    description:
+      'Represents Adobe on campus as a student ambassador.',
     type: 'leadership',
     color: '#7A3000',
   },
