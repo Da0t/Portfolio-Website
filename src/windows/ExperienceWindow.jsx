@@ -16,7 +16,7 @@ export default function ExperienceWindow() {
               <div className="exp-role">{e.role}</div>
               <div className="exp-org">
                 {e.org}
-                {e.location && <> — <span className="exp-loc">{e.location}</span></>}
+                {e.location && <> · <span className="exp-loc">{e.location}</span></>}
               </div>
             </div>
             <div className="exp-right">

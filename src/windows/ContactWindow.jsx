@@ -3,7 +3,7 @@ import { PROFILE } from '../data/portfolioData'
 import './ContactWindow.css'
 
 export default function ContactWindow() {
-  const [form, setForm] = useState({ to: PROFILE.email, from: '', subject: 'Hey Dat — let\'s work together', body: '' })
+  const [form, setForm] = useState({ to: PROFILE.email, from: '', subject: 'Hey Dat, let\'s work together', body: '' })
   const [draftOpened, setDraftOpened] = useState(false)
 
   function handleSend(e) {

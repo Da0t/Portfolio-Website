@@ -61,7 +61,7 @@ function getWindowDefs(theme, onOpen) {
   const ic = ICONS[theme] ?? ICONS.win95
   return {
     recruiter: {
-      title: 'Recruiter Quick View — Dat Nguyen',
+      title: 'Recruiter Quick View - Dat Nguyen',
       icon: ic.briefcase,
       defaultSize: { w: 680, h: 668 },
       defaultPosition: { x: 248, y: 16 },
@@ -69,7 +69,7 @@ function getWindowDefs(theme, onOpen) {
       statusBar: `${EXPERIENCE.length} roles · ${HACKATHON_AWARDS.length} awards · ${PORTFOLIO_PROJECTS.length} projects`,
     },
     about: {
-      title: 'About Me — Dat Nguyen',
+      title: 'About Me - Dat Nguyen',
       icon: ic.computer,
       defaultSize: { w: 500, h: 430 },
       defaultPosition: { x: 264, y: 40 },
@@ -77,7 +77,7 @@ function getWindowDefs(theme, onOpen) {
       statusBar: `${PROFILE.name} · UCSD Data Science + Economics · Applied AI`,
     },
     projects: {
-      title: 'Projects — Dat Nguyen',
+      title: 'Projects - Dat Nguyen',
       icon: ic.documents,
       defaultSize: { w: 720, h: 480 },
       defaultPosition: { x: 280, y: 56 },
@@ -85,7 +85,7 @@ function getWindowDefs(theme, onOpen) {
       statusBar: `${PORTFOLIO_PROJECTS.length} public projects · GitHub-backed`,
     },
     contact: {
-      title: 'Inbox — Message Dat',
+      title: 'Inbox - Message Dat',
       icon: ic.inbox,
       defaultSize: { w: 480, h: 360 },
       defaultPosition: { x: 312, y: 88 },
@@ -93,7 +93,7 @@ function getWindowDefs(theme, onOpen) {
       statusBar: 'datq.nguyen06@gmail.com',
     },
     resume: {
-      title: 'Profile Snapshot — Dat Nguyen',
+      title: 'Profile Snapshot - Dat Nguyen',
       icon: ic.briefcase,
       defaultSize: { w: 520, h: 480 },
       defaultPosition: { x: 296, y: 32 },
@@ -109,7 +109,7 @@ function getWindowDefs(theme, onOpen) {
       statusBar: '8 item(s) · Cannot be recovered',
     },
     experience: {
-      title: 'Experience — Dat Nguyen',
+      title: 'Experience - Dat Nguyen',
       icon: ic.experience,
       defaultSize: { w: 560, h: 460 },
       defaultPosition: { x: 272, y: 48 },

@@ -8,15 +8,15 @@ const panels = {
   },
   register: {
     heading: 'Register Now',
-    body: 'Register your copy of Windows 2000 to receive product support and important updates from Microsoft. (Just kidding — you\'re already on Dat\'s portfolio.)',
+    body: 'Register your copy of Windows 2000 to receive product support and important updates from Microsoft. (Just kidding, you\'re already on Dat\'s portfolio.)',
   },
   discover: {
     heading: 'Discover Windows 2000',
-    body: 'Windows 2000 Professional brings improved stability, security, and a refined interface to your desktop. Built on the NT kernel — no more blue screens. Probably.',
+    body: 'Windows 2000 Professional brings improved stability, security, and a refined interface to your desktop. Built on the NT kernel, no more blue screens. Probably.',
   },
   connect: {
     heading: 'Connect to the Internet',
-    body: 'Use the Internet Connection Wizard to set up your internet connection. Or just look around — you\'re already connected. Dat\'s portfolio is loading at full speed.',
+    body: 'Use the Internet Connection Wizard to set up your internet connection. Or just look around, you\'re already connected. Dat\'s portfolio is loading at full speed.',
   },
 }
 

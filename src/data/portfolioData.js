@@ -14,7 +14,7 @@ export const PROFILE = {
   gpa: '3.6',
   headline: 'Applied AI · Geospatial Systems · Defense Technology',
   summary:
-    'I am a Data Science & Economics student at UC San Diego focused on applied AI, geospatial systems, and defense technology. I build end-to-end systems across the full stack—from ML pipelines to deployed hardware—and care about shipping things that work in the real world, not just in notebooks.',
+    'I am a Data Science & Economics student at UC San Diego focused on applied AI, geospatial systems, and defense technology. I build end-to-end systems across the full stack, from ML pipelines to deployed hardware, and care about shipping things that work in the real world, not just in notebooks.',
   focus:
     'Real-time AI wearables, counter-drone detection, IoT dashboards, multimodal RAG pipelines, and end-to-end software systems.',
 }
@@ -783,7 +783,7 @@ export const PORTFOLIO_PROJECTS = [
     featured: false,
     award: null,
     description:
-      'This site: an interactive Windows 95/2000 desktop with draggable and resizable windows, OS upgrades, multi-icon selection, contextual menus, and Minesweeper. Mobile switches to a separate skeuomorphic early-iPhone interface with touch-first navigation and Tetris.',
+      'This site: an interactive Windows 95/2000 desktop with draggable windows, OS upgrades, multi-icon selection, contextual menus, and Minesweeper. Mobile switches to a separate skeuomorphic early-iPhone interface with touch-first navigation and Tetris.',
     tech: ['React', 'Vite', 'JavaScript', 'react-draggable', 'Vanilla CSS'],
     github: 'https://github.com/Da0t/Portfolio-Website',
     githubLabel: 'GitHub',

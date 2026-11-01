@@ -68,7 +68,7 @@ export default function AboutWindow() {
       <div className="about-divider" />
 
       <div className="groupbox95" style={{ margin: '8px' }}>
-        <span className="groupbox95-label">System Properties — Dat Nguyen v1.0</span>
+        <span className="groupbox95-label">System Properties - Dat Nguyen v1.0</span>
         <table className="about-specs">
           <tbody>
             {specs.map(({ label, value }) => (
