@@ -26,7 +26,7 @@ export const EXPERIENCE = [
     org: 'Netra',
     shortOrg: 'Netra',
     description:
-      'Contributes to product implementation and engineering delivery as a software engineering intern at Netra.',
+      'Built a Haversine and audio-telemetry alignment pipeline extracting 60-80 m UAV audio, and diagnosed a silent CSV-header bug that excluded about half the flights, raising yield 91% (33 to 63 clips). Researched and designed a 4-mic coherence and GCC-PHAT DoA front-end, evaluated against delay-and-sum and MVDR, to cut wind false positives. Curated bounding-box data and hard negatives, contributed to fine-tuning YOLOv11-nano, built distance-stratified recall evaluation, and researched NWD for tiny-object matching.',
     type: 'work',
     color: '#000080',
   },
