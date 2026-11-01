@@ -1,19 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import useClock from '../hooks/useClock'
 import StartMenu from './StartMenu'
 import './Taskbar.css'
 
 export default function Taskbar({ windows, onWindowClick, onStartAction, theme }) {
-  const [time, setTime] = useState(getTime())
+  const time = useClock()
   const [startOpen, setStartOpen] = useState(false)
-
-  useEffect(() => {
-    const t = setInterval(() => setTime(getTime()), 60_000)
-    return () => clearInterval(t)
-  }, [])
-
-  function getTime() {
-    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-  }
 
   return (
     <>
@@ -28,6 +20,7 @@ export default function Taskbar({ windows, onWindowClick, onStartAction, theme }
         {/* Start button */}
         <button
           className={`btn95 start-btn ${startOpen ? 'pressed' : ''}`}
+          onMouseDown={e => e.stopPropagation()}
           onClick={() => setStartOpen(v => !v)}
         >
           <img src="/icons/windows-flag.svg" alt="" className="start-flag" />
@@ -38,7 +31,7 @@ export default function Taskbar({ windows, onWindowClick, onStartAction, theme }
 
         {/* Window buttons */}
         <div className="taskbar-windows">
-          {windows.filter(w => !w.isMinimized || true).map(w => (
+          {windows.map(w => (
             <button
               key={w.id}
               className={`btn95 taskbar-win-btn ${w.isActive ? 'pressed' : ''}`}

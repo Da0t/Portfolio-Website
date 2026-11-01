@@ -43,6 +43,7 @@
 
 .taskbar-windows {
   flex: 1;
+  min-width: 0;
   display: flex;
   gap: 2px;
   overflow: hidden;
@@ -52,8 +53,8 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  min-width: 120px;
-  max-width: 160px;
+  flex: 0 1 160px;
+  min-width: 24px;
   height: 22px;
   padding: 2px 6px;
   font: 11px var(--font);
