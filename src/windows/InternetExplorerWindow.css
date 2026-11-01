@@ -1,0 +1,49 @@
+.ie-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--gray);
+  font: 11px var(--font);
+  color: var(--text);
+}
+
+.ie-menubar {
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+  padding: 2px 8px;
+}
+
+.ie-toolbar,
+.ie-addressbar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  border-top: 1px solid var(--white);
+  box-shadow: 0 -1px 0 var(--gray-dark);
+}
+
+.ie-throbber {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  padding: 2px;
+  background: var(--white);
+  box-sizing: border-box;
+}
+
+.ie-address {
+  flex: 1;
+  padding: 2px 4px;
+  background: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ie-page {
+  flex: 1;
+  min-height: 0;
+  margin: 2px;
+}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import * as d3 from 'd3'
-import './CommitExplorerWindow.css'
+import './CommitStatsPage.css'
 
 const DATA_URL = '/meta/loc.csv'
 const REPO_URL = 'https://github.com/Da0t/Portfolio-Website'
@@ -245,7 +245,7 @@ function renderScatterPlot(chart, commits, { tooltip, selectionCount, languageBr
   return cancelHide
 }
 
-export default function CommitExplorerWindow() {
+export default function CommitStatsPage() {
   const [error, setError] = useState(null)
   const statsRef = useRef(null)
   const chartRef = useRef(null)
@@ -278,10 +278,10 @@ export default function CommitExplorerWindow() {
     }
   }, [])
 
-  if (error) return <div className="commit-explorer commit-explorer-error">{error}</div>
+  if (error) return <div className="commit-page commit-page-error">{error}</div>
 
   return (
-    <div className="commit-explorer">
+    <div className="commit-page">
       <fieldset className="groupbox95 commit-section">
         <legend className="groupbox95-label">Summary</legend>
         <div ref={statsRef}>Loading commit data…</div>
@@ -293,8 +293,10 @@ export default function CommitExplorerWindow() {
         <dl className="stats" ref={languageBreakdownRef} />
       </fieldset>
 
-      <h2 className="commit-heading">Commits by time of day</h2>
-      <p className="commit-hint">Dot size shows lines edited. Hover a dot for details, or drag across the chart to select commits.</p>
+      <div className="commit-title-row">
+        <h2 className="commit-heading">Commits by time of day</h2>
+        <p className="commit-hint">Built with D3 from this site's git history. Dot size shows lines edited. Hover a dot, or drag across the chart to select commits.</p>
+      </div>
       <div className="commit-chart-frame sunken" ref={chartRef} />
 
       {/* Portaled out because the window's drag transform would otherwise

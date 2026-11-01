@@ -21,7 +21,7 @@ const ResumeWindow = lazy(() => import('./windows/ResumeWindow'))
 const RecycleBinWindow = lazy(() => import('./windows/RecycleBinWindow'))
 const ExperienceWindow = lazy(() => import('./windows/ExperienceWindow'))
 const MinesweeperWindow = lazy(() => import('./windows/MinesweeperWindow'))
-const CommitExplorerWindow = lazy(() => import('./windows/CommitExplorerWindow'))
+const InternetExplorerWindow = lazy(() => import('./windows/InternetExplorerWindow'))
 
 let nextZ = 100
 
@@ -44,7 +44,7 @@ const ICONS = {
     linkedin:     '/icons/linkedin.svg',
     experience:   '/icons/experience.svg',
     minesweeper:  '/icons/minesweeper.svg',
-    commits:      '/icons/commit-explorer.svg',
+    ie:           '/icons/internet-explorer.svg',
   },
   win2000: {
     computer:     '/icons/computer-w2k.svg',
@@ -56,7 +56,7 @@ const ICONS = {
     linkedin:     '/icons/linkedin-w2k.svg',
     experience:   '/icons/experience-w2k.svg',
     minesweeper:  '/icons/minesweeper.svg',
-    commits:      '/icons/commit-explorer.svg',
+    ie:           '/icons/internet-explorer.svg',
   },
 }
 
@@ -127,13 +127,13 @@ function getWindowDefs(theme, onOpen) {
       content: deferredContent(<MinesweeperWindow />, 'Minesweeper'),
       statusBar: 'Beginner · 9×9 · 10 mines · Left-click reveal · Right-click flag',
     },
-    commits: {
-      title: 'Commit Explorer',
-      icon: ic.commits,
-      defaultSize: { w: 1040, h: 840 },
-      defaultPosition: { x: 200, y: 16 },
-      content: deferredContent(<CommitExplorerWindow />, 'Commit Explorer'),
-      statusBar: 'Built with D3 · Data from this site\'s git history',
+    ie: {
+      title: 'Commit Stats - Microsoft Internet Explorer',
+      icon: ic.ie,
+      defaultSize: { w: 1040, h: 860 },
+      defaultPosition: { x: 200, y: 4 },
+      content: deferredContent(<InternetExplorerWindow />, 'Internet Explorer'),
+      statusBar: 'Done',
     },
   }
 }
@@ -151,7 +151,7 @@ function getDesktopIcons(theme) {
     { id: 'linkedin',    icon: ic.linkedin,    label: 'LinkedIn' },
     { id: 'experience',  icon: ic.experience,  label: 'Experience' },
     { id: 'minesweeper', icon: ic.minesweeper, label: 'Minesweeper' },
-    { id: 'commits',     icon: ic.commits,     label: 'Commit Explorer' },
+    { id: 'ie',          icon: ic.ie,          label: 'Internet Explorer' },
   ]
 }
 
@@ -173,7 +173,7 @@ const INITIAL_ICON_POSITIONS = {
   network:      { x: 130, y: 16 },
   linkedin:     { x: 130, y: 130 },
   minesweeper:  { x: 130, y: 244 },
-  commits:      { x: 16, y: 586 },
+  ie:           { x: 16, y: 586 },
 }
 
 // Icon bounding box for hit-testing against selection rect
@@ -446,7 +446,7 @@ export default function App() {
   }
 
   function handleStartAction(action) {
-    const map = { 'open-recruiter': 'recruiter', 'open-about': 'about', 'open-projects': 'projects', 'open-contact': 'contact', 'open-resume': 'resume', 'open-commits': 'commits' }
+    const map = { 'open-recruiter': 'recruiter', 'open-about': 'about', 'open-projects': 'projects', 'open-contact': 'contact', 'open-resume': 'resume', 'open-ie': 'ie' }
     if (map[action]) openWindow(map[action])
     if (action === 'shutdown')        setShowWelcome(true)
     if (action === 'windows-update')  startUpdate()
