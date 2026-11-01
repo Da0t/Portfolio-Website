@@ -6,15 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "loc": "elocuent -d src -t js,jsx,css --spaces 2 -o public/meta/loc.csv"
   },
   "dependencies": {
+    "d3": "^7.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "elocuent": "^0.0.4",
     "vite": "^5.4.2"
   }
 }
