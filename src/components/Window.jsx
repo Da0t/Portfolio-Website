@@ -1,6 +1,15 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Draggable from 'react-draggable'
 import './Window.css'
+
+const TASKBAR_H = 28
+
+// Keeps a window's top-left inside the desktop so its title bar stays reachable.
+function clampToDesktop(position, size) {
+  const maxX = Math.max(0, window.innerWidth - (size?.w ?? 500))
+  const maxY = Math.max(0, window.innerHeight - TASKBAR_H - (size?.h ?? 380))
+  return { x: Math.min(position.x, maxX), y: Math.min(position.y, maxY) }
+}
 
 export default function Window({
   id,
@@ -21,36 +30,53 @@ export default function Window({
   statusBar,
 }) {
   const nodeRef = useRef(null)
-  const [pos, setPos] = useState(defaultPosition ?? { x: 100, y: 80 })
+  const [pos, setPos] = useState(() => clampToDesktop(defaultPosition ?? { x: 100, y: 80 }, defaultSize))
   const [preMaxPos, setPreMaxPos] = useState(null)
 
-  if (isMinimized) return null
+  useEffect(() => {
+    function handleResize() {
+      setPos(current => clampToDesktop(current, defaultSize))
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [defaultSize])
 
   function handleMaximize() {
     if (!isMaximized) {
       setPreMaxPos(pos)
       setPos({ x: 0, y: 0 })
     } else {
-      setPos(preMaxPos ?? (defaultPosition ?? { x: 100, y: 80 }))
+      setPos(clampToDesktop(preMaxPos ?? defaultPosition ?? { x: 100, y: 80 }, defaultSize))
     }
     onMaximize()
   }
 
   const width  = isMaximized ? '100%' : (defaultSize?.w ?? 500)
-  const height = isMaximized ? 'calc(100vh - 28px)' : (defaultSize?.h ?? 380)
+  const height = isMaximized ? `calc(100vh - ${TASKBAR_H}px)` : (defaultSize?.h ?? 380)
 
   return (
     <Draggable
       nodeRef={nodeRef}
       handle=".titlebar"
-      position={pos}
+      cancel=".titlebar-buttons"
+      disabled={isMaximized}
+      position={isMaximized ? { x: 0, y: 0 } : pos}
       onStop={(_, data) => setPos({ x: data.x, y: data.y })}
       bounds="parent"
     >
       <div
         ref={nodeRef}
         className={`window95 raised ${isActive ? 'active' : 'inactive'}`}
-        style={{ width, height, zIndex, position: 'absolute' }}
+        style={{
+          width,
+          height,
+          maxWidth: '100vw',
+          maxHeight: `calc(100vh - ${TASKBAR_H}px)`,
+          zIndex,
+          position: 'absolute',
+          // Hidden rather than unmounted so a minimized game or selection survives
+          display: isMinimized ? 'none' : undefined,
+        }}
         onPointerDown={onFocus}
       >
         <div className={`titlebar ${isActive ? 'titlebar-active' : 'titlebar-inactive'}`}>
