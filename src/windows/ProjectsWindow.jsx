@@ -103,6 +103,7 @@ export default function ProjectsWindow() {
             {project.image && (
               <div className="detail-preview sunken">
                 <img
+                  key={project.id}
                   src={project.image}
                   alt={project.imageAlt}
                   width={project.imageWidth}
