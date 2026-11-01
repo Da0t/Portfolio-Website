@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Worksheet -->
+  <rect x="8" y="3" width="22" height="26" fill="#FFFFFF"/>
+  <path d="M8,3 H30 V29 H8 Z M9,4 V28 H29 V4 Z" fill="#000000" fill-rule="evenodd"/>
+  <path d="M9,9 H29 V10 H9 Z M9,15 H29 V16 H9 Z M9,21 H29 V22 H9 Z M18,4 H19 V28 H18 Z" fill="#C0C0C0"/>
+  <!-- Green badge -->
+  <rect x="2" y="8" width="16" height="16" fill="#008000"/>
+  <path d="M2,8 H18 V9 H3 V24 H2 Z" fill="#00C000"/>
+  <path d="M18,24 H2 V23 H17 V8 H18 Z" fill="#004000"/>
+  <!-- X -->
+  <path d="M6,11 H9 V13 H11 V11 H14 V13 H12 V15 H11 V17 H12 V19 H14 V21 H11 V19 H9 V21 H6 V19 H8 V17 H9 V15 H8 V13 H6 Z" fill="#FFFFFF"/>
+</svg>
