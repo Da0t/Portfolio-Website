@@ -231,13 +231,17 @@ function renderScatterPlot(chart, commits, { tooltip, selectionCount, languageBr
   }
 
   function createBrushSelector(target) {
-    target.call(
-      d3.brush()
-        .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]])
-        .on('start brush end', brushed),
-    )
+    // On its own layer, because d3.brush throws on pointer events from
+    // elements it didn't create, such as dots and axes.
+    target.append('g')
+      .attr('class', 'brush')
+      .call(
+        d3.brush()
+          .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]])
+          .on('start brush end', brushed),
+      )
     // The brush overlay would otherwise swallow the dots' hover events.
-    target.selectAll('.dots, .overlay ~ *').raise()
+    target.select('.dots').raise()
   }
 
   createBrushSelector(svg)

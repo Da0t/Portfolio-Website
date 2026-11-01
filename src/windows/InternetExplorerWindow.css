@@ -47,3 +47,8 @@
   min-height: 0;
   margin: 2px;
 }
+
+.ie-toolbar .btn95:disabled {
+  color: var(--text-disabled);
+  text-shadow: 1px 1px 0 var(--white);
+}
